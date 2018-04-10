@@ -4,6 +4,21 @@
 
     
   <url>
+    <loc>https://linjiafengyang.github.io/2018/04/10/Ex2%EF%BC%9A%E7%94%A8CImg%E9%87%8D%E5%86%99%E3%80%81%E5%B0%81%E8%A3%85%E7%BB%99%E5%AE%9A%E7%9A%84Canny%E4%BB%A3%E7%A0%81%EF%BC%8C%E5%B9%B6%E6%B5%8B%E8%AF%95/</loc>
+    <lastmod>2018-04-10T08:15:02.387Z</lastmod>
+    <data>
+        <display>
+        <title>Ex2：用CImg重写、封装给定的Canny代码，并测试</title>
+        <pubTime>2018-04-10T08:06:46.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://linjiafengyang.github.io/2018/04/10/Ex1%EF%BC%9A%E5%9B%BE%E5%83%8F%E8%AF%BB%E5%8F%96%E5%92%8C%E6%98%BE%E7%A4%BA%E4%BB%A5%E5%8F%8A%E5%83%8F%E7%B4%A0%E6%93%8D%E4%BD%9C/</loc>
     <lastmod>2018-04-10T07:39:23.532Z</lastmod>
     <data>
@@ -111,9 +126,9 @@
         <title>LeetCode 42. Trapping Rain Water</title>
         <pubTime>2018-02-23T13:54:02.000Z</pubTime>
         
-        <tag>LeetCode</tag>
-         
         <tag>CPP</tag>
+         
+        <tag>LeetCode</tag>
          
          
            
@@ -136,9 +151,9 @@
         <title>LeetCode 41. First Missing Positive</title>
         <pubTime>2018-02-08T13:35:46.000Z</pubTime>
         
-        <tag>LeetCode</tag>
-         
         <tag>CPP</tag>
+         
+        <tag>LeetCode</tag>
          
          
            
@@ -161,9 +176,9 @@
         <title>LeetCode 39. Combination Sum</title>
         <pubTime>2018-02-08T06:12:38.000Z</pubTime>
         
-        <tag>LeetCode</tag>
-         
         <tag>CPP</tag>
+         
+        <tag>LeetCode</tag>
          
          
            
@@ -186,9 +201,9 @@
         <title>LeetCode 34. Search for a Range</title>
         <pubTime>2018-02-08T05:28:19.000Z</pubTime>
         
-        <tag>LeetCode</tag>
-         
         <tag>CPP</tag>
+         
+        <tag>LeetCode</tag>
          
          
            
@@ -211,9 +226,9 @@
         <title>LeetCode 33. Search in Rotated Sorted Array</title>
         <pubTime>2018-02-07T14:46:55.000Z</pubTime>
         
-        <tag>LeetCode</tag>
-         
         <tag>CPP</tag>
+         
+        <tag>LeetCode</tag>
          
          
            
@@ -236,9 +251,9 @@
         <title>LeetCode 31.NextPermutation</title>
         <pubTime>2018-02-07T13:18:27.000Z</pubTime>
         
-        <tag>LeetCode</tag>
-         
         <tag>CPP</tag>
+         
+        <tag>LeetCode</tag>
          
          
            
@@ -279,9 +294,9 @@
         <title>由LeetCode 1.Two Sum引起的几个问题</title>
         <pubTime>2017-12-10T06:01:38.000Z</pubTime>
         
-        <tag>LeetCode</tag>
-         
         <tag>CPP</tag>
+         
+        <tag>LeetCode</tag>
          
          
            
@@ -672,9 +687,9 @@
         <title>LeetCode 746. Min Cost Climbing Stairs</title>
         <pubTime>2017-12-25T08:17:24.000Z</pubTime>
         
-        <tag>LeetCode</tag>
-         
         <tag>CPP</tag>
+         
+        <tag>LeetCode</tag>
          
          
            
@@ -697,9 +712,9 @@
         <title>LeetCode 628. Maximum Product of Three Numbers</title>
         <pubTime>2017-12-10T06:17:19.000Z</pubTime>
         
-        <tag>LeetCode</tag>
-         
         <tag>CPP</tag>
+         
+        <tag>LeetCode</tag>
          
          
            
@@ -722,9 +737,9 @@
         <title>LeetCode 643.Maximum Average Subarray 最大子数组的平均值</title>
         <pubTime>2017-12-10T06:15:24.000Z</pubTime>
         
-        <tag>LeetCode</tag>
-         
         <tag>CPP</tag>
+         
+        <tag>LeetCode</tag>
          
          
            
@@ -747,9 +762,9 @@
         <title>LeetCode 673.Number of Longest Increasing Subsequence</title>
         <pubTime>2017-12-10T06:13:08.000Z</pubTime>
         
-        <tag>LeetCode</tag>
-         
         <tag>CPP</tag>
+         
+        <tag>LeetCode</tag>
          
          
            
@@ -772,9 +787,9 @@
         <title>LeetCode 674.Longest Continuous Increasing Subsequence</title>
         <pubTime>2017-12-10T06:12:09.000Z</pubTime>
         
-        <tag>LeetCode</tag>
-         
         <tag>CPP</tag>
+         
+        <tag>LeetCode</tag>
          
          
            
@@ -797,9 +812,9 @@
         <title>LeetCode 690.Employee Importance</title>
         <pubTime>2017-12-22T13:09:05.000Z</pubTime>
         
-        <tag>LeetCode</tag>
-         
         <tag>CPP</tag>
+         
+        <tag>LeetCode</tag>
          
          
            
@@ -822,9 +837,9 @@
         <title>LeetCode 695. Max Area of Island</title>
         <pubTime>2017-12-10T06:11:18.000Z</pubTime>
         
-        <tag>LeetCode</tag>
-         
         <tag>CPP</tag>
+         
+        <tag>LeetCode</tag>
          
          
            
@@ -847,9 +862,9 @@
         <title>LeetCode 697. Degree of an Array</title>
         <pubTime>2017-12-10T06:10:24.000Z</pubTime>
         
-        <tag>LeetCode</tag>
-         
         <tag>CPP</tag>
+         
+        <tag>LeetCode</tag>
          
          
            
@@ -872,9 +887,9 @@
         <title>LeetCode 733. Flood Fill</title>
         <pubTime>2017-12-24T15:37:38.000Z</pubTime>
         
-        <tag>LeetCode</tag>
-         
         <tag>CPP</tag>
+         
+        <tag>LeetCode</tag>
          
          
            
@@ -897,9 +912,9 @@
         <title>LeetCode 566.Reshape the Matrix</title>
         <pubTime>2017-12-10T06:18:16.000Z</pubTime>
         
-        <tag>LeetCode</tag>
-         
         <tag>CPP</tag>
+         
+        <tag>LeetCode</tag>
          
          
            
@@ -922,9 +937,9 @@
         <title>LeetCode 414.Third Maximum Number</title>
         <pubTime>2017-12-10T05:44:51.000Z</pubTime>
         
-        <tag>LeetCode</tag>
-         
         <tag>CPP</tag>
+         
+        <tag>LeetCode</tag>
          
          
            
@@ -947,9 +962,9 @@
         <title>LeetCode 442.Find All Duplicates in an Array</title>
         <pubTime>2017-12-10T06:20:49.000Z</pubTime>
         
-        <tag>LeetCode</tag>
-         
         <tag>CPP</tag>
+         
+        <tag>LeetCode</tag>
          
          
            
@@ -972,9 +987,9 @@
         <title>LeetCode 448.Find All Numbers Disappeared in an Array</title>
         <pubTime>2017-12-10T06:19:51.000Z</pubTime>
         
-        <tag>LeetCode</tag>
-         
         <tag>CPP</tag>
+         
+        <tag>LeetCode</tag>
          
          
            
@@ -997,9 +1012,9 @@
         <title>LeetCode 561.Array Partition I</title>
         <pubTime>2017-12-10T06:19:04.000Z</pubTime>
         
-        <tag>LeetCode</tag>
-         
         <tag>CPP</tag>
+         
+        <tag>LeetCode</tag>
          
          
            
@@ -1022,9 +1037,9 @@
         <title>LeetCode 283.Move Zeroes</title>
         <pubTime>2017-12-11T09:23:48.000Z</pubTime>
         
-        <tag>LeetCode</tag>
-         
         <tag>CPP</tag>
+         
+        <tag>LeetCode</tag>
          
          
            
@@ -1047,9 +1062,9 @@
         <title>LeetCode 219.Contains Duplicate II</title>
         <pubTime>2017-12-12T00:40:39.000Z</pubTime>
         
-        <tag>LeetCode</tag>
-         
         <tag>CPP</tag>
+         
+        <tag>LeetCode</tag>
          
          
            
@@ -1072,9 +1087,9 @@
         <title>LeetCode 215. Kth Largest Element in an Array</title>
         <pubTime>2017-12-24T15:46:27.000Z</pubTime>
         
-        <tag>LeetCode</tag>
-         
         <tag>CPP</tag>
+         
+        <tag>LeetCode</tag>
          
          
            
@@ -1097,9 +1112,9 @@
         <title>LeetCode 240. Search a 2D Matrix II</title>
         <pubTime>2018-01-12T13:44:47.000Z</pubTime>
         
-        <tag>LeetCode</tag>
-         
         <tag>CPP</tag>
+         
+        <tag>LeetCode</tag>
          
          
            
@@ -1122,9 +1137,9 @@
         <title>LeetCode 257. Binary Tree Paths</title>
         <pubTime>2017-12-22T06:58:49.000Z</pubTime>
         
-        <tag>LeetCode</tag>
-         
         <tag>CPP</tag>
+         
+        <tag>LeetCode</tag>
          
          
            
@@ -1147,9 +1162,9 @@
         <title>LeetCode 268.Missing Number</title>
         <pubTime>2017-12-11T11:49:17.000Z</pubTime>
         
-        <tag>LeetCode</tag>
-         
         <tag>CPP</tag>
+         
+        <tag>LeetCode</tag>
          
          
            
@@ -1172,9 +1187,9 @@
         <title>LeetCode 278. First Bad Version</title>
         <pubTime>2018-01-01T08:31:01.000Z</pubTime>
         
-        <tag>LeetCode</tag>
-         
         <tag>CPP</tag>
+         
+        <tag>LeetCode</tag>
          
          
            
@@ -1197,9 +1212,9 @@
         <title>LeetCode 198. House Robber</title>
         <pubTime>2017-12-25T11:54:14.000Z</pubTime>
         
-        <tag>LeetCode</tag>
-         
         <tag>CPP</tag>
+         
+        <tag>LeetCode</tag>
          
          
            
@@ -1222,9 +1237,9 @@
         <title>LeetCode 112. Path Sum</title>
         <pubTime>2017-12-19T00:46:38.000Z</pubTime>
         
-        <tag>LeetCode</tag>
-         
         <tag>CPP</tag>
+         
+        <tag>LeetCode</tag>
          
          
            
@@ -1247,9 +1262,9 @@
         <title>LeetCode 113. Path Sum II</title>
         <pubTime>2017-12-19T01:24:19.000Z</pubTime>
         
-        <tag>LeetCode</tag>
-         
         <tag>CPP</tag>
+         
+        <tag>LeetCode</tag>
          
          
            
@@ -1272,9 +1287,9 @@
         <title>LeetCode 118. Pascal's Triangle</title>
         <pubTime>2017-12-14T11:23:46.000Z</pubTime>
         
-        <tag>LeetCode</tag>
-         
         <tag>CPP</tag>
+         
+        <tag>LeetCode</tag>
          
          
            
@@ -1297,9 +1312,9 @@
         <title>LeetCode 119. Pascal's Triangle II</title>
         <pubTime>2017-12-14T11:55:29.000Z</pubTime>
         
-        <tag>LeetCode</tag>
-         
         <tag>CPP</tag>
+         
+        <tag>LeetCode</tag>
          
          
            
@@ -1322,9 +1337,9 @@
         <title>LeetCode 122. Best Time to Buy and Sell Stock II</title>
         <pubTime>2017-12-13T11:40:30.000Z</pubTime>
         
-        <tag>LeetCode</tag>
-         
         <tag>CPP</tag>
+         
+        <tag>LeetCode</tag>
          
          
            
@@ -1344,9 +1359,9 @@
         <title>LeetCode 136.Single Number</title>
         <pubTime>2017-12-11T12:29:29.000Z</pubTime>
         
-        <tag>LeetCode</tag>
-         
         <tag>CPP</tag>
+         
+        <tag>LeetCode</tag>
          
          
            
@@ -1369,9 +1384,9 @@
         <title>LeetCode 152.Maximum Product Subarray</title>
         <pubTime>2017-12-10T06:16:13.000Z</pubTime>
         
-        <tag>LeetCode</tag>
-         
         <tag>CPP</tag>
+         
+        <tag>LeetCode</tag>
          
          
            
@@ -1394,9 +1409,9 @@
         <title>LeetCode 169. Majority Element and LeetCode 229. Majority Element II解题报告</title>
         <pubTime>2017-12-10T05:52:53.000Z</pubTime>
         
-        <tag>LeetCode</tag>
-         
         <tag>CPP</tag>
+         
+        <tag>LeetCode</tag>
          
          
            
@@ -1419,9 +1434,9 @@
         <title>LeetCode 189.Rotate Array</title>
         <pubTime>2017-12-12T01:20:08.000Z</pubTime>
         
-        <tag>LeetCode</tag>
-         
         <tag>CPP</tag>
+         
+        <tag>LeetCode</tag>
          
          
            
@@ -1444,9 +1459,9 @@
         <title>LeetCode 111. Minimum Depth of Binary Tree</title>
         <pubTime>2017-12-18T06:34:25.000Z</pubTime>
         
-        <tag>LeetCode</tag>
-         
         <tag>CPP</tag>
+         
+        <tag>LeetCode</tag>
          
          
            
@@ -1469,9 +1484,9 @@
         <title>LeetCode 100.Same Tree</title>
         <pubTime>2017-12-16T11:29:51.000Z</pubTime>
         
-        <tag>LeetCode</tag>
-         
         <tag>CPP</tag>
+         
+        <tag>LeetCode</tag>
          
          
            
@@ -1494,9 +1509,9 @@
         <title>LeetCode 101. Symmetric Tree</title>
         <pubTime>2017-12-16T13:15:13.000Z</pubTime>
         
-        <tag>LeetCode</tag>
-         
         <tag>CPP</tag>
+         
+        <tag>LeetCode</tag>
          
          
            
@@ -1519,9 +1534,9 @@
         <title>LeetCode 104. Maximum Depth of Binary Tree</title>
         <pubTime>2017-12-18T01:43:02.000Z</pubTime>
         
-        <tag>LeetCode</tag>
-         
         <tag>CPP</tag>
+         
+        <tag>LeetCode</tag>
          
          
            
@@ -1544,9 +1559,9 @@
         <title>LeetCode 108. Convert Sorted Array to Binary Search Tree</title>
         <pubTime>2017-12-18T07:40:12.000Z</pubTime>
         
-        <tag>LeetCode</tag>
-         
         <tag>CPP</tag>
+         
+        <tag>LeetCode</tag>
          
          
            
@@ -1569,9 +1584,9 @@
         <title>LeetCode 109. Convert Sorted List to Binary Search Tree</title>
         <pubTime>2017-12-18T12:59:25.000Z</pubTime>
         
-        <tag>LeetCode</tag>
-         
         <tag>CPP</tag>
+         
+        <tag>LeetCode</tag>
          
          
            
@@ -1594,9 +1609,9 @@
         <title>LeetCode 110. Balanced Binary Tree</title>
         <pubTime>2017-12-18T06:20:20.000Z</pubTime>
         
-        <tag>LeetCode</tag>
-         
         <tag>CPP</tag>
+         
+        <tag>LeetCode</tag>
          
          
            
@@ -1619,9 +1634,9 @@
         <title>LeetCode 53. Maximum Subarray and 121. Best Time to Buy and Sell Stock最大子数组问题</title>
         <pubTime>2017-12-10T05:59:34.000Z</pubTime>
         
-        <tag>LeetCode</tag>
-         
         <tag>CPP</tag>
+         
+        <tag>LeetCode</tag>
          
          
            
@@ -1644,9 +1659,9 @@
         <title>LeetCode 55. Jump Game</title>
         <pubTime>2018-01-12T12:29:51.000Z</pubTime>
         
-        <tag>LeetCode</tag>
-         
         <tag>CPP</tag>
+         
+        <tag>LeetCode</tag>
          
          
            
@@ -1669,9 +1684,9 @@
         <title>LeetCode 62. Unique Paths</title>
         <pubTime>2018-01-12T12:56:08.000Z</pubTime>
         
-        <tag>LeetCode</tag>
-         
         <tag>CPP</tag>
+         
+        <tag>LeetCode</tag>
          
          
            
@@ -1694,9 +1709,9 @@
         <title>LeetCode 63. Unique Paths II</title>
         <pubTime>2018-01-12T13:11:19.000Z</pubTime>
         
-        <tag>LeetCode</tag>
-         
         <tag>CPP</tag>
+         
+        <tag>LeetCode</tag>
          
          
            
@@ -1719,9 +1734,9 @@
         <title>LeetCode 69. Sqrt(x)</title>
         <pubTime>2018-01-01T08:13:30.000Z</pubTime>
         
-        <tag>LeetCode</tag>
-         
         <tag>CPP</tag>
+         
+        <tag>LeetCode</tag>
          
          
            
@@ -1744,9 +1759,9 @@
         <title>LeetCode 70. Climbing Stairs</title>
         <pubTime>2017-12-25T06:54:55.000Z</pubTime>
         
-        <tag>LeetCode</tag>
-         
         <tag>CPP</tag>
+         
+        <tag>LeetCode</tag>
          
          
            
@@ -1769,9 +1784,9 @@
         <title>LeetCode 88. Merge Sorted Array</title>
         <pubTime>2017-12-14T12:46:03.000Z</pubTime>
         
-        <tag>LeetCode</tag>
-         
         <tag>CPP</tag>
+         
+        <tag>LeetCode</tag>
          
          
            
@@ -1794,9 +1809,9 @@
         <title>LeetCode 74. Search a 2D Matrix</title>
         <pubTime>2018-01-12T13:23:30.000Z</pubTime>
         
-        <tag>LeetCode</tag>
-         
         <tag>CPP</tag>
+         
+        <tag>LeetCode</tag>
          
          
            
@@ -1819,9 +1834,9 @@
         <title>LeetCode 27.Remove Element</title>
         <pubTime>2017-12-11T10:50:23.000Z</pubTime>
         
-        <tag>LeetCode</tag>
-         
         <tag>CPP</tag>
+         
+        <tag>LeetCode</tag>
          
          
            
@@ -1844,9 +1859,9 @@
         <title>LeetCode 26.Remove Duplicates from Sorted Array</title>
         <pubTime>2017-12-12T01:44:32.000Z</pubTime>
         
-        <tag>LeetCode</tag>
-         
         <tag>CPP</tag>
+         
+        <tag>LeetCode</tag>
          
          
            
@@ -1869,9 +1884,9 @@
         <title>LeetCode 35. Search Insert Position</title>
         <pubTime>2017-12-14T15:31:45.000Z</pubTime>
         
-        <tag>LeetCode</tag>
-         
         <tag>CPP</tag>
+         
+        <tag>LeetCode</tag>
          
          
            
@@ -1894,9 +1909,9 @@
         <title>LeetCode 2.Add Two Numbers,67.Add Binary,371.Sum of Two Integers,66.Plus One</title>
         <pubTime>2017-12-10T06:04:11.000Z</pubTime>
         
-        <tag>LeetCode</tag>
-         
         <tag>CPP</tag>
+         
+        <tag>LeetCode</tag>
          
          
            
@@ -1919,9 +1934,9 @@
         <title>LeetCode 4. Median of Two Sorted Arrays</title>
         <pubTime>2018-01-31T07:23:38.000Z</pubTime>
         
-        <tag>LeetCode</tag>
-         
         <tag>CPP</tag>
+         
+        <tag>LeetCode</tag>
          
          
            
@@ -1944,9 +1959,9 @@
         <title>LeetCode 7.Reverse Integer and 8.String to Integer(atoi)</title>
         <pubTime>2017-12-10T06:05:30.000Z</pubTime>
         
-        <tag>LeetCode</tag>
-         
         <tag>CPP</tag>
+         
+        <tag>LeetCode</tag>
          
          
            
@@ -1969,9 +1984,9 @@
         <title>LeetCode 9. Palindrome Number回文数判断</title>
         <pubTime>2017-12-10T06:06:46.000Z</pubTime>
         
-        <tag>LeetCode</tag>
-         
         <tag>CPP</tag>
+         
+        <tag>LeetCode</tag>
          
          
            
@@ -1994,9 +2009,9 @@
         <title>LeetCode 11. Container With Most Water</title>
         <pubTime>2018-01-31T06:36:32.000Z</pubTime>
         
-        <tag>LeetCode</tag>
-         
         <tag>CPP</tag>
+         
+        <tag>LeetCode</tag>
          
          
            
@@ -2019,9 +2034,9 @@
         <title>LeetCode 13. Roman to Integer和12. Integer to Roman</title>
         <pubTime>2017-12-10T06:07:49.000Z</pubTime>
         
-        <tag>LeetCode</tag>
-         
         <tag>CPP</tag>
+         
+        <tag>LeetCode</tag>
          
          
            
@@ -2044,9 +2059,9 @@
         <title>LeetCode 14.Longest Common Prefix</title>
         <pubTime>2017-12-10T06:08:45.000Z</pubTime>
         
-        <tag>LeetCode</tag>
-         
         <tag>CPP</tag>
+         
+        <tag>LeetCode</tag>
          
          
            
@@ -2069,9 +2084,9 @@
         <title>LeetCode 16. 3Sum Closest</title>
         <pubTime>2018-01-31T08:34:16.000Z</pubTime>
         
-        <tag>LeetCode</tag>
-         
         <tag>CPP</tag>
+         
+        <tag>LeetCode</tag>
          
          
            
@@ -2094,9 +2109,9 @@
         <title>LeetCode 15. 3Sum</title>
         <pubTime>2018-01-31T07:58:47.000Z</pubTime>
         
-        <tag>LeetCode</tag>
-         
         <tag>CPP</tag>
+         
+        <tag>LeetCode</tag>
          
          
            
@@ -2119,9 +2134,9 @@
         <title>LeetCode 18. 4Sum</title>
         <pubTime>2018-01-31T08:50:36.000Z</pubTime>
         
-        <tag>LeetCode</tag>
-         
         <tag>CPP</tag>
+         
+        <tag>LeetCode</tag>
          
          
            
