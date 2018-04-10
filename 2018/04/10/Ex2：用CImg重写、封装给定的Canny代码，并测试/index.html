@@ -110,13 +110,13 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://raw.githubusercontent.com/linjiafengyang/Pictures/master/12.bmp">
 <meta property="og:image" content="https://raw.githubusercontent.com/linjiafengyang/Pictures/master/13.bmp">
-<meta property="og:image" content="https://raw.githubusercontent.com/linjiafengyang/Pictures/master/6.bmp">
-<meta property="og:image" content="https://raw.githubusercontent.com/linjiafengyang/Pictures/master/7.bmp">
-<meta property="og:image" content="https://raw.githubusercontent.com/linjiafengyang/Pictures/master/8.bmp">
-<meta property="og:image" content="https://raw.githubusercontent.com/linjiafengyang/Pictures/master/9.bmp">
-<meta property="og:image" content="https://raw.githubusercontent.com/linjiafengyang/Pictures/master/10.bmp">
-<meta property="og:image" content="https://raw.githubusercontent.com/linjiafengyang/Pictures/master/11.bmp">
-<meta property="og:updated_time" content="2018-04-10T08:15:02.387Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/linjiafengyang/Pictures/master/6.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/linjiafengyang/Pictures/master/7.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/linjiafengyang/Pictures/master/8.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/linjiafengyang/Pictures/master/9.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/linjiafengyang/Pictures/master/10.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/linjiafengyang/Pictures/master/11.png">
+<meta property="og:updated_time" content="2018-04-10T08:30:12.968Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ex2：用CImg重写、封装给定的Canny代码，并测试">
 <meta name="twitter:description" content="计算机视觉作业二">
@@ -483,31 +483,31 @@
 <h2 id="修改算法参数后的测试结果"><a href="#修改算法参数后的测试结果" class="headerlink" title="修改算法参数后的测试结果"></a>修改算法参数后的测试结果</h2><blockquote>
 <p>注意到程序中这个函数接收Canny边缘检测算法的相关参数，也就是调参主要是针对这几个参数：其中width和height为输入图像的宽度和高度，无需调整，所以一共有五个参数需要调整，分别为lowthreshold低阈值（默认2.5）、highthreshold高阈值（默认7.5）、gaussiankernelradius标准差（默认2.0）、gaussiankernelwidth高斯卷积核大小（默认16）、contrastnormalised图像是否需要归一化（默认0值表示不需要）。</p>
 </blockquote>
-<h3 id="lowthreshold低阈值"><a href="#lowthreshold低阈值" class="headerlink" title="lowthreshold低阈值"></a>lowthreshold低阈值</h3><p>保持其他参数不变，修改低阈值后的测试结果如下：默认2.5。<br><img src="https://raw.githubusercontent.com/linjiafengyang/Pictures/master/6.bmp" alt="这里写图片描述"></p>
+<h3 id="lowthreshold低阈值"><a href="#lowthreshold低阈值" class="headerlink" title="lowthreshold低阈值"></a>lowthreshold低阈值</h3><p>保持其他参数不变，修改低阈值后的测试结果如下：默认2.5。<br><img src="https://raw.githubusercontent.com/linjiafengyang/Pictures/master/6.png" alt="这里写图片描述"></p>
 <p>分析：</p>
 <blockquote>
 <p>可以看出，我们修改原程序中的lowthreshold低阈值后，比如改成0.1，低阈值减小，将会增加很多噪声；而改成6.0，低阈值增大，又会丢失很多强边缘像素。这与已知结论吻合：对于弱边缘像素（在低阈值和高阈值之间），这些像素可以从真实边缘提取也可以是因噪声或颜色变化引起的。为了获得准确的结果，应该抑制由后者引起的弱边缘像素。因此需要调整低阈值参数。</p>
 </blockquote>
 <hr>
-<h3 id="highthreshold高阈值"><a href="#highthreshold高阈值" class="headerlink" title="highthreshold高阈值"></a>highthreshold高阈值</h3><p>保持其他参数不变，修改高阈值后的测试结果如下：默认7.5。<br><img src="https://raw.githubusercontent.com/linjiafengyang/Pictures/master/7.bmp" alt="这里写图片描述"></p>
+<h3 id="highthreshold高阈值"><a href="#highthreshold高阈值" class="headerlink" title="highthreshold高阈值"></a>highthreshold高阈值</h3><p>保持其他参数不变，修改高阈值后的测试结果如下：默认7.5。<br><img src="https://raw.githubusercontent.com/linjiafengyang/Pictures/master/7.png" alt="这里写图片描述"></p>
 <p>分析：</p>
 <blockquote>
 <p>可以看出，我们修改原程序中的highthreshold高阈值后，比如改成3.0，高阈值减小，此时将会增加很多强边缘像素，因为大于3的像素点将被确定为边缘；而改成10.0，高阈值增大，原来的强边缘像素大部分会转化为弱边缘像素，丢失一部分边缘像素点。这与已知结论吻合：被划分为强边缘的像素点已经被确定为边缘，因为它们是从图像中的真实边缘中提取出来的。</p>
 </blockquote>
 <hr>
-<h3 id="gaussiankernelradius标准差"><a href="#gaussiankernelradius标准差" class="headerlink" title="gaussiankernelradius标准差"></a>gaussiankernelradius标准差</h3><p>保持其他参数不变，修改标准差后的测试结果如下：默认2.0。<br><img src="https://raw.githubusercontent.com/linjiafengyang/Pictures/master/8.bmp" alt="这里写图片描述"></p>
+<h3 id="gaussiankernelradius标准差"><a href="#gaussiankernelradius标准差" class="headerlink" title="gaussiankernelradius标准差"></a>gaussiankernelradius标准差</h3><p>保持其他参数不变，修改标准差后的测试结果如下：默认2.0。<br><img src="https://raw.githubusercontent.com/linjiafengyang/Pictures/master/8.png" alt="这里写图片描述"></p>
 <p>分析：</p>
 <blockquote>
 <p>可以看出，我们修改原程序中的gaussiankernelradius标准差后，比如改成1.0，标准差减小，为标准正态分布，此时将会增加很多噪声，高斯滤波平滑效果不好，表现为噪声过多；而改成4.0，标准差增大，原来的强边缘像素大部分被误认为噪声，因此将会被丢弃，造成边缘缺失，高斯滤波平滑效果也不好。这与已知结论吻合：为了平滑图像，使用高斯滤波器与图像进行卷积，该步骤将平滑图像，以减少边缘检测器上明显的噪声影响。</p>
 </blockquote>
 <hr>
-<h3 id="gaussiankernelwidth高斯卷积核大小"><a href="#gaussiankernelwidth高斯卷积核大小" class="headerlink" title="gaussiankernelwidth高斯卷积核大小"></a>gaussiankernelwidth高斯卷积核大小</h3><p>保持其他参数不变，修改高斯卷积核大小后的测试结果如下：默认16。<br><img src="https://raw.githubusercontent.com/linjiafengyang/Pictures/master/9.bmp" alt="这里写图片描述"><br><img src="https://raw.githubusercontent.com/linjiafengyang/Pictures/master/10.bmp" alt="这里写图片描述"></p>
+<h3 id="gaussiankernelwidth高斯卷积核大小"><a href="#gaussiankernelwidth高斯卷积核大小" class="headerlink" title="gaussiankernelwidth高斯卷积核大小"></a>gaussiankernelwidth高斯卷积核大小</h3><p>保持其他参数不变，修改高斯卷积核大小后的测试结果如下：默认16。<br><img src="https://raw.githubusercontent.com/linjiafengyang/Pictures/master/9.png" alt="这里写图片描述"><br><img src="https://raw.githubusercontent.com/linjiafengyang/Pictures/master/10.png" alt="这里写图片描述"></p>
 <p>分析：</p>
 <blockquote>
 <p>可以看出，我们修改原程序中的gaussiankernelwidth高斯卷积核大小后，比如改成7，发现两张边缘检测图其实没变化，说明原程序中高斯卷积核大小16已经过大，将会浪费内存空间，其实为7就有同样的效果了；而改成5，高斯卷积核大小为5也是比较推荐的折中，再看改成3，此时丢失了很多边缘像素，即误认为噪声，对噪声的敏感度较大。这与已知结论吻合：高斯卷积核大小越大，检测器对噪声的敏感度越低，但是边缘检测的定位误差也将略有增加。</p>
 </blockquote>
 <hr>
-<h3 id="contrastnormalised图像是否需要归一化"><a href="#contrastnormalised图像是否需要归一化" class="headerlink" title="contrastnormalised图像是否需要归一化"></a>contrastnormalised图像是否需要归一化</h3><p>保持其他参数不变，修改该参数后的测试结果如下：默认0。<br><img src="https://raw.githubusercontent.com/linjiafengyang/Pictures/master/11.bmp" alt="这里写图片描述"></p>
+<h3 id="contrastnormalised图像是否需要归一化"><a href="#contrastnormalised图像是否需要归一化" class="headerlink" title="contrastnormalised图像是否需要归一化"></a>contrastnormalised图像是否需要归一化</h3><p>保持其他参数不变，修改该参数后的测试结果如下：默认0。<br><img src="https://raw.githubusercontent.com/linjiafengyang/Pictures/master/11.png" alt="这里写图片描述"></p>
 <p>分析：</p>
 <blockquote>
 <p>可以看出，我们修改原程序中的contrastnormalised为1后，此时程序将会先对图像矩阵进行归一化处理，对照原图，我发现归一化会丢失一些比较暗、比较模糊的像素，在这种情况下做边缘检测时这些像素点都会被忽略，不会被认为是边缘。</p>
