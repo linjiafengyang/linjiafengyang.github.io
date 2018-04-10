@@ -5,14 +5,19 @@
     
   <url>
     <loc>https://linjiafengyang.github.io/2018/04/10/Ex2%EF%BC%9A%E7%94%A8CImg%E9%87%8D%E5%86%99%E3%80%81%E5%B0%81%E8%A3%85%E7%BB%99%E5%AE%9A%E7%9A%84Canny%E4%BB%A3%E7%A0%81%EF%BC%8C%E5%B9%B6%E6%B5%8B%E8%AF%95/</loc>
-    <lastmod>2018-04-10T08:30:12.968Z</lastmod>
+    <lastmod>2018-04-10T08:31:24.415Z</lastmod>
     <data>
         <display>
         <title>Ex2：用CImg重写、封装给定的Canny代码，并测试</title>
         <pubTime>2018-04-10T08:06:46.000Z</pubTime>
         
+        <tag>CPP</tag>
+         
          
            
+             
+              <breadCrumb title="计算机视觉" url="https://linjiafengyang.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
+          
         </display>
     </data>
     </url>
