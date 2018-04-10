@@ -101,18 +101,18 @@
 
 
 
-  <meta name="description" content="声明：由于博主主要用的是Python3.5，所以文中可能出现一些纰漏，敬请谅解，也可以向我提出来。 十点区别一、print print几乎是每种编程语言必须有的，Python也不例外，而且Python2和Python3最大的区别之一就是print。在Python2中，print是一个关键字，如下：1234&amp;gt;&amp;gt;&amp;gt; import keyword&amp;gt;&amp;gt;&amp;gt; keywo">
+  <meta name="description" content="声明：由于博主主要用的是Python3.5，所以文中可能出现一些纰漏，敬请谅解，也可以向我提出来。">
 <meta name="keywords" content="Python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="浅谈Python2和Python3的区别">
 <meta property="og:url" content="https://linjiafengyang.github.io/2018/02/26/浅谈Python2和Python3的区别/index.html">
 <meta property="og:site_name" content="Talk is cheap. Show me the code!">
-<meta property="og:description" content="声明：由于博主主要用的是Python3.5，所以文中可能出现一些纰漏，敬请谅解，也可以向我提出来。 十点区别一、print print几乎是每种编程语言必须有的，Python也不例外，而且Python2和Python3最大的区别之一就是print。在Python2中，print是一个关键字，如下：1234&amp;gt;&amp;gt;&amp;gt; import keyword&amp;gt;&amp;gt;&amp;gt; keywo">
+<meta property="og:description" content="声明：由于博主主要用的是Python3.5，所以文中可能出现一些纰漏，敬请谅解，也可以向我提出来。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-04-10T02:23:17.176Z">
+<meta property="og:updated_time" content="2018-04-10T04:18:01.821Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浅谈Python2和Python3的区别">
-<meta name="twitter:description" content="声明：由于博主主要用的是Python3.5，所以文中可能出现一些纰漏，敬请谅解，也可以向我提出来。 十点区别一、print print几乎是每种编程语言必须有的，Python也不例外，而且Python2和Python3最大的区别之一就是print。在Python2中，print是一个关键字，如下：1234&amp;gt;&amp;gt;&amp;gt; import keyword&amp;gt;&amp;gt;&amp;gt; keywo">
+<meta name="twitter:description" content="声明：由于博主主要用的是Python3.5，所以文中可能出现一些纰漏，敬请谅解，也可以向我提出来。">
 
 
 
@@ -267,14 +267,6 @@
       
 
       
-        <li class="menu-item menu-item-search">
-          
-            <a href="javascript:;" class="popup-trigger">
-          
-            
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
-        </li>
-      
     </ul>
   
 
@@ -302,33 +294,6 @@
 
   
 
-  
-    <div class="site-search">
-      
-  
-  <div class="algolia-popup popup search-popup">
-    <div class="algolia-search">
-      <div class="algolia-search-input-icon">
-        <i class="fa fa-search"></i>
-      </div>
-      <div class="algolia-search-input" id="algolia-search-input"></div>
-    </div>
-
-    <div class="algolia-results">
-      <div id="algolia-stats"></div>
-      <div id="algolia-hits"></div>
-      <div id="algolia-pagination" class="algolia-pagination"></div>
-    </div>
-
-    <span class="popup-btn-close">
-      <i class="fa fa-times-circle"></i>
-    </span>
-  </div>
-
-
-
-
-    </div>
   
 </nav>
 
@@ -478,9 +443,9 @@
       
 
       
-        <a id="more"></a>
-<hr>
+        <hr>
 <p>声明：由于博主主要用的是Python3.5，所以文中可能出现一些纰漏，敬请谅解，也可以向我提出来。</p>
+<a id="more"></a>
 <h2 id="十点区别"><a href="#十点区别" class="headerlink" title="十点区别"></a>十点区别</h2><h3 id="一、print"><a href="#一、print" class="headerlink" title="一、print"></a>一、print</h3><p> print几乎是每种编程语言必须有的，Python也不例外，而且Python2和Python3最大的区别之一就是print。在Python2中，print是一个关键字，如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> keyword</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>keyword.kwlist</span><br><span class="line">[<span class="string">'and'</span>, <span class="string">'as'</span>, <span class="string">'assert'</span>, <span class="string">'break'</span>, <span class="string">'class'</span>, <span class="string">'continue'</span>, <span class="string">'def'</span>, <span class="string">'del'</span>, <span class="string">'elif'</span>, <span class="string">'else'</span>, <span class="string">'except'</span>, <span class="string">'exec'</span>, <span class="string">'finally'</span>, <span class="string">'for'</span>, <span class="string">'from'</span>, <span class="string">'global'</span>, <span class="string">'if'</span>, <span class="string">'import'</span>, <span class="string">'in'</span>, <span class="string">'is'</span>, <span class="string">'lambda'</span>, <span class="string">'not'</span>, <span class="string">'or'</span>, <span class="string">'pass'</span>, <span class="string">'print'</span>, <span class="string">'raise'</span>, <span class="string">'return'</span>, <span class="string">'try'</span>, <span class="string">'while'</span>, <span class="string">'with'</span>, <span class="string">'yield'</span>]</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure></p>
 <p>而在Python3中，print是一个函数，因此Python3中print都需要加上括号表示函数，如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>help(<span class="keyword">print</span>)</span><br><span class="line">Help on built-<span class="keyword">in</span> function <span class="keyword">print</span> <span class="keyword">in</span> module builtins:</span><br><span class="line"></span><br><span class="line">print(...)</span><br><span class="line">    print(value, ..., sep=<span class="string">' '</span>, end=<span class="string">'\n'</span>, file=sys.stdout, flush=<span class="keyword">False</span>)</span><br><span class="line"></span><br><span class="line">    Prints the values to a stream, <span class="keyword">or</span> to sys.stdout by default.</span><br><span class="line">    Optional keyword arguments:</span><br><span class="line">    file:  a file-like object (stream); defaults to the current sys.stdout.</span><br><span class="line">    sep:   string inserted between values, default a space.</span><br><span class="line">    end:   string appended after the last value, default a newline.</span><br><span class="line">    flush: whether to forcibly flush the stream.</span><br></pre></td></tr></table></figure></p>
 <p>其中<strong>value</strong>就是要打印的字符串，<strong>sep=’ ‘</strong>表示默认用空格隔开，<strong>end=’\n’</strong>表示默认换行。<br>例子：<br><strong>end</strong>：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(<span class="string">'hello'</span>, end=<span class="string">''</span>)</span><br><span class="line">hello&gt;&gt;&gt; print(<span class="string">'world'</span>)</span><br></pre></td></tr></table></figure></p>
@@ -943,19 +908,6 @@
   
 
 
-
-
-  
-  
-  
-  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
-
-  
-  
-  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
-  
-
-  <script src="/js/src/algolia-search.js?v=6.1.0"></script>
 
 
 
