@@ -101,27 +101,25 @@
 
 
 
-  <meta name="description" content="LeetCode 70. Climbing StairsDescription: You are climbing a stair case. It takes n steps to reach to the top.   Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to">
-<meta name="keywords" content="CPP,LeetCode">
+  <meta name="description" content="pandas笔记">
+<meta name="keywords" content="Python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode 70. Climbing Stairs">
-<meta property="og:url" content="https://linjiafengyang.github.io/2017/12/25/LeetCode-70-Climbing-Stairs/index.html">
+<meta property="og:title" content="pandas和numpy笔记（不断更新）">
+<meta property="og:url" content="https://linjiafengyang.github.io/2018/04/27/pandas和numpy笔记（不断更新）/index.html">
 <meta property="og:site_name" content="Talk is cheap. Show me the code!">
-<meta property="og:description" content="LeetCode 70. Climbing StairsDescription: You are climbing a stair case. It takes n steps to reach to the top.   Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to">
+<meta property="og:description" content="pandas笔记">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://img.blog.csdn.net/20171225145224692?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc2luYXRfMzE3OTA4MTc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2018-02-01T05:25:43.820Z">
+<meta property="og:updated_time" content="2018-04-27T15:37:52.750Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LeetCode 70. Climbing Stairs">
-<meta name="twitter:description" content="LeetCode 70. Climbing StairsDescription: You are climbing a stair case. It takes n steps to reach to the top.   Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to">
-<meta name="twitter:image" content="http://img.blog.csdn.net/20171225145224692?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc2luYXRfMzE3OTA4MTc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta name="twitter:title" content="pandas和numpy笔记（不断更新）">
+<meta name="twitter:description" content="pandas笔记">
 
 
 
 
 
 
-  <link rel="canonical" href="https://linjiafengyang.github.io/2017/12/25/LeetCode-70-Climbing-Stairs/"/>
+  <link rel="canonical" href="https://linjiafengyang.github.io/2018/04/27/pandas和numpy笔记（不断更新）/"/>
 
 
 
@@ -131,7 +129,7 @@
   };
 </script>
 
-  <title>LeetCode 70. Climbing Stairs | Talk is cheap. Show me the code!</title>
+  <title>pandas和numpy笔记（不断更新） | Talk is cheap. Show me the code!</title>
   
 
 
@@ -368,7 +366,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://linjiafengyang.github.io/2017/12/25/LeetCode-70-Climbing-Stairs/">
+    <link itemprop="mainEntityOfPage" href="https://linjiafengyang.github.io/2018/04/27/pandas和numpy笔记（不断更新）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="linjiafengyang">
@@ -385,7 +383,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">LeetCode 70. Climbing Stairs</h1>
+          <h1 class="post-title" itemprop="name headline">pandas和numpy笔记（不断更新）</h1>
         
 
         <div class="post-meta">
@@ -397,7 +395,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-25T14:54:55+08:00">2017-12-25</time>
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-27T23:36:52+08:00">2018-04-27</time>
             
 
             
@@ -418,14 +416,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/算法/" itemprop="url" rel="index"><span itemprop="name">算法</span></a></span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/算法/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/程序人生/" itemprop="url" rel="index"><span itemprop="name">程序人生</span></a></span>
 
                 
                 
@@ -453,7 +444,7 @@
                 
                   <span class="post-meta-item-text">字数统计：</span>
                 
-                <span title="字数统计">1.5k</span>
+                <span title="字数统计">914</span>
               
 
               
@@ -487,37 +478,20 @@
       
 
       
-        <h2 id="LeetCode-70-Climbing-Stairs"><a href="#LeetCode-70-Climbing-Stairs" class="headerlink" title="LeetCode 70. Climbing Stairs"></a><a href="https://leetcode.com/problems/climbing-stairs/description/" target="_blank" rel="noopener">LeetCode 70. Climbing Stairs</a></h2><h2 id="Description"><a href="#Description" class="headerlink" title="Description:"></a>Description:</h2><blockquote>
-<p>You are climbing a stair case. It takes n steps to reach to the top.</p>
-</blockquote>
-<blockquote>
-<p>Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?<br><a id="more"></a></p>
-</blockquote>
-<h2 id="Example-1"><a href="#Example-1" class="headerlink" title="Example 1:"></a>Example 1:</h2><blockquote>
-<p>Input: 2<br>Output:  2<br>Explanation:  There are two ways to climb to the top.</p>
-</blockquote>
-<blockquote>
-<ol>
-<li>1 step + 1 step</li>
-<li>2 steps</li>
-</ol>
-</blockquote>
-<h2 id="Example-2"><a href="#Example-2" class="headerlink" title="Example 2:"></a>Example 2:</h2><blockquote>
-<p>Input: 3<br>Output:  3<br>Explanation:  There are three ways to climb to the top.</p>
-</blockquote>
-<blockquote>
-<ol>
-<li>1 step + 1 step + 1 step</li>
-<li>1 step + 2 steps</li>
-<li>2 steps + 1 step</li>
-</ol>
-</blockquote>
-<hr>
-<h2 id="分析："><a href="#分析：" class="headerlink" title="分析："></a>分析：</h2><blockquote>
-<p>如果能够看出这是斐波那契数列，解这道题就很容易了。<br>但是一开始我想着要用动态规划来求解，一开始想着从0步开始，每一次加1或者加2，如下图：<br><img src="http://img.blog.csdn.net/20171225145224692?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc2luYXRfMzE3OTA4MTc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>然后我用二维数组来处理，自己想复杂了，一直Wrong Answer，后来灵光一现，这不就是斐波那契数列吗？动态规划一下子就变得简单了。</p>
-</blockquote>
-<h2 id="代码如下："><a href="#代码如下：" class="headerlink" title="代码如下："></a>代码如下：</h2><h3 id="动态规划："><a href="#动态规划：" class="headerlink" title="动态规划："></a>动态规划：</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">climbStairs</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> d[n + <span class="number">10</span>];</span><br><span class="line">		d[<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">		d[<span class="number">2</span>] = <span class="number">2</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">3</span>; i &lt; n + <span class="number">1</span>; i++) &#123;</span><br><span class="line">			d[i] = d[i - <span class="number">1</span>] + d[i - <span class="number">2</span>];</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> d[n];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">	Solution s;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; s.climbStairs(n) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Fibonacci数列："><a href="#Fibonacci数列：" class="headerlink" title="Fibonacci数列："></a>Fibonacci数列：</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">climbStairs</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (n == <span class="number">1</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">int</span> first = <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">int</span> second = <span class="number">2</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">3</span>; i &lt;= n; i++) &#123;</span><br><span class="line">			<span class="keyword">int</span> third = first + second;</span><br><span class="line">			first = second;</span><br><span class="line">			second = third;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> second;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">	Solution s;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; s.climbStairs(n) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h2 id="pandas笔记"><a href="#pandas笔记" class="headerlink" title="pandas笔记"></a>pandas笔记</h2><a id="more"></a>
+<h3 id="pandas-read-csv不忽略首行"><a href="#pandas-read-csv不忽略首行" class="headerlink" title="pandas.read_csv不忽略首行"></a>pandas.read_csv不忽略首行</h3><p>可以在read_csv函数中加入参数<code>header=None</code>，如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">train_data = pd.read_csv(<span class="string">"train.csv"</span>, header=<span class="keyword">None</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="pandas-to-csv忽略index"><a href="#pandas-to-csv忽略index" class="headerlink" title="pandas.to_csv忽略index"></a>pandas.to_csv忽略index</h3><p>可以在to_csv函数中加入参数<code>index=False</code>，如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 忽略index</span></span><br><span class="line">df.to_csv(<span class="string">"result.csv"</span>, index=<span class="keyword">False</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="pandas去掉不是数字的列"><a href="#pandas去掉不是数字的列" class="headerlink" title="pandas去掉不是数字的列"></a>pandas去掉不是数字的列</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># remove the non-numeric columns</span></span><br><span class="line">train_data = train_data._get_numeric_data()</span><br></pre></td></tr></table></figure>
+<h3 id="pandas转numpy"><a href="#pandas转numpy" class="headerlink" title="pandas转numpy"></a>pandas转numpy</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># create a numpy array with the numeric values for input into scikit-learn</span></span><br><span class="line">to_nparray = train_data.as_matrix()</span><br></pre></td></tr></table></figure>
+<h3 id="获取pandas-DataFrame第一列的数据"><a href="#获取pandas-DataFrame第一列的数据" class="headerlink" title="获取pandas.DataFrame第一列的数据"></a>获取pandas.DataFrame第一列的数据</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># DataFrame第一列</span></span><br><span class="line">ID = test_data.iloc[:, [<span class="number">0</span>]]</span><br></pre></td></tr></table></figure>
+<h2 id="numpy笔记"><a href="#numpy笔记" class="headerlink" title="numpy笔记"></a>numpy笔记</h2><h3 id="获取numpy-array中最后一列的数据"><a href="#获取numpy-array中最后一列的数据" class="headerlink" title="获取numpy.array中最后一列的数据"></a>获取numpy.array中最后一列的数据</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">y = to_nparray[:,<span class="number">-1</span>] <span class="comment"># 最后一列</span></span><br><span class="line">X = to_nparray[:,<span class="number">0</span>:<span class="number">-1</span>] <span class="comment"># 从第一列开始到倒数第二列</span></span><br></pre></td></tr></table></figure>
+<h3 id="numpy-dtype：int转字符串"><a href="#numpy-dtype：int转字符串" class="headerlink" title="numpy.dtype：int转字符串"></a>numpy.dtype：int转字符串</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># np.dtype: int转字符串</span></span><br><span class="line">res = np.char.mod(<span class="string">'%d'</span>, res)</span><br></pre></td></tr></table></figure>
+<h3 id="numpy拼接字符串array"><a href="#numpy拼接字符串array" class="headerlink" title="numpy拼接字符串array"></a>numpy拼接字符串array</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># numpy拼接字符串</span></span><br><span class="line">res = np.core.defchararray.add(prefix, res)</span><br></pre></td></tr></table></figure>
+<h3 id="numpy按行合并两个numpy-array"><a href="#numpy按行合并两个numpy-array" class="headerlink" title="numpy按行合并两个numpy.array"></a>numpy按行合并两个numpy.array</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 按行合并两个numpy.array，ID和res是np.array</span></span><br><span class="line">data = np.hstack((ID, res))</span><br></pre></td></tr></table></figure>
+<h3 id="numpy-array转DataFrame"><a href="#numpy-array转DataFrame" class="headerlink" title="numpy.array转DataFrame"></a>numpy.array转DataFrame</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># numpy.array转DataFrame</span></span><br><span class="line">df = DataFrame(data, columns=[<span class="string">'ID'</span>, <span class="string">'Pred'</span>])</span><br></pre></td></tr></table></figure>
+
       
     </div>
 
@@ -547,9 +521,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/CPP/" rel="tag"><i class="fa fa-tag"></i> CPP</a>
-          
-            <a href="/tags/LeetCode/" rel="tag"><i class="fa fa-tag"></i> LeetCode</a>
+            <a href="/tags/Python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
           
         </div>
       
@@ -562,8 +534,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/12/24/LeetCode-215-Kth-Largest-Element-in-an-Array/" rel="next" title="LeetCode 215. Kth Largest Element in an Array">
-                <i class="fa fa-chevron-left"></i> LeetCode 215. Kth Largest Element in an Array
+              <a href="/2018/04/23/论文笔记：Sparse-Local-Embeddings-for-Extreme-Multi-label-Classification/" rel="next" title="论文笔记：Sparse Local Embeddings for Extreme Multi-label Classification">
+                <i class="fa fa-chevron-left"></i> 论文笔记：Sparse Local Embeddings for Extreme Multi-label Classification
               </a>
             
           </div>
@@ -571,10 +543,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/12/25/LeetCode-746-Min-Cost-Climbing-Stairs/" rel="prev" title="LeetCode 746. Min Cost Climbing Stairs">
-                LeetCode 746. Min Cost Climbing Stairs <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -750,7 +718,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#LeetCode-70-Climbing-Stairs"><span class="nav-number">1.</span> <span class="nav-text">LeetCode 70. Climbing Stairs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Description"><span class="nav-number">2.</span> <span class="nav-text">Description:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Example-1"><span class="nav-number">3.</span> <span class="nav-text">Example 1:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Example-2"><span class="nav-number">4.</span> <span class="nav-text">Example 2:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分析："><span class="nav-number">5.</span> <span class="nav-text">分析：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码如下："><span class="nav-number">6.</span> <span class="nav-text">代码如下：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#动态规划："><span class="nav-number">6.1.</span> <span class="nav-text">动态规划：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Fibonacci数列："><span class="nav-number">6.2.</span> <span class="nav-text">Fibonacci数列：</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#pandas笔记"><span class="nav-number">1.</span> <span class="nav-text">pandas笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#pandas-read-csv不忽略首行"><span class="nav-number">1.1.</span> <span class="nav-text">pandas.read_csv不忽略首行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pandas-to-csv忽略index"><span class="nav-number">1.2.</span> <span class="nav-text">pandas.to_csv忽略index</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pandas去掉不是数字的列"><span class="nav-number">1.3.</span> <span class="nav-text">pandas去掉不是数字的列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pandas转numpy"><span class="nav-number">1.4.</span> <span class="nav-text">pandas转numpy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取pandas-DataFrame第一列的数据"><span class="nav-number">1.5.</span> <span class="nav-text">获取pandas.DataFrame第一列的数据</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#numpy笔记"><span class="nav-number">2.</span> <span class="nav-text">numpy笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#获取numpy-array中最后一列的数据"><span class="nav-number">2.1.</span> <span class="nav-text">获取numpy.array中最后一列的数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#numpy-dtype：int转字符串"><span class="nav-number">2.2.</span> <span class="nav-text">numpy.dtype：int转字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#numpy拼接字符串array"><span class="nav-number">2.3.</span> <span class="nav-text">numpy拼接字符串array</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#numpy按行合并两个numpy-array"><span class="nav-number">2.4.</span> <span class="nav-text">numpy按行合并两个numpy.array</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#numpy-array转DataFrame"><span class="nav-number">2.5.</span> <span class="nav-text">numpy.array转DataFrame</span></a></li></ol></li></ol></div>
             
 
           </div>

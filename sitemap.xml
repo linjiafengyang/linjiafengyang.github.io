@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://linjiafengyang.github.io/2018/04/27/pandas%E5%92%8Cnumpy%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%8D%E6%96%AD%E6%9B%B4%E6%96%B0%EF%BC%89/</loc>
+    
+    <lastmod>2018-04-27T15:37:52.750Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://linjiafengyang.github.io/2018/04/23/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0%EF%BC%9ASparse-Local-Embeddings-for-Extreme-Multi-label-Classification/</loc>
     
     <lastmod>2018-04-23T14:44:17.636Z</lastmod>
