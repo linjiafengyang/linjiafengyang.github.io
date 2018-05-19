@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.1.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/github.ico?v=6.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/github.ico?v=6.1.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.1.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.1.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: 'LN4LXV8IAB',
+      apiKey: '90ebfafd072712068da61174d566b61c',
+      indexName: 'My_Blog',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="论文笔记：FastXML: A Fast, Accurate and Stable Tree-classifier for eXtreme Multi-label Learning">
+<meta property="og:type" content="article">
+<meta property="og:title" content="论文笔记：FastXML_ A Fast, Accurate and Stable Tree-classifier for eXtreme Multi-label Learning">
+<meta property="og:url" content="https://linjiafengyang.github.io/2018/05/19/论文笔记：FastXML-A-Fast-Accurate-and-Stable-Tree-classifier-for-eXtreme-Multi-label-Learning/index.html">
+<meta property="og:site_name" content="Talk is cheap. Show me the code!">
+<meta property="og:description" content="论文笔记：FastXML: A Fast, Accurate and Stable Tree-classifier for eXtreme Multi-label Learning">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-05-19T12:21:05.260Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="论文笔记：FastXML_ A Fast, Accurate and Stable Tree-classifier for eXtreme Multi-label Learning">
+<meta name="twitter:description" content="论文笔记：FastXML: A Fast, Accurate and Stable Tree-classifier for eXtreme Multi-label Learning">
+
+
+
+
+
+
+  <link rel="canonical" href="https://linjiafengyang.github.io/2018/05/19/论文笔记：FastXML-A-Fast-Accurate-and-Stable-Tree-classifier-for-eXtreme-Multi-label-Learning/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>论文笔记：FastXML_ A Fast, Accurate and Stable Tree-classifier for eXtreme Multi-label Learning | Talk is cheap. Show me the code!</title>
+  
+
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?d62ec62ec2c41677b6ad9e62a7eaede3";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <a href="https://github.com/linjiafengyang" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> 
+
+<div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Talk is cheap. Show me the code!</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">代码拯救世界</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+          
+  
+  <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+</li>
+
+      
+        
+        
+          
+  
+  <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+</li>
+
+      
+        
+        
+          
+  
+  <li class="menu-item menu-item-categories menu-item-active">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+</li>
+
+      
+        
+        
+          
+  
+  <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+</li>
+
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+    
+
+  
+
+
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+  
+
+
+
+ </div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://linjiafengyang.github.io/2018/05/19/论文笔记：FastXML-A-Fast-Accurate-and-Stable-Tree-classifier-for-eXtreme-Multi-label-Learning/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="linjiafengyang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/me.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Talk is cheap. Show me the code!">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">论文笔记：FastXML_ A Fast, Accurate and Stable Tree-classifier for eXtreme Multi-label Learning</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-19T20:17:31+08:00">2018-05-19</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/论文/" itemprop="url" rel="index"><span itemprop="name">论文</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计：</span>
+                
+                <span title="字数统计">7.5k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长&asymp;</span>
+                
+                <span title="阅读时长">0:08</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="论文笔记：FastXML-A-Fast-Accurate-and-Stable-Tree-classifier-for-eXtreme-Multi-label-Learning"><a href="#论文笔记：FastXML-A-Fast-Accurate-and-Stable-Tree-classifier-for-eXtreme-Multi-label-Learning" class="headerlink" title="论文笔记：FastXML: A Fast, Accurate and Stable Tree-classifier for eXtreme Multi-label Learning"></a>论文笔记：FastXML: A Fast, Accurate and Stable Tree-classifier for eXtreme Multi-label Learning</h2><a id="more"></a>
+<p>原文链接地址如下：<br><a href="http://manikvarma.org/pubs/prabhu14.pdf" target="_blank" rel="noopener">FastXML: A Fast, Accurate and Stable Tree-classifier for eXtreme Multi-label Learning</a></p>
+<h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p>XML学习的目标就是学习一个分类器，该分类器可以自动地为数据点打上与之最相关的子标签，子标签来自于一个很大的标签集。XML是一个非常重要的研究，因为它不仅可以处理带有很多标签的应用，还可以重新构建比当前存在的公式更好的排序算法。</p>
+<p>本文旨在训练一个XML分类器，它相比较于目前最先进的算法Multi-label Random Forest(MLRF)和Label Partitioning for Sub-linear Ranking(LPSR)，可以更快地训练，并且预测准确率也更高。MLRF和LPSR学习了一个处理大量标签的层次结构，但为了学习层次结构，优化了与任务无关的度量，例如基尼指数或聚类错误。我们提出的FastXML通过直接优化基于排序损失函数的nDCG，得到一个显著提高的预测准确率。我们还提出了一个优化算法，可以有效地优化上述公式。实验揭示了FastXML可以使用一个单核台式机在八个小时内训练多达1百万标签的数据集，使用多核的话可以在一个小时内完成训练。</p>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>XML学习的目标就是学习一个分类器，该分类器可以自动地为数据点打上与之最相关的子标签，子标签来自于一个很大的标签集。例如，Wikipedia有一个数据集多达1百万个类别，我们要训练一个分类器，它可以将一个新的网页分类到Wikipedi上这一百万个类别。</p>
+<p>XML是一个很重要的研究方向，不仅仅是因为现代应用有很多个类别，还因为它重新构建算法，例如推荐算法和排序算法。例如，MLRF将搜索引擎查询视作标签，然后训练了一个分类器，它可以在给定一个网页，以相关性逐渐降低的顺序返回查询的结果。同样的，LPSR将YouTube视频视作独立的标签，然后训练分类器，可以向用户推荐排好序的视频列表。这两种方法都提供了一些关于排序和推荐问题的新思考新方法，并且都大大提高了在排序推荐领域的性能表现。</p>
+<p>XML也是一个非常具有挑战性的研究问题，因为需要同时处理数量很大的标签，维数和训练数据。1-vs-All技术提供了一个明显的基准，其中每个标签学习一个独立的分类器。这样的一个基准主要有两个局限性。第一，训练百万个高维分类器需要昂贵的计算资源。第二，由于每一次预测时都需要评估每一个分类器，所以预测的代价也非常高。如果学习一个标签的层次结构，这些问题可以得到一点点改善。然而，这样的层次结构在很多应用上根本不可能实现。</p>
+<p>因此，目前最先进的方法是从训练数据中学习一个层次结构，具体如下：根节点被初始化为整个标签集。然后优化一个结点划分公式将标签分为左孩子和右孩子。继续递归，知道每一个叶子节点都有小数量的标签。在预测时，新数据点从根节点一直向下到叶子节点。然后，可以将选择的基多标签分类器应用于专注于叶节点标签分布的数据点。 如果树是平衡的，这导致预测成本是次线性的甚至是对数的。</p>
+<p>基于树的方法通常比1-vs-all预测得更准确，且预测成本只是后者的一小部分。然而，这类方法的训练代价比较高。具体来讲，由于LPSR需要学习基分类器之外还有层次结构，它比1-vs-all有更高的训练代价。同样的，MLRF需要形成很多个结点，而随机森林训练代价在高维空间中是非常昂贵的。这种昂贵的方法不仅增加了部署分类模型的成本和日常实验的成本，而且使这些模型超出了大多数从业者的范围。</p>
+<p>本文中我们致力于解决这些问题，建立了一个基于树的XML分类器，叫做FastXML，它比MLRF和LPSR有着更快的训练时间和更高的预测准确率。我们主要的技术贡献是一个全新的节点划分公式，以及针对该公式的一个优化算法。在训练时间方面，由于所述的节点划分公式比熵或Gini指数可以更高效的优化，FastXML比MLRF有一个显著的提高。同样的，它也比LPSR训练得快，因为LPSR需要学习具有昂贵计算代价的基分类器以达到高预测准确率。在预测准确率方面，几乎所有的极端分类应用都处理这样的情景，即数据点的相关标签的数量比不相关的标签数量小几个数量级。因此预测准确率不能采用传统的衡量标准，例如Hamming Loss，它给所有的标签（无论正负）以相同的权重。相反，许多应用倾向于使用基于排序的衡量标准例如precision at k，它通过计算前k个正预测中的正确预测的数量来专门关注正标签。因此，FastXML提出的节点划分公式直接优化了排序敏感损失函数，可以比MLRF优化基尼指数或LPSR优化聚类错误得到更精确的预测。</p>
+<p>实验结果表明FastXML在只有几千标签的基准数据集上比MLRF，LPSR，1-vs-all的预测准确率提高了5%左右。FastXML可以扩展到百万标签的数据集上，此时MLRF，LPSR，1-vs-all需要一个很大的聚类。例如，在一台单核台式机上，FastXML可以在十分钟内训练一个4M大小，特征160k，标签1m的数据集。整个可以在8小时训练完成，使用多核的话可以1小时。MLRF和1-vs-all不能在台式机上训练如此大的数据集。LPSR可以把1-vs-all基分类器换成朴素贝叶斯然后训练，但是此时准确率会落后其他算法20%左右。</p>
+<p>我们的贡献是：（a）我们制定了一种全新的节点分区目标，它直接优化基于nDCG的排名损失，并隐含地学习均衡划分; （b）我们提出了一种针对上述目标的有效优化算法; （c）我们将这些结合在树算法中，该算法可以在标准台式机上训练一百万个标签的问题，同时提高预测的准确性。</p>
+<h2 id="Related-work"><a href="#Related-work" class="headerlink" title="Related work"></a>Related work</h2><p>目前在XML分类问题上已经取得很大的进步了，许多方法要么基于树要么基于embeddings。</p>
+<p>Embedding方法利用标签相关性和稀疏性将标签的数量从L压缩到L^，从而减少训练时间和预测时间。这种方法主要有两个矩阵，一个压缩矩阵和一个解压缩矩阵。基于这两个矩阵的不同选择延伸出很多类似的Embedding方法。除此之外，还有利用最近邻算法进行预测的，此时就不需要解压缩了。</p>
+<p>Embedding方法有很多优点，如简单，易于实现，很强的理论支持，同时可以控制标签相关性，而且拥有适应在线和增量场景的能力等等。然而，由于压缩过程中丢失了一部分标签信息，embedding方法在预测准确率方面上需要付出很大的代价得到一个高预测准确率。例如，当L ^≈log(L)时，到目前为止开发的embedding方法都没有能够始终超越1-vs-All基线方法。</p>
+<p>基于树的方法也拥有embedding方法的优点。另外，当L ^≈log(L)时，树方法可以超越1-vs-all方法。因此我们主要的比较对象是基于树的其他方法。</p>
+<p>LPSR方法专注于通过学习基分类器或排序器得到层次结构来缩短预测时间。<strong>首先</strong>，针对整个标签集学习一个基分类器。这一步控制着整个训练复杂度和预测准确率。朴素贝叶斯分类器训练很快，但准确率较低；而线性SVM、深层网络或者Wasbie这一类的1-vs-all分类器训练成本很高，但准确率也较高。<strong>其次</strong>，在一棵二叉树上学习形成一个层次结构。 通过在特征向量上使用类似于k-均值的变体方法，将节点的数据点划分成2个群集，分别分到左孩子和右孩子上，从而来扩展树的节点，直至每个叶节点上有少量数据点和相应的标签。<strong>最后</strong>，一个宽松的整数程序在每个叶节点上通过梯度下降进行优化，以激活节点上存在的标签子集。 在预测期间，一个新的数据点被传递到树上，直到它到达叶节点。 然后使用限制在活动叶节点标签集合的基分类器进行预测。</p>
+<p>MLRF方法不需要学习基分类器。相反，它学习一组随机树。 通过对在节点中的一组正标签上定义的基尼指数的多标签变体进行蛮力优化，从而把原先节点进一步分成左孩子和右孩子。该树不断生长直到每个叶节点仅存在少量标签。 在测试过程中，一个新的数据点被传递到叶结点，并通过聚合所有叶节点标签分布来进行预测。</p>
+<p>LPSR和MLRF都有着很高的训练代价。LPSR需要训练一个准确的基多标签分类器，执行分层k-均值聚类并解决每个叶节点处的标签分配问题。 MLRF需要学习一个集成树，其中每个节点的增长成本很高。 特别是，在高维空间训练时，随机森林需要在每个节点上采样大量特征，以实现高质量，均衡的分割。 此外，当有大量训练点和标签时，每个特征上的基尼指数或熵的强力优化是昂贵的。 总而言之，准确的LPSR和MLRF训练可能需要大型计算集群（在MLRF的情况下可以有多达1000个节点）。</p>
+<h2 id="FastXML"><a href="#FastXML" class="headerlink" title="FastXML"></a>FastXML</h2><p>FastXML主要的目标就是使得XML问题可以在单个台式机或小集群上进行训练。同时，我们也致力于通过优化一个相比较于MLRF的Gini指数、LPSR的聚类误差来说更稳定的排序敏感损失函数，从而得到一个更好的预测准确率。在这一部分中，我们首先给出FastXML算法的概述，然后讲述如何优化一个损失函数来划分树的结点，最后分析FastXML的预测成本。</p>
+<h3 id="FastXML-Overview"><a href="#FastXML-Overview" class="headerlink" title="FastXML Overview"></a>FastXML Overview</h3><p>FastXML学习的是层次结构，而不是像传统上在多类设置[5,13,16]中那样在标签空间上进行，而是在特征空间上进行。 直觉上它类似于LPSR和MLRF，并且来自于观察结果，即在特征空间的每个区域中只有少量标签存在或有效。 因此，可以通过遍历学习到的特征空间分层结构来确定新的数据点所处的区域，然后专注于该区域中活动的一组标签，从而进行有效的预测。 与MLRF类似，与LPSR不同，FastXML将区域中激活的标签集合定义为该区域中所有训练点标签的并集。 这加快了培训速度，因为FastXML不需要解决每个区域中的标签分配整数程序。 此外，与MLRF类似，与LPSR不同，FastXML学习集成树，不需要依赖基分类器。</p>
+<p>通过返回包含新数据点的所有叶节点中最频繁出现的活动标签的排序列表来进行预测。 算法1和3分别为FastXML训练和预测提供伪代码。</p>
+<h3 id="Learning-to-partition-a-node"><a href="#Learning-to-partition-a-node" class="headerlink" title="Learning to partition a node"></a>Learning to partition a node</h3><p>训练FastXML的过程主要是递归地划分父结点的特征空间给左右子节点。理想情况下，应该通过优化全局性能度量，例如由叶节点引起的排序预测，来学习这样的节点划分。不幸的是，优化全局度量代价是昂贵的，因为需要共同学习树中的所有节点。现有的方法因此优化了局部的性能度量，这些度量仅依赖于当前被划分的节点的预测。 这允许层次结构从根节点开始逐渐学习并下降到叶结点，这比共同学习所有节点更高效。</p>
+<p>MLRF和LPSR优化了基尼系数和聚类误差作为各自的局部性能指标。不幸的是，这两种方法都不适用于排序或XML应用，因为正确预测少数正面相关标签比预测大量不相关标签要重要得多。</p>
+<p>因此，FastXML提出了通过直接优化排序损失函数来学习层次结构的方法。特别是，它优化了标准化的折扣累积收益（nDCG）[33]。 这可以学习到优质地划分源于以下两个原因。首先，nDCG是一种对排序和相关性都很敏感的衡量标准，因此可以确保相关的正标签的排名尽可能高。 这不能通过对排序不敏感的措施，如基尼指数或聚类错误来保证。 其次，因为对排序敏感，nDCG可以在当前节点的所有L个标签上进行优化，从而确保不会出现局部优化。</p>
+<p>略。</p>
+<p>略。</p>
+<p>注意log(l+1)对排名高的正标签是有益的。DCG对排序和预测的相关性都很敏感。nDCG被定义成如下（略）。Ik(y)是y的理想的DCG@k的倒数，理想的DCG@k即是说所有正标签的排名都比负标签高。这将LnDCG@k归一化为0到1之间的数，其中值越大越好，并确保nDCG可用于比较具有不同数量的正标签的标签向量上的排名。</p>
+<p>FasterXML通过学习一个线性分隔符w来分割当前节点的特征空间，w如下（略）。i索引表示出现在当前被划分的结点上的所有训练数据点。数据点i被划分到负分区时，delta=-1，正分区时，delta=+1；r+表示在正分区中预测的标签排名，r-表示在负分区中预测的标签排名。Cdelta和Cr是人为定义的参数，表示各自项的重要性。</p>
+<p>公式中的第一项是w上的一个L1正则化，它确保使用稀疏线性分隔符来定义分区。给定一个数据点x，做预测时，可以根据每个结点上计算wTx的符号高效地遍历FastXML树。第二项是delta <em> wT </em> x的log损失。该项将delta和w联结起来作为最佳解决方案。这使得被划分到正分区的数据点的wT <em> x为正值（符号为正），同理，划分到负分区的wT </em> x的值为负值（符号为负）。Cdelta是一个关于delta的函数，以对错误分类的正或负数据点进行惩罚。给定了分配给这些分区实际的标签向量yi，公式中的第三项和第四项分别给出了正负分区r+和r-预测的标签排名nDCG@L。 这些项将r±与delta结合，从而与w结合。 正如所讨论的，最大化nDCG可能会促成预测每个点的相关正标签时排名尽可能的高。 因此，同一个分区内的点可能具有相似的标签，而跨分区的点可能具有不同的标签。</p>
+<p>此外，尽管最终的叶节点排名将在k处（k &lt;&lt; L）评估，但是在每个节点处最大化nDCG@L是有益的。这导致根和内部节点的非近视决定。例如，在维基百科数据集的根节点处优化k = 5的nDCG将等同于找到分隔符，使得划分给正分区的所有数十万维基百科文章可以仅用五个最频繁出现在正分区中的维基百科类别来做标签，同理对于负分区类似。显然，这不会导致根节点的好结果，通过考虑维基百科的所有类别，而不仅仅是前五名，可以学到更高级的分区。当然，正如已经指出的那样，对排名不敏感的测量如precision不能在k = L时被优化，因为它们随着k的增加而变得越来越无效，对于所有点而言Lprecision@L(r±; yi) = 0，而不会考虑其所在的分区。</p>
+<p>值得注意的是，如果某些包含标签的点被分配给正分区，而一些分配给负分区，则该公式允许将标签分配给两个分区。 这使得FastXML树有点健壮，因为子节点可能会从父母犯的错误中恢复过来。</p>
+<p>最后，请注意，delta和r±是为了高效优化有意选择的独立变量，而不是依赖于w的函数。特别地，该公式可以通过丢弃log损失项并且定义delta(w)= sign(wT * xi)和r±(w)=某个公式（略）。这样的表述也是自然的，但规模难以处理。 由于delta(w)和r±(w)的急剧不连续性，通过高效的优化技术（如随机亚梯度下降）进行直接优化是不可能的。此外，w的更新将需要delta和r±的昂贵更新。因此，为了高效优化我们通过将它们作为独立变量来解耦delta和r，然后通过目标函数耦合它们的最优值。我们在第4节中为该公式开发了优化算法。</p>
+<h3 id="Prediction"><a href="#Prediction" class="headerlink" title="Prediction"></a>Prediction</h3><p>公式定义的目标函数可以被高效地优化并且有很高的预测准确率。一个好的目标函数还应该有均衡的划分以确保有效的预测。</p>
+<p>（略）</p>
+<p>因此可能有人试图给公式（5）添加一个平衡项，以使H尽可能接近logN。 然而，这是以降低预测准确度为代价的，因为目标函数需要权衡平衡的准确性。 正如经验证明的那样，我们提出的基于nDCG的目标函数学习高度均衡的树，并且不需要在（5）中添加平衡项。 因此，FastXML的预测可以在对数时间内准确地进行。</p>
+<h2 id="Optimizing-FastXML"><a href="#Optimizing-FastXML" class="headerlink" title="Optimizing FastXML"></a>Optimizing FastXML</h2><p>nDCG是一个难以优化的函数，因为它是非常不连续的，因此不能应用标准的随机梯度下降技术。因此，FastXML使用了一种替代策略并使用迭代交替最小化算法来优化公式（5）。该算法通过随机设置w = 0和delta为-1或+1来初始化。然后，每次迭代包括三个步骤。首先，r+和r-在固定w和delta的同时进行了优化。这一步确定分别将由正分区和负分区预测的标签的排名列表。其次，delta在保持w和r±固定的同时被优化。该步骤将节点中的训练点分配给正分区或负分区。在保持delta和r±固定的情况下优化w的第三步只有在前两个步骤不会导致目标函数下降时才会被采用。这是为了加速训练，因为关于delta和r±的优化只需要几秒钟，而关于w的优化可能需要几分钟。这是（5）作为关于w，delta和r的函数而不仅仅是w的函数的主要原因。当r±，delta和w从一次迭代到下一次迭代不会改变时，算法终止。我们证明了目标函数在每次迭代中严格递减，并且所提出的算法终止于有限次数的迭代中。在实践中，在所有数据集上都观察到，只要对w进行了一次更新，该算法就取得了快速进展并获得了最新的结果。我们现在详细介绍每个迭代中的步骤。</p>
+<h3 id="Optimizing-with-respect-to-r±"><a href="#Optimizing-with-respect-to-r±" class="headerlink" title="Optimizing with respect to r±"></a>Optimizing with respect to r±</h3><p>（略）</p>
+<h3 id="Optimizing-with-respect-to-delta"><a href="#Optimizing-with-respect-to-delta" class="headerlink" title="Optimizing with respect to delta"></a>Optimizing with respect to delta</h3><p>（略）</p>
+<h3 id="Optimizing-with-respect-to-w"><a href="#Optimizing-with-respect-to-w" class="headerlink" title="Optimizing with respect to w"></a>Optimizing with respect to w</h3><p>（略）</p>
+<h3 id="Finite-termination"><a href="#Finite-termination" class="headerlink" title="Finite termination"></a>Finite termination</h3><p>（5）中的公式是非凸的，非光滑的，并且具有离散变量和连续变量的混合。 此外，即使通过仅针对一个变量块进行优化而获得的子问题可能不是凸面的或光滑的。众所周知，基于交替最小化的技术在一般情况下可能无法收敛到这样的难题。但是，在我们的例子中，直观显示FastXML的优化交替最小化算法（5）不会发生振荡，并且会在有限次数的迭代中收敛。</p>
+<p>（略）</p>
+<h2 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h2><p>（略）</p>
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>本文开发了FastXML算法，用于含有大量标签的多标签学习。FastXML学习了一系列树，其预测成本是标签数量的对数。FastXML中的关键技术贡献是提出了一种新颖的节点划分方法，它优化了所有标签上基于nDCG的排名损失。发现这种损失比MLRF优化的基尼指数或LPSR优化的聚类误差更适合XML学习。已知nDCG难以使用基于梯度下降的技术进行优化。因此，FastXML为其优化开发了一种高效的交替最小化算法。证明了所提出的交替最小化算法不会发生振荡，并且会在有限次数的迭代中收敛。实验表明，FastXML可以比MLRF和LPSR更精确，同时有效地扩展到超过一百万个标签的问题。 FastXML代码是公开可用的，并且应该使从业者能够在不需要大型群集的情况下训练精确的XML学习模型。</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+	<div>
+	  
+		<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">------本文结束<i class="fa fa-paw"></i>感谢阅读------</div>
+    
+</div>
+	  
+	</div>
+	
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/11/Ex4：Image-Warping-and-Image-Morphing/" rel="next" title="Ex4：Image Warping and Image Morphing">
+                <i class="fa fa-chevron-left"></i> Ex4：Image Warping and Image Morphing
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/me.jpg"
+                alt="linjiafengyang" />
+            
+              <p class="site-author-name" itemprop="name">linjiafengyang</p>
+              <p class="site-description motion-element" itemprop="description">Debug myself and debug the world!</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">99</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/linjiafengyang" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://blog.csdn.net/sinat_31790817" target="_blank" title="CSDN"><i class="fa fa-fw fa-angellist"></i>CSDN</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#论文笔记：FastXML-A-Fast-Accurate-and-Stable-Tree-classifier-for-eXtreme-Multi-label-Learning"><span class="nav-number">1.</span> <span class="nav-text">论文笔记：FastXML: A Fast, Accurate and Stable Tree-classifier for eXtreme Multi-label Learning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Abstract"><span class="nav-number">2.</span> <span class="nav-text">Abstract</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">3.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Related-work"><span class="nav-number">4.</span> <span class="nav-text">Related work</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FastXML"><span class="nav-number">5.</span> <span class="nav-text">FastXML</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#FastXML-Overview"><span class="nav-number">5.1.</span> <span class="nav-text">FastXML Overview</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Learning-to-partition-a-node"><span class="nav-number">5.2.</span> <span class="nav-text">Learning to partition a node</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Prediction"><span class="nav-number">5.3.</span> <span class="nav-text">Prediction</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Optimizing-FastXML"><span class="nav-number">6.</span> <span class="nav-text">Optimizing FastXML</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Optimizing-with-respect-to-r±"><span class="nav-number">6.1.</span> <span class="nav-text">Optimizing with respect to r±</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Optimizing-with-respect-to-delta"><span class="nav-number">6.2.</span> <span class="nav-text">Optimizing with respect to delta</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Optimizing-with-respect-to-w"><span class="nav-number">6.3.</span> <span class="nav-text">Optimizing with respect to w</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Finite-termination"><span class="nav-number">6.4.</span> <span class="nav-text">Finite termination</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Experiments"><span class="nav-number">7.</span> <span class="nav-text">Experiments</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Conclusion"><span class="nav-number">8.</span> <span class="nav-text">Conclusion</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">linjiafengyang</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="站点总字数">295k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+    <span title="站点总阅读时长">4:55</span>
+  
+</div>
+
+
+
+<!--
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Muse</a> v6.1.0</div>
+
+
+-->
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.1.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=6.1.0"></script>
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+
+<!-- 背景动画 -->
+<!--
+<script type="text/javascript" src="/js/src/particle.js"></script>
+-->
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
