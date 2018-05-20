@@ -101,25 +101,29 @@
 
 
 
-  <meta name="description" content="LeetCode 112. Path SumDescription: Given a binary tree and a sum, determine if the tree has a root-to-leaf path such that adding up all the values along the path equals the given sum.">
-<meta name="keywords" content="CPP,LeetCode">
+  <meta name="description" content="计算机视觉作业五">
+<meta name="keywords" content="CPP">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode 112. Path Sum">
-<meta property="og:url" content="https://linjiafengyang.github.io/2017/12/19/LeetCode-112-Path-Sum/index.html">
+<meta property="og:title" content="Ex5：图像分割">
+<meta property="og:url" content="https://linjiafengyang.github.io/2018/05/20/Ex5：图像分割/index.html">
 <meta property="og:site_name" content="Talk is cheap. Show me the code!">
-<meta property="og:description" content="LeetCode 112. Path SumDescription: Given a binary tree and a sum, determine if the tree has a root-to-leaf path such that adding up all the values along the path equals the given sum.">
+<meta property="og:description" content="计算机视觉作业五">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-02-01T05:39:21.558Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/linjiafengyang/Pictures/master/48.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/linjiafengyang/Pictures/master/49.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/linjiafengyang/Pictures/master/50.png">
+<meta property="og:updated_time" content="2018-05-20T14:54:46.812Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LeetCode 112. Path Sum">
-<meta name="twitter:description" content="LeetCode 112. Path SumDescription: Given a binary tree and a sum, determine if the tree has a root-to-leaf path such that adding up all the values along the path equals the given sum.">
+<meta name="twitter:title" content="Ex5：图像分割">
+<meta name="twitter:description" content="计算机视觉作业五">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/linjiafengyang/Pictures/master/48.png">
 
 
 
 
 
 
-  <link rel="canonical" href="https://linjiafengyang.github.io/2017/12/19/LeetCode-112-Path-Sum/"/>
+  <link rel="canonical" href="https://linjiafengyang.github.io/2018/05/20/Ex5：图像分割/"/>
 
 
 
@@ -129,7 +133,7 @@
   };
 </script>
 
-  <title>LeetCode 112. Path Sum | Talk is cheap. Show me the code!</title>
+  <title>Ex5：图像分割 | Talk is cheap. Show me the code!</title>
   
 
 
@@ -366,7 +370,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://linjiafengyang.github.io/2017/12/19/LeetCode-112-Path-Sum/">
+    <link itemprop="mainEntityOfPage" href="https://linjiafengyang.github.io/2018/05/20/Ex5：图像分割/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="linjiafengyang">
@@ -383,7 +387,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">LeetCode 112. Path Sum</h1>
+          <h1 class="post-title" itemprop="name headline">Ex5：图像分割</h1>
         
 
         <div class="post-meta">
@@ -395,7 +399,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-19T08:46:38+08:00">2017-12-19</time>
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-20T22:51:39+08:00">2018-05-20</time>
             
 
             
@@ -416,14 +420,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/算法/" itemprop="url" rel="index"><span itemprop="name">算法</span></a></span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/算法/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机视觉/" itemprop="url" rel="index"><span itemprop="name">计算机视觉</span></a></span>
 
                 
                 
@@ -451,7 +448,7 @@
                 
                   <span class="post-meta-item-text">字数统计：</span>
                 
-                <span title="字数统计">1.7k</span>
+                <span title="字数统计">3.2k</span>
               
 
               
@@ -465,7 +462,7 @@
                 
                   <span class="post-meta-item-text">阅读时长&asymp;</span>
                 
-                <span title="阅读时长">0:02</span>
+                <span title="阅读时长">0:03</span>
               
             </div>
           
@@ -485,20 +482,39 @@
       
 
       
-        <h2 id="LeetCode-112-Path-Sum"><a href="#LeetCode-112-Path-Sum" class="headerlink" title="LeetCode 112. Path Sum"></a><a href="https://leetcode.com/problems/path-sum/description/" target="_blank" rel="noopener">LeetCode 112. Path Sum</a></h2><h2 id="Description"><a href="#Description" class="headerlink" title="Description:"></a>Description:</h2><blockquote>
-<p>Given a binary tree and a sum, determine if the tree has a root-to-leaf path such that adding up all the values along the path equals the given sum.<br><a id="more"></a></p>
-</blockquote>
-<h2 id="Example"><a href="#Example" class="headerlink" title="Example:"></a>Example:</h2><blockquote>
-<p>For example:<br>Given the below binary tree and sum = 22,<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">      5</span><br><span class="line">     / \</span><br><span class="line">    4   8</span><br><span class="line">   /   / \</span><br><span class="line">  11  13  4</span><br><span class="line"> /  \      \</span><br><span class="line">7    2      1</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<blockquote>
-<p>return true, as there exist a root-to-leaf path 5-&gt;4-&gt;11-&gt;2 which sum is 22.</p>
-</blockquote>
-<hr>
-<h2 id="分析："><a href="#分析：" class="headerlink" title="分析："></a>分析：</h2><blockquote>
-<p>首先判断根节点是否为空，若为空，则返回false，表示肯定不能找到一条路径上的数之和等于sum；<br>若不空，则判断左右子树是否为空，若为空，则比较根节点的数是否等于sum，若为真，返回true；反之返回false；<br>若前面都不满足条件，则证明树的高度至少为2，递归左子树，将sum的值改成<code>sum - root-&gt;val</code>；递归右子树，将sum的值改成<code>sum - root-&gt;val</code>，即可求解。</p>
-</blockquote>
-<h2 id="代码如下："><a href="#代码如下：" class="headerlink" title="代码如下："></a>代码如下：</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">TreeNode</span> &#123;</span></span><br><span class="line">	<span class="keyword">int</span> val;</span><br><span class="line">	TreeNode *left;</span><br><span class="line">	TreeNode *right;</span><br><span class="line">	TreeNode(<span class="keyword">int</span> x) : val(x), left(<span class="literal">NULL</span>), right(<span class="literal">NULL</span>) &#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">bool</span> <span class="title">hasPathSum</span><span class="params">(TreeNode* root, <span class="keyword">int</span> sum)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (root == <span class="literal">NULL</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">		<span class="keyword">if</span> (root-&gt;left == <span class="literal">NULL</span> &amp;&amp; root-&gt;right == <span class="literal">NULL</span>) <span class="keyword">return</span> sum == root-&gt;val ? <span class="literal">true</span> : <span class="literal">false</span>;</span><br><span class="line">		<span class="keyword">return</span> hasPathSum(root-&gt;left, sum - root-&gt;val) || hasPathSum(root-&gt;right, sum - root-&gt;val);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 构造二叉树</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">TreeNodeCreate</span><span class="params">(TreeNode* &amp;tree)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> val;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; val;</span><br><span class="line">	<span class="keyword">if</span> (val &lt; <span class="number">0</span>) <span class="comment">// 小于0表示空节点</span></span><br><span class="line">		tree = <span class="literal">NULL</span>;</span><br><span class="line">	<span class="keyword">else</span> &#123;</span><br><span class="line">		tree = <span class="keyword">new</span> TreeNode(val); <span class="comment">// 创建根节点</span></span><br><span class="line">		tree-&gt;val = val;</span><br><span class="line">		TreeNodeCreate(tree-&gt;left); <span class="comment">// 创建左子树</span></span><br><span class="line">		TreeNodeCreate(tree-&gt;right);<span class="comment">// 创建右子树</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	Solution s;</span><br><span class="line">	TreeNode* tree;</span><br><span class="line">	TreeNodeCreate(tree);</span><br><span class="line">	<span class="keyword">int</span> sum;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; sum;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; s.hasPathSum(tree, sum) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>计算机视觉作业五</p>
+<a id="more"></a>
+<p><strong>完整代码见github： <a href="https://github.com/linjiafengyang/ComputerVision/tree/master/Ex5" target="_blank" rel="noopener">https://github.com/linjiafengyang/ComputerVision/tree/master/Ex5</a></strong></p>
+<h2 id="迭代法求阈值"><a href="#迭代法求阈值" class="headerlink" title="迭代法求阈值"></a>迭代法求阈值</h2><h3 id="步骤如下："><a href="#步骤如下：" class="headerlink" title="步骤如下："></a>步骤如下：</h3><ol>
+<li>计算灰度图的直方图分布</li>
+<li>阈值threshold初始化为总灰度和的平均值</li>
+<li>计算小于等于阈值threshold的灰度平均值t1</li>
+<li>计算大于阈值threshold的灰度平均值t2</li>
+<li>计算新阈值<code>threshold_new = (t1 + t2) / 2</code></li>
+<li>比较两个阈值，若两个阈值相等，则返回阈值threshold，否则更新阈值从第3步继续循环</li>
+</ol>
+<h3 id="关键代码如下"><a href="#关键代码如下" class="headerlink" title="关键代码如下"></a>关键代码如下</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">// 求阈值</span><br><span class="line">int Iteration::iteration(const CImg&lt;float&gt;&amp; image) &#123;</span><br><span class="line">	// 灰度直方图初始化为0</span><br><span class="line">	for (int i = 0; i &lt; 256; i++) &#123;</span><br><span class="line">		histogram[i] = 0;</span><br><span class="line">	&#125;</span><br><span class="line">	pixelsNum = image.width() * image.height();</span><br><span class="line">	// 计算灰度直方图分布，Histogram数组下标是灰度值，保存内容是灰度值对应像素点数</span><br><span class="line">	cimg_forXY(image, i, j) &#123;</span><br><span class="line">		++histogram[int(image(i, j, 0))];</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	threshold = 0;</span><br><span class="line">	for (int i = 0; i &lt; 256; i++) &#123;</span><br><span class="line">		threshold += i * histogram[i];</span><br><span class="line">	&#125;</span><br><span class="line">	threshold /= pixelsNum; // 阈值初始化为总灰度和的平均值</span><br><span class="line"></span><br><span class="line">	int threshold_new;</span><br><span class="line">	while (1) &#123;</span><br><span class="line">		int t1 = 0, t2 = 0;</span><br><span class="line">		int num1 = 0, num2 = 0;</span><br><span class="line"></span><br><span class="line">		// 计算小于等于阈值threshold的灰度平均值t1</span><br><span class="line">		for (int i = 0; i &lt;= threshold; i++) &#123;</span><br><span class="line">			t1 += i * histogram[i];</span><br><span class="line">			num1 += histogram[i];</span><br><span class="line">		&#125;</span><br><span class="line">		if (num1 == 0) continue;</span><br><span class="line">		t1 /= num1;</span><br><span class="line"></span><br><span class="line">		// 计算大于阈值threshold的灰度平均值t2</span><br><span class="line">		for (int i = threshold + 1; i &lt; 256; i++) &#123;</span><br><span class="line">			t2 += i * histogram[i];</span><br><span class="line">			num2 += histogram[i];</span><br><span class="line">		&#125;</span><br><span class="line">		if (num2 == 0) continue;</span><br><span class="line">		t2 /= num2;</span><br><span class="line"></span><br><span class="line">		threshold_new = (t1 + t2) / 2;</span><br><span class="line">		// 若两个阈值相等，则返回阈值threshold，否则更新阈值继续循环</span><br><span class="line">		if (threshold == threshold_new) break;</span><br><span class="line">		else threshold = threshold_new;</span><br><span class="line">	&#125;</span><br><span class="line">	return threshold;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="OSTU法求阈值"><a href="#OSTU法求阈值" class="headerlink" title="OSTU法求阈值"></a>OSTU法求阈值</h2><h3 id="步骤如下"><a href="#步骤如下" class="headerlink" title="步骤如下"></a>步骤如下</h3><ol>
+<li>初始化一些参数，比如像素点总数pixelsNum等，然后计算灰度图的直方图分布</li>
+<li>从0到255开始循环：计算前景像素点总数和前景像素总灰度和</li>
+<li>计算前景像素平均灰度<code>m1(前景像素点总数/前景像素总灰度和)</code>和前景像素点数所占比例<code>P1(前景像素点总数/像素点总数pixelsNum</code></li>
+<li>计算背景像素点总数和背景像素总灰度和</li>
+<li>计算背景像素平均灰度<code>m2(背景像素点总数/背景像素总灰度和)</code>和背景像素点数所占比例<code>P2(背景像素点总数/像素点总数pixelsNum</code></li>
+<li>计算当前类间方差<code>temp_variance = P1 * P2 * (m1 - m2) * (m1 - m2)</code>，作比较更新类间方差和阈值</li>
+</ol>
+<h3 id="关键代码如下-1"><a href="#关键代码如下-1" class="headerlink" title="关键代码如下"></a>关键代码如下</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">// ostu算法求阈值</span><br><span class="line">int OSTU::ostu(const CImg&lt;float&gt;&amp; image) &#123;</span><br><span class="line">	variance = 0; // 类间方差初始化为0</span><br><span class="line">	// 灰度直方图初始化为0</span><br><span class="line">	for (int i = 0; i &lt; 256; i++) &#123;</span><br><span class="line">		histogram[i] = 0;</span><br><span class="line">	&#125;</span><br><span class="line">	pixelsNum = image.width() * image.height(); // 像素点总数</span><br><span class="line">	// 计算灰度直方图分布，Histogram数组下标是灰度值，保存内容是灰度值对应像素点数</span><br><span class="line">	cimg_forXY(image, i, j) &#123;</span><br><span class="line">		++histogram[int(image(i, j, 0))];</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	for (int i = 0; i &lt; 256; i++) &#123;</span><br><span class="line">		P1 = 0; P2 = 0; m1 = 0; m2 = 0;</span><br><span class="line">		for (int j = 0; j &lt;= i; j++) &#123;</span><br><span class="line">			P1 += histogram[j]; // 前景像素点总数</span><br><span class="line">			m1 += j * histogram[j]; // 前景部分像素总灰度和</span><br><span class="line">		&#125;</span><br><span class="line">		if (P1 == 0) continue;</span><br><span class="line">		m1 /= P1; // 前景像素平均灰度</span><br><span class="line">		P1 /= pixelsNum; // 前景像素点数所占比例</span><br><span class="line"></span><br><span class="line">		for (int j = i + 1; j &lt; 256; j++) &#123;</span><br><span class="line">			P2 += histogram[j]; // 背景像素点总数</span><br><span class="line">			m2 += j * histogram[j]; // 背景部分像素总灰度和</span><br><span class="line">		&#125;</span><br><span class="line">		if (P2 == 0) continue;</span><br><span class="line">		m2 /= P2; // 背景像素平均灰度</span><br><span class="line">		P2 /= pixelsNum; // 背景像素点数所占比例</span><br><span class="line"></span><br><span class="line">		double temp_variance = P1 * P2 * (m1 - m2) * (m1 - m2); // 当前类间方差</span><br><span class="line">		// 更新类间方差和阈值</span><br><span class="line">		if (variance &lt; temp_variance) &#123;</span><br><span class="line">			variance = temp_variance;</span><br><span class="line">			threshold = i;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return threshold;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="图像分割结果"><a href="#图像分割结果" class="headerlink" title="图像分割结果"></a>图像分割结果</h2><p>下面三张图左为原图右为分割结果图：<br><img src="https://raw.githubusercontent.com/linjiafengyang/Pictures/master/48.png" alt="这里写图片描述"></p>
+<p><img src="https://raw.githubusercontent.com/linjiafengyang/Pictures/master/49.png" alt="这里写图片描述"></p>
+<p><img src="https://raw.githubusercontent.com/linjiafengyang/Pictures/master/50.png" alt="这里写图片描述"></p>
+<h3 id="结果分析"><a href="#结果分析" class="headerlink" title="结果分析"></a>结果分析</h3><p>其实，这两种算法都有一定的局限性。造成结果好坏的原因主要有：</p>
+<ol>
+<li>A4纸本身褶皱，导致有阴影形成，利用阈值法进行图像分割时会形成噪声，会被误认为是背景。</li>
+<li>背景和前景区分不明显，即是说A4纸边缘和背景没有明显界面，如背景和A4纸一样偏白色时，此时做图像分割会非常困难。</li>
+<li>拍照时光线也会对图像分割形成一定干扰。</li>
+<li>算法本身的不足也对结果形成一定的影响。因为算法考虑的是全局阈值，全局阈值时针对整张图像而言，例如A4纸中的阴影（光线不足或者遮挡形成）会被误认为是小于等于阈值的背景。</li>
+<li>根据上述几点，可以得出分割结果好的拍摄要求大体是：A4纸无折痕，无褶皱，投射到A4纸的光线要充足且均匀，即亮度要平均，不能在A4纸上形成某一块阴影，与此同时应尽量使得背景和前景区分明显，才能做一个效果比较好的图像分割。</li>
+</ol>
+
       
     </div>
 
@@ -530,8 +546,6 @@
           
             <a href="/tags/CPP/" rel="tag"><i class="fa fa-tag"></i> CPP</a>
           
-            <a href="/tags/LeetCode/" rel="tag"><i class="fa fa-tag"></i> LeetCode</a>
-          
         </div>
       
 
@@ -543,8 +557,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/12/18/LeetCode-109-Convert-Sorted-List-to-Binary-Search-Tree/" rel="next" title="LeetCode 109. Convert Sorted List to Binary Search Tree">
-                <i class="fa fa-chevron-left"></i> LeetCode 109. Convert Sorted List to Binary Search Tree
+              <a href="/2018/05/19/论文笔记：FastXML-A-Fast-Accurate-and-Stable-Tree-classifier-for-eXtreme-Multi-label-Learning/" rel="next" title="论文笔记：FastXML_ A Fast, Accurate and Stable Tree-classifier for eXtreme Multi-label Learning">
+                <i class="fa fa-chevron-left"></i> 论文笔记：FastXML_ A Fast, Accurate and Stable Tree-classifier for eXtreme Multi-label Learning
               </a>
             
           </div>
@@ -552,10 +566,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/12/19/LeetCode-113-Path-Sum-II/" rel="prev" title="LeetCode 113. Path Sum II">
-                LeetCode 113. Path Sum II <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -731,7 +741,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#LeetCode-112-Path-Sum"><span class="nav-number">1.</span> <span class="nav-text">LeetCode 112. Path Sum</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Description"><span class="nav-number">2.</span> <span class="nav-text">Description:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Example"><span class="nav-number">3.</span> <span class="nav-text">Example:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分析："><span class="nav-number">4.</span> <span class="nav-text">分析：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码如下："><span class="nav-number">5.</span> <span class="nav-text">代码如下：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#迭代法求阈值"><span class="nav-number">1.</span> <span class="nav-text">迭代法求阈值</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#步骤如下："><span class="nav-number">1.1.</span> <span class="nav-text">步骤如下：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关键代码如下"><span class="nav-number">1.2.</span> <span class="nav-text">关键代码如下</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OSTU法求阈值"><span class="nav-number">2.</span> <span class="nav-text">OSTU法求阈值</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#步骤如下"><span class="nav-number">2.1.</span> <span class="nav-text">步骤如下</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关键代码如下-1"><span class="nav-number">2.2.</span> <span class="nav-text">关键代码如下</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图像分割结果"><span class="nav-number">3.</span> <span class="nav-text">图像分割结果</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#结果分析"><span class="nav-number">3.1.</span> <span class="nav-text">结果分析</span></a></li></ol></li></ol></div>
             
 
           </div>
