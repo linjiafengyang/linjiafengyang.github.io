@@ -480,33 +480,14 @@
 
       
         
-          
-            <a id="more"></a>
-<p><strong>答案来源自知乎</strong>：gitlab或github下fork后如何同步源的新更新内容？ - HyG cs的回答 - 知乎<br><a href="https://www.zhihu.com/question/28676261/answer/44606041" target="_blank" rel="noopener">https://www.zhihu.com/question/28676261/answer/44606041</a></p>
-<h2 id="开始：给fork配置远程库"><a href="#开始：给fork配置远程库" class="headerlink" title="开始：给fork配置远程库"></a>开始：给fork配置远程库</h2><p>首先确保你已经把仓库repository下载到本地，如若没有，请使用如下命令下载：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 注意：yourname是你的用户名，yourrepository是你fork的仓库</span><br><span class="line">git clone https://github.com/yourname/yourrepository.git</span><br></pre></td></tr></table></figure>
-<p>然后给fork配置远程库，使用如下命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote -v</span><br></pre></td></tr></table></figure>
-<p>查看远程状态，还未配置时类似如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">origin	https://github.com/linjiafengyang/WeTeam.git (fetch)</span><br><span class="line">origin	https://github.com/linjiafengyang/WeTeam.git (push)</span><br></pre></td></tr></table></figure>
-<p>再确定一个将被同步到fork远程的上游仓库，使用如下命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 注意：ORIGINAL_OWNER是你fork的作者用户名，ORIGINAL_REPOSITORY是源作着的仓库名</span><br><span class="line">git remote add upstream https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git</span><br></pre></td></tr></table></figure>
-<p>最后再次查看状态确认是否配置成功，如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote -v</span><br></pre></td></tr></table></figure>
-<p>成功时显示如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">origin	https://github.com/linjiafengyang/WeTeam.git (fetch)</span><br><span class="line">origin	https://github.com/linjiafengyang/WeTeam.git (push)</span><br><span class="line">upstream	https://github.com/Liekka/WeTeam.git (fetch)</span><br><span class="line">upstream	https://github.com/Liekka/WeTeam.git (push)</span><br></pre></td></tr></table></figure>
-<h2 id="接下来，同步fork"><a href="#接下来，同步fork" class="headerlink" title="接下来，同步fork"></a>接下来，同步fork</h2><p>首先从上游仓库fetch分支和提交点，提交给本地master，并会被存储在一个本地分支upstream/master，命令如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git fetch upstream</span><br></pre></td></tr></table></figure>
-<p>然后切换到本地主分支（如果不在本地主分支的话）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout master</span><br></pre></td></tr></table></figure>
-<p>再把upstream/master分支合并到本地master上，这样就完成了同步，并且不会丢掉本地修改的内容，命令如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git merge upstream/master</span><br></pre></td></tr></table></figure>
-<p>如果想更新到自己github的fork上，直接使用如下命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
-<p>即搞定，接下来pull request与否就取决于你了。</p>
-<p>完！</p>
-
-          
+          <p>github下fork后如何同步源的新更新内容？</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/06/12/备忘录：github下fork后如何同步源的新更新内容？/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
