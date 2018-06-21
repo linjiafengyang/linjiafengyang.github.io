@@ -101,20 +101,20 @@
 
 
 
-  <meta name="description" content="计算机视觉作业五">
+  <meta name="description" content="计算机视觉作业六">
 <meta name="keywords" content="CPP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Ex6：图像拼接">
 <meta property="og:url" content="https://linjiafengyang.github.io/2018/06/21/Ex6：图像拼接/index.html">
 <meta property="og:site_name" content="伪程序员的世界">
-<meta property="og:description" content="计算机视觉作业五">
+<meta property="og:description" content="计算机视觉作业六">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://raw.githubusercontent.com/linjiafengyang/Pictures/master/51.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/linjiafengyang/Pictures/master/52.png">
-<meta property="og:updated_time" content="2018-06-21T08:31:22.570Z">
+<meta property="og:updated_time" content="2018-06-21T08:35:59.360Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ex6：图像拼接">
-<meta name="twitter:description" content="计算机视觉作业五">
+<meta name="twitter:description" content="计算机视觉作业六">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/linjiafengyang/Pictures/master/51.png">
 
 
@@ -481,7 +481,7 @@
       
 
       
-        <p>计算机视觉作业五</p>
+        <p>计算机视觉作业六</p>
 <a id="more"></a>
 <p>完整代码见Github：<br><a href="https://github.com/linjiafengyang/ComputerVision/tree/master/Ex6" target="_blank" rel="noopener">Ex6 Image Stitching</a></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"ImageStitching.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="comment">// read image filenames</span></span><br><span class="line">	<span class="built_in">string</span> filepath = <span class="string">"../TEST-ImageData(2)/"</span>;</span><br><span class="line">	<span class="built_in">string</span> outputpath = <span class="string">"../result/"</span>;</span><br><span class="line">	<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; filenames;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// under ubuntu environment</span></span><br><span class="line">	DIR *dir;</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">dirent</span> *<span class="title">ptr</span>;</span></span><br><span class="line">	<span class="keyword">if</span> ((dir=opendir(filepath.c_str())) == <span class="literal">NULL</span>) &#123;</span><br><span class="line">		perror(<span class="string">"open directory error!"</span>);</span><br><span class="line">		<span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">while</span> ((ptr=readdir(dir)) != <span class="literal">NULL</span>) &#123;</span><br><span class="line">		<span class="keyword">if</span>(ptr-&gt;d_type == <span class="number">8</span>) </span><br><span class="line">			filenames.push_back(ptr-&gt;d_name);</span><br><span class="line">		<span class="keyword">else</span> </span><br><span class="line">			<span class="keyword">continue</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	closedir(dir);</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// run image stitching</span></span><br><span class="line">	ImageStitching stitch;</span><br><span class="line">	stitch.run(filepath, filenames);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
