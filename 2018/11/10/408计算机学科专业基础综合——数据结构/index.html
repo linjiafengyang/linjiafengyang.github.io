@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.1.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/github.ico?v=6.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/github.ico?v=6.1.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.1.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.1.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: 'LN4LXV8IAB',
+      apiKey: '90ebfafd072712068da61174d566b61c',
+      indexName: 'My_Blog',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="整理自王道单科">
+<meta property="og:type" content="article">
+<meta property="og:title" content="408计算机学科专业基础综合——数据结构">
+<meta property="og:url" content="https://linjiafengyang.github.io/2018/11/10/408计算机学科专业基础综合——数据结构/index.html">
+<meta property="og:site_name" content="伪程序员的世界">
+<meta property="og:description" content="整理自王道单科">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-11-10T13:36:51.622Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="408计算机学科专业基础综合——数据结构">
+<meta name="twitter:description" content="整理自王道单科">
+
+
+
+
+
+
+  <link rel="canonical" href="https://linjiafengyang.github.io/2018/11/10/408计算机学科专业基础综合——数据结构/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>408计算机学科专业基础综合——数据结构 | 伪程序员的世界</title>
+  
+
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?d62ec62ec2c41677b6ad9e62a7eaede3";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <a href="https://github.com/linjiafengyang" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> 
+
+<div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">伪程序员的世界</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Debug myself and debug the world!</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+          
+  
+  <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+</li>
+
+      
+        
+        
+          
+  
+  <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+</li>
+
+      
+        
+        
+          
+  
+  <li class="menu-item menu-item-categories menu-item-active">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+</li>
+
+      
+        
+        
+          
+  
+  <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+</li>
+
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+    
+
+  
+
+
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+  
+
+
+
+ </div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://linjiafengyang.github.io/2018/11/10/408计算机学科专业基础综合——数据结构/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="linjiafengyang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/me.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="伪程序员的世界">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">408计算机学科专业基础综合——数据结构</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-10T21:35:03+08:00">2018-11-10</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/程序人生/" itemprop="url" rel="index"><span itemprop="name">程序人生</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计：</span>
+                
+                <span title="字数统计">9.9k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长&asymp;</span>
+                
+                <span title="阅读时长">0:10</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>整理自王道单科</p>
+<a id="more"></a>
+<h2 id="第1章-绪论"><a href="#第1章-绪论" class="headerlink" title="第1章 绪论"></a>第1章 绪论</h2><h3 id="1-1-数据结构的基本概念"><a href="#1-1-数据结构的基本概念" class="headerlink" title="1.1 数据结构的基本概念"></a>1.1 数据结构的基本概念</h3><p><strong>数据元</strong>是数据的基本单位，一个<strong>数据元素</strong>可由若干个<strong>数据项</strong>完成，<strong>数据项</strong>是构成<strong>数据元素</strong>的不可分割的最小单位。例如，学生记录就是一个数据元素，它由学号、姓名、性别等数据项组成。</p>
+<p><strong>数据对象</strong>是具有<strong>相同性质的数据元素</strong>的集合，是数据的一个子集。</p>
+<p><strong>数据类型</strong>是一个值的集合和定义在此集合上一组操作的总称。</p>
+<ul>
+<li>原子类型：其值不可再分的数据类型</li>
+<li>结构类型：其值可以再分解为若干成分（分量）的数据类型</li>
+<li><strong>抽象数据类型</strong>：抽象数据组织和与之相关的操作</li>
+</ul>
+<p><strong>抽象数据类型（ADT）</strong>是指一个数学模型以及定义在该模型上的一组操作。抽象数据类型的定义<strong>仅取决于它的一组逻辑特性</strong>，而与其在计算机内部如何表示和实现无关。通常用（<strong>数据对象、数据关系、基本操作集</strong>）这样的三元组来表示。</p>
+<p><strong>数据结构的三要素：</strong></p>
+<ol>
+<li><strong>逻辑结构</strong>是指数据元素之间的逻辑关系，即从逻辑关系上描述数据，独立于计算机。分为线性结构和非线性结构，线性表、栈、队列属于线性结构，树、图、集合属于非线性结构。</li>
+<li><strong>存储结构</strong>是指数据结构在计算机中的表示（又称映像），也称物理结构，包括数据元素的表示和关系的表示，依赖于计算机语言，分为顺序存储（随机存取）、链式存储（无碎片）、索引存储（检索速度快）、散列存储（检索、增加、删除快）。</li>
+<li><strong>数据的运算</strong>：包括运算的定义和实现。运算的定义是针对逻辑结构的，指出运算的功能；运算的实现是针对存储结构的，指出运算的具体操作步骤。</li>
+</ol>
+<p><strong><em>选择题</em></strong></p>
+<p>1.可以用（抽象数据类型）定义一个完整的数据结构。</p>
+<p>3.以下属于逻辑结构的是（有序表）<br>A 顺序表 B 哈希表 C 有序表 D 单链表</p>
+<p>4.以下与数据的存储结构无关的术语是（栈）<br>A 循环队列 B 链表 C 哈希表 D 栈</p>
+<p>6.在存储数据时，通常不仅要存储各数据元素的值，还要存储（数据元素之间的关系）</p>
+<p>7.链式存储设计时，结点内的存储单元地址（一定连续），不同结点间可以（不连续）</p>
+<h3 id="1-2-算法和算法评价"><a href="#1-2-算法和算法评价" class="headerlink" title="1.2 算法和算法评价"></a>1.2 算法和算法评价</h3><p>算法是对特定问题求解步骤的一种描述，有五个特性：<strong>有穷性、确定性、可行性、输入、输出</strong>。一个算法有<strong>零个或多个的输入</strong>，有<strong>一个或多个的输出</strong>。</p>
+<p><strong>时间复杂度</strong>是指该语句在算法中被重复执行的次数，不仅依赖于问题的规模n，也取决于待输入数据的性质。</p>
+<p><strong>空间复杂度</strong>定义为该算法所耗费的存储空间。<strong>算法原地工作</strong>是指算法所需辅助空间是常量，即O(1)。</p>
+<h2 id="第2章-线性表"><a href="#第2章-线性表" class="headerlink" title="第2章 线性表"></a>第2章 线性表</h2><h3 id="2-1-线性表的定义和基本操作"><a href="#2-1-线性表的定义和基本操作" class="headerlink" title="2.1 线性表的定义和基本操作"></a>2.1 线性表的定义和基本操作</h3><p><strong>线性表</strong>是具有<strong>相同数据类型</strong>的n个<strong>数据元素</strong>的<strong>有限</strong>序列。除第一个元素外，每个元素有且仅有一个直接前驱；除最后一个元素外，每个元素有且仅有一个直接后继。</p>
+<p><strong>注意：线性表是一种逻辑结构，表示元素之间一对一的相邻关系。顺序表和链表是指存储结构</strong>。两者属于不同层面的概念，因此不要混淆。</p>
+<p><strong><em>选择题</em></strong></p>
+<p>2.以下（由100个字符组成的序列）是一个线性表。<br>A 由n个实数组成的集合 B 由100个字符组成的序列<br>C 所有整数组成的序列（无穷） D 邻接表（存储结构）</p>
+<h3 id="2-2-线性表的顺序表示"><a href="#2-2-线性表的顺序表示" class="headerlink" title="2.2 线性表的顺序表示"></a>2.2 线性表的顺序表示</h3><p><strong>线性表的顺序存储又称为顺序表</strong>。它是用一组地址连续的存储单元，依次存储线性表中的数据元素，从而使得逻辑上相邻的两个元素在物理位置上也相邻。</p>
+<p>顺序表的特点是表中元素的逻辑顺序与其物理顺序相同。<br>顺序表最主要的特点是<strong>随机访问（随机存取），即通过首地址和元素序号可以在O(1)的时间内找到指定的元素。但插入和删除操作需要移动大量元素</strong>。<br>顺序表的存储密度高，每个结点只存储数据元素。</p>
+<p><strong>顺序表插入操作：<br>最好情况：在表尾插入，元素后移语句不执行，时间复杂度为O(1)<br>最坏情况：在表头插入，元素后移语句将执行n次，时间复杂度为O(n)<br>平均情况：平均时间复杂度为O(n)</strong></p>
+<p><strong>顺序表删除操作：<br>最好情况：删除表尾元素，无需移动元素，时间复杂度为O(1)<br>最坏情况：删除表头元素，需要移动除第一个元素外的所有元素，时间复杂度为O(n)<br>平均情况：平均时间复杂度为O(n)</strong></p>
+<p><strong>顺序表按值查找（顺序查找）：<br>最好情况：查找的元素就在表头，仅需比较一次，时间复杂度为O(1)<br>最坏情况：查找的元素在表尾或不存在时，需要比较n次，时间复杂度为O(n)<br>平均情况：平均时间复杂度为O(n)</strong></p>
+<p><strong><em>选择题</em></strong></p>
+<p>4.若线性表最常用的操作是存取第i个元素及其前驱和后继元素的值，为了提高效率，应采用（顺序表）的存储方式。</p>
+<p>5.一个线性表最常用的操作是存取任一指定序号的元素和在最后进行插入删除操作，则利用（顺序表）存储方式可以节省时间。</p>
+<p>10.若长度为n的非空线性表采用顺序存储结构，在表的第i个位置插入一个数据元素，i的合法值应该是（1 ≤ i ≤ n+1）</p>
+<h3 id="2-3-线性表的链式表示"><a href="#2-3-线性表的链式表示" class="headerlink" title="2.3 线性表的链式表示"></a>2.3 线性表的链式表示</h3><p>链式存储线性表时，不需要使用地址连续的存储单元，即它不要求逻辑上相邻的两个元素在物理位置上也相邻，对线性表的插入和删除不需要移动元素，只需要修改指针。</p>
+<p><strong>单链表是非随机存储的存储结构</strong>，即不能直接找到表中某个特定的结点。</p>
+<p><strong>头结点和头指针的区分</strong>：不管带不带头结点，头指针始终指向链表的第一个结点，而头结点是带头结点链表中的第一个结点，结点内通常不存储信息。</p>
+<p><strong>采用头插法建立单链表</strong>：从一个空表开始，生成新结点，并将读取到的数据存放在新结点的数据域中，然后将新结点插入到当前链表的表头，即头结点之后。<br>读入数据的顺序与生成的链表中元素的顺序是相反的。<br>每个结点插入的时间为O(1)，设单链表长为n，则总的时间复杂度为O(n)。</p>
+<p><strong>采用尾插法建立单链表</strong>：将新结点插入到当前链表的表尾上，为此必须增加一个尾指针r，使其始终指向当前链表的尾结点。<br>时间复杂度和头插法相同。</p>
+<p><strong>按序号查找结点值</strong>：在单链表中从第一个结点出发，顺指针next域逐个往下搜索，直到找到第i个结点为止，否则返回最后一个结点指针域NULL。<br>时间复杂度为O(n)。</p>
+<p><strong>按值查找表结点</strong>：从单链表第一个结点出发，由前往后依次比较表中各结点数据域的值，若某结点数据域的值等于给定值e，则返回该结点的指针，否则返回NULL。<br>时间复杂度为O(n)。</p>
+<p><strong>插入结点操作</strong>：先检查插入位置的合法性，然后找到待插入位置的前驱结点，即第i-1个结点，再在其后插入新结点。<br>主要的时间开销在于查找第i-1个元素，时间复杂度为O(n)。若是在给定的结点后面插入新结点，则时间复杂度仅为O(1)。</p>
+<p><strong>删除结点操作</strong>：先检查删除位置的合法性，然后找到待删除位置的前驱结点，即第i-1个结点，再将其删除。<br>时间复杂度为O(n)。</p>
+<p><strong>双链表</strong>结点中有两个指针prior和next，分别指向其前驱结点和后继结点。双链表中执行按值查找和按位查找的操作和单链表相同，但双链表插入、删除操作的时间复杂度仅为O(1)。</p>
+<p><strong>循环单链表</strong>和单链表的区别在于，表中最后一个结点的指针不是NULL，而改为指向头结点，从而整个链表形成一个环。故表中没有指针域为NULL的结点。<br><strong>循环双链表</strong> L中，某结点*p为尾结点时，p-&gt;next=L；当循环双链表为空表时，其头结点的prior域和next域都等于L。</p>
+<p><strong>静态链表是借助数组来描述线性表的链式存储结构</strong>，结点也有数据域data和指针域next，这里的指针是结点的相对地址（数组下标），又称为游标。</p>
+<p><strong>顺序表和链表的比较：</strong></p>
+<ol>
+<li>存取方式：顺序表可以顺序存取，也可以随机存取，链表只能从表头顺序存取元素。</li>
+<li>逻辑结构与物理结构：采用顺序存储时，逻辑上相邻的元素，其对应的物理存储位置也相邻。而采用链式存储时，逻辑上相邻的元素，其物理存储位置则不一定相邻。</li>
+<li>查找、插入和删除操作：对于按值查找，当顺序表在无序的情况下，两者的时间复杂度均为O(n)；而当顺序表有序时，可采用折半查找，时间复杂度为O(logn)。对于按序号查找，顺序表支持随机访问，时间复杂度仅为O(1)，而链表的平均时间复杂度为O(n)。链表插入、删除较优，只需修改相关结点的指针域即可。</li>
+<li>空间分配：链式存储的结点空间只在需要的时候申请分配。</li>
+<li>通常较稳定的线性表选择顺序存储，而频繁做插入、删除操作的线性表（即动态性较强）宜选择链式存储。</li>
+</ol>
+<p><strong><em>选择题</em></strong></p>
+<p>2.对于一个线性表即要求能够进行较快速地插入和删除，又要求存储结构能反映数据之间的逻辑关系，则应该用链式存储方式。</p>
+<p>4.下列关于线性表说法正确的是（D）<br>I. 顺序存储方式只能用于存储线性结构（同样适合图和树的存储，如满二叉树的顺序存储）<br>II. 取线性表的第i个元素的时间与i的大小有关（无关，顺序存储）<br>III. 静态链表需要分配较大的连续空间，插入和删除不需要移动元素<br>IV. 在一个长度为n的有序单链表中插入一个新结点并仍保持有序的时间复杂度为O(n)<br>V. 若用单链表来表示队列，则应该选用带尾指针的循环链表<br>A I、II B I、III、IV、V C IV、V D III、IV、V</p>
+<p>7.给定有n个元素的一维数组，建立一个有序单链表的最低时间复杂度是（O(nlogn)）</p>
+<p>8.将长度为n的单链表链接在长度为m的单链表后面，其算法的时间复杂度为O(m)</p>
+<p>9.单链表中，增加一个头结点的目的是为了（方便运算的实现）。</p>
+<p>10.在一个长度为n的带头结点的单链表h上，设有尾指针r，则执行（删除单链表中最后一个元素）操作与链表的表长有关。</p>
+<p>11.对于一个头指针为head的带头结点的单链表，判定该表为空表的条件是（head-&gt;next==NULL）；对于不带头结点的单链表，则判定空表的条件是（head == NULL）</p>
+<p>13.某线性表中最常见的操作是在最后一个元素之后插入一个元素和删除第一个元素，则采用（<strong>仅有尾指针的单循环链表</strong>）存储方式最省时间。</p>
+<p>18.与单链表相比，双链表的优点之一是（访问前后相邻结点更灵活）。</p>
+<p>19.带空结点的双循环链表L为空的条件是（L-&gt;prior==L &amp;&amp; L-&gt;next == L）</p>
+<p>20.一个链表最常用的操作是在末尾插入结点和删除结点，则选用（<strong>带头结点的双循环链表</strong>）最节省时间。</p>
+<p>21.设对n个元素的线性表的运算只有4种：删除第一个元素；删除最后一个元素；在第一个元素之前插入新元素；在最后一个元素之后插入新元素，则最好使用（<strong>只有头结点指针没有尾结点指针的循环双链表</strong>）。</p>
+<p>22.一个链表最常用的操作是在最后一个元素之后插入一个元素和删除第一个元素，则选用（<strong>不带头结点且有尾指针的单循环链表</strong>）最节省时间。</p>
+<p>25.需要分配较大的空间，插入和删除不需要移动元素的线性表，其存储结构为（静态链表）。</p>
+<h2 id="第3章-栈和队列"><a href="#第3章-栈和队列" class="headerlink" title="第3章 栈和队列"></a>第3章 栈和队列</h2><h3 id="3-1-栈"><a href="#3-1-栈" class="headerlink" title="3.1 栈"></a>3.1 栈</h3><p>栈：后进先出（LIFO），又称为后进先出的线性表</p>
+<p><strong>顺序栈</strong>的实现：<br><strong>栈顶指针</strong>：S.top，初始时设置<strong>S.top=-1</strong>；<strong>栈顶元素</strong>：S.data[S.top]。<br><strong>进栈操作</strong>：栈不满时，<strong>栈顶指针先加1，再送值到栈顶元素。S.data[++S.top]=x</strong>。<br><strong>出栈操作</strong>：栈非空时，<strong>先取栈顶元素值，再将栈顶指针减1。x=S.data[S.top–]</strong>。<br><strong>栈空条件：S.top==-1；栈满条件：S.top==Maxsize-1；栈长：S.top+1</strong></p>
+<p><strong>注意</strong>：如果栈顶指针初始化为S.top=0，即栈顶指针指向栈顶元素的下一个位置，则入栈操作变为S.data[S.top++]=x；出栈操作变为x=S.data[–S.top]。相应的栈空、栈满条件也会发生变化。</p>
+<p><strong>共享栈</strong>：利用栈底位置相对不变的特性，可以让两个顺序栈共享一个一维数据空间，将两个栈的栈底分别设置在共享空间的两端，两个栈顶向共享空间的中间延伸。<br>两个栈的栈顶指针都指向栈顶元素，<strong>top0=-1时0号栈为空，top1=Maxsize时1号栈为空；</strong>仅当两个栈顶指针相邻（<strong>top1-top0=1</strong>）时，判断为<strong>栈满</strong>。<strong>当0号栈进栈时top0先加1再赋值，1号栈进栈时top1先减1再赋值；出栈时刚好相反，0号栈先出栈再减1，1号栈先出栈再加1.</strong><br>共享栈是为了更有效地利用存储空间，其存取数据的时间复杂度均为O(1)。</p>
+<p><strong>链栈</strong>的优点是便于多个栈共享存储空间和提高其效率，且不存在栈满上溢的情况。通常<strong>采用单链表实现，并规定所有操作都是在单链表的表头进行的</strong>。这里规定链栈没有头结点，Lhead指向栈顶元素。<br>采用链式存储，便于结点的插入和删除。对于带头结点和不带头结点的链栈，在具体的实现方面有所不同。</p>
+<p><strong><em>选择题</em></strong></p>
+<p>1.栈和队列具有相同的（逻辑结构）。</p>
+<p>2.栈是（限制存取点的线性结构）。<br>A 顺序存储的线性结构（还有链栈，非顺序存储） B 链式存储的非线性结构<br>C 限制存取点的线性结构 D限制存取点的非线性结构（栈肯定是线性结构）</p>
+<p>7.设链表不带头结点且所有操作均在表头进行，则下列最不适合作为链栈的是（只有表头结点指针，没有表尾指针的单向循环链表）。</p>
+<p>11.3个不同的元素依次进栈，能得到（5）中不同的出栈序列。1/(n+1) <em> ((2n)!/(n! </em> n!)）</p>
+<p>26.采用共享栈的好处是（节省存储空间，降低发生上溢的可能）。</p>
+<p>27.下列关于栈的叙述中，错误的是（I、III、IV）<br>I. 采用非递归方式重写递归程序时必须使用栈（反例：斐波那契数列一个循环即可）<br>II. 函数调用时，系统要用栈保存必要的信息<br>III. 只要确定了入栈次序，即可确定出栈次序（不确定）<br>IV. 栈是一种受限的线性表，允许在其两端进行操作（一端而已，栈顶）</p>
+<h3 id="3-2-队列"><a href="#3-2-队列" class="headerlink" title="3.2 队列"></a>3.2 队列</h3><p><strong>队列</strong>也是一种操作受限的线性表，只允许在表的一端进行插入，而在表的另一端进行删除。（先进先出的线性表）</p>
+<p><strong>队列的顺序实现</strong>是指分配一块连续的存储单元存放队列中的元素，并附设两个指针front和rear分别指示队头元素和队尾元素的位置。设队头指针指向队头元素，队尾指针指向队尾元素的下一个位置（也可以让rear指向队尾元素，front指向队头元素的前一个位置）。<br><strong>初始状态（队空条件）：Q.front==Q.rear == 0.<br>进队操作：队不满时，先送值到队尾元素，再将队尾指针加1。<br>出队操作：队不空时，先取队头元素值，再将队头指针加1.</strong></p>
+<p><strong>循环队列</strong>，即把存储队列元素的表从逻辑上看成一个环。<br><strong>初始时：Q.front==Q.rear == 0.<br>出队：队首指针进1，Q.front=(Q.front+1)%MaxSize<br>入队：队尾指针进1，Q.rear=(Q.rear+1)%MaxSize<br>队列长度：(Q.rear+MaxSize-Q.front)%MaxSize<br>出队入队时：指针都按顺时针方向进1.</strong></p>
+<p><strong>为了区分队空还是队满的情况，有三种处理方式：</strong><br>1）牺牲一个单元来区分队空和队满，队头指针在队尾指针的下一位置作为队满的标志：<br><strong>队满条件为：(Q.rear+1)%MaxSize == Q.front<br>队空条件仍为：Q.front==Q.rear<br>队列中元素的个数：(Q.rear-Q.front+MaxSize)%MaxSize</strong><br>2）类型中增设表示元素个数的数据成员：<br>队空条件为：Q.size== 0<br>队满条件为：Q.size == Maxsize<br>3）类型中增设tag数据成员，以区分是队满还是队空。</p>
+<p><strong>队列的链式表示</strong>称为链队列，是一个同时带有队头指针和队尾指针的单链表。头指针指向队头结点，尾指针指向队尾结点，即单链表的最后一个结点。<br>当Q.front==NULL &amp;&amp; Q.rear == NULL时，链式队列为空。</p>
+<p><strong>双端队列</strong>是指允许两端都可以进行入队和出队操作的队列，其元素的逻辑结构仍是线性结构。<br><strong>输出受限的双端队列</strong>：允许在一端进行插入和删除，但在另一端只允许插入。<br><strong>输入受限的双端队列</strong>：允许在一端进行插入和删除，但在另一端只允许删除。</p>
+<p><strong>设有一个双端队列，输入序列为1,2,3,4：<br>（1）能由输入受限的双端队列得到，但不能由输出受限的双端队列得到的输出序列是4,1,3,2<br>（2）能由输出受限的双端队列得到，但不能由输入受限的双端队列得到的输出序列是4,2,1,3<br>（3）既不能由输入受限的双端队列得到，又不能由输出受限的双端队列得到的输出序列是4,2,3,1</strong></p>
+<p><strong><em>选择题</em></strong></p>
+<p>11.最适合用做链队的链表是（<strong>带队首指针和队尾指针的非循环单链表</strong>）。</p>
+<p>12.最不适合用做链式队列的链表是（<strong>只带队首指针的非循环双链表</strong>）。</p>
+<p>13.在用单链表实现队列时，队头在链表的（链头）位置。</p>
+<p>14.用链式存储方式的队列进行删除操作时需要（头尾指针可能都要修改）</p>
+<p>15.在一个链队列中，假设队头指针为front，队尾指针为rear，x所指向的元素需要入队，则需要执行的操作为（rear-&gt;next=x, x-&gt;next=null, rear=x）</p>
+<p>16.假设循环单链表表示的队列长度为n，队头固定在链表表尾，若只设头指针，则进队操作的时间复杂度为（O(n)）</p>
+<h3 id="栈和队列的应用"><a href="#栈和队列的应用" class="headerlink" title="栈和队列的应用"></a>栈和队列的应用</h3><p><strong>栈的应用</strong>：括号匹配、表达式求值、递归<br><strong>队列的应用</strong>：层次遍历、计算机系统</p>
+<p><strong><em>选择题</em></strong></p>
+<p>9.执行（广度优先搜索图）操作时，需要使用队列作为辅助存储空间。</p>
+<h3 id="3-4-特殊矩阵的压缩存储"><a href="#3-4-特殊矩阵的压缩存储" class="headerlink" title="3.4 特殊矩阵的压缩存储"></a>3.4 特殊矩阵的压缩存储</h3><p>数组是由n个相同类型的数据元素构成的有限序列。</p>
+<p><strong>数组的存储结构：</strong><br>一维数组<br>多维数组：按行优先和按列优先</p>
+<p><strong>矩阵的压缩存储：</strong><br>对称矩阵、上（下）三角矩阵、对角矩阵</p>
+<p><strong>对称矩阵</strong>：将对称矩阵A[1…n][1…n]存放在一维数组B[n(n+1)/2]中，只存放主对角线和下三角区的元素。元素下标之间的对应关系如下（<strong>数组下标从0开始</strong>）：<br><strong>k=i(i-1)/2+j-1（当i≥j，即下三角区和主对角线元素）<br>k=j(j-1)/2+i-1（当i&lt;j，即上三角区元素）</strong></p>
+<p><strong>三角矩阵</strong>：<br>将<strong>下三角矩阵</strong>A[1…n][1…n]存放在一维数组B[n(n+1)/2+1]中，存储下三角区和主对角线上的元素，以及存储对角线上方的常量一次。元素下标之间的对应关系如下（<strong>数组下标从0开始</strong>）：<br><strong>k=i(i-1)/2+j-1（当i≥j，即下三角区和主对角线元素）<br>k=n(n+1)/2（当i&lt;j，即上三角区元素）</strong></p>
+<p>将<strong>上三角矩阵</strong>A[1…n][1…n]存放在一维数组B[n(n+1)/2+1]中，存储上三角区和主对角线上的元素，以及存储对角线下方的常量一次。元素下标之间的对应关系如下（<strong>数组下标从0开始</strong>）：<br><strong>k=(i-1)(2n-i+2)/2+(j-i)（当i≤j，即上三角区和主对角线元素）<br>k=n(n+1)/2（当i&gt;j，即下三角区元素）</strong></p>
+<p><strong>三对角矩阵</strong>：三对角矩阵3条对角线上的元素Ai,j在一维数组B中存放的下标为<strong>k=2i+j-3</strong>；反之，若已知三对角矩阵中某元素Ai,j在一维数组B中存放于第k个位置，则可求得<strong>i=(k+1)/3+1（向下取整），j=k-2i+3</strong>.</p>
+<p><strong>稀疏矩阵</strong>：将非零元素及其相应的行和列构成一个三元组（行标，列标，值）。</p>
+<p><strong><em>选择题</em></strong></p>
+<p><strong>注意：数组下标从0开始还是从1开始，按列优先存储还是按行优先存储</strong></p>
+<p>9.适用于压缩存储稀疏矩阵的两种存储结构是（<strong>三元组表和十字链表</strong>）</p>
+<h2 id="第4章-树与二叉树"><a href="#第4章-树与二叉树" class="headerlink" title="第4章 树与二叉树"></a>第4章 树与二叉树</h2><h3 id="4-1-树的基本概念"><a href="#4-1-树的基本概念" class="headerlink" title="4.1 树的基本概念"></a>4.1 树的基本概念</h3><p>树是N个结点的有限集合，N=0时，称为空树。<br>树中一个结点的子结点个数称为该<strong>结点的度</strong>，树中结点的最大度数称为<strong>树的度</strong>。<br>结点的层次从树根开始定义，<strong>根结点为第1层</strong>。<br><strong>结点的深度</strong>是从根结点开始自顶向下逐层累加的；<strong>结点的高度</strong>时从叶结点开始自底向上逐层累加的。<br><strong>树的高度</strong>（又称<strong>深度</strong>）是树中结点的最大层数。<br>树中两个结点之间的<strong>路径</strong>是由这两个结点之间所经过的<strong>结点序列</strong>构成的，而<strong>路径长度</strong>是路径上所经过的<strong>边的个数</strong>。</p>
+<p><strong>树的性质：<br>1）树中的结点数等于所有结点的度数加1.<br>2）度为m的树中第i层上至多有m^(i-1)个结点（i≥1）。<br>3）高度为h的m叉树至多有(m^h-1)/(m-1)个结点。<br>4）具有n个结点的m叉树的最小高度为logm (n(m-1)+1)向上取整。</strong></p>
+<p><strong><em>选择题</em></strong></p>
+<p>1.树最适合用来表示（元素之间具有分支层次关系）的数据。</p>
+<p>3.树的路径长度是从树根到每一结点的路径长度的（总和）。</p>
+<h3 id="4-2-二叉树的概念"><a href="#4-2-二叉树的概念" class="headerlink" title="4.2 二叉树的概念"></a>4.2 二叉树的概念</h3><p><strong>二叉树</strong>：每个结点至多只有两棵子树（即二叉树不存在度大于2的结点），子树有左右之分，不能任意颠倒次序。</p>
+<p><strong>满二叉树</strong>：一棵高度为h，并且含有<strong>2^h-1</strong>个结点的二叉树称为满二叉树，即树中的每一层都含有最多的结点，除叶子结点之外的每个结点度数均为2.对于编号为i的结点，<strong>如果有双亲，其双亲为i/2（向下取整），如果有左孩子，则左孩子为2i，如果有右孩子，则右孩子为2i+1.</strong></p>
+<p><strong>完全二叉树</strong>：设一个高度为h，有n个结点的二叉树，当且仅当其每一个结点都与高度为h的满二叉树中编号为1~n的结点一一对应时，称为完全二叉树。<br><strong>1）若i≤n/2（向下取整），则结点i为分支结点，否则为叶子结点。<br>2）叶子结点只可能在层次最大的两层上出现。对于最大层次中的叶子结点，都依次排列在该层最左边的位置上。<br>3）如果有度为1的结点，只可能有一个，且该结点只有左孩子而无右孩子。<br>4）若n为奇数，则每个分支结点都有左子女和右子女；若n为偶数，则编号最大的分支结点（编号为n/2）只有左子女，没有右子女，其余分支结点左右子女都有。</strong></p>
+<p><strong>二叉排序树</strong>：左子树上所有结点的关键字均小于根结点的关键字，右子树上所有结点的关键字均大于根结点的关键字。</p>
+<p><strong>平衡二叉树</strong>：树上任一结点的左子树和右子树的深度之差不超过1.</p>
+<p><strong>二叉树的性质：<br>1）非空二叉树上叶子结点等于度为2的结点数加1，即N0=N2+1<br>2）非空二叉树上第k层上至多有2^(k-1)个结点<br>3）高度为H的二叉树至多有2^H-1个结点<br>4）对完全二叉树按从上到下、从左到右的顺序依次编号1~N，则有以下关系：<br>a. 当i&gt;1时，结点i的双亲结点编号为i/2（向下取整）<br>b. 当2i≤N时，结点i的左孩子编号为2i，否则无左孩子<br>c. 当2i+1小于等于N时，结点i的右孩子编号为2i+1，否则无右孩子。<br>d. 结点i所在层次（深度）为log2 i（向下取整）+1<br>5）具有N个结点的完全二叉树的高度为log2 (N+1)（向上取整）或log2 N（向下取整）+1</strong></p>
+<p><strong>二叉树的顺序存储结构</strong>就是用一组地址连续的存储单元依次自上而下、自左至右存储完全二叉树上的结点元素。<br>完全二叉树和满二叉树采用顺序存储比较合适。<br><strong>注意</strong>：二叉树属于树，都可以用树的存储结构来存储，但是树却不都能用二叉树的存储结构来存储。</p>
+<p><strong>二叉树的链式存储结构</strong>：链式结构是指用一个链表来存储一棵二叉树，二叉树中每一个结点用链表的一个链结点来存储。二叉链表至少包含三个域：数据域data、左指针域lchild、右指针域rchild。<br><strong>在含有n个结点的二叉链表中含有n+1个空链域。</strong></p>
+<h3 id="4-3-二叉树的遍历和线索二叉树"><a href="#4-3-二叉树的遍历和线索二叉树" class="headerlink" title="4.3 二叉树的遍历和线索二叉树"></a>4.3 二叉树的遍历和线索二叉树</h3><p><strong>先序遍历PreOrder</strong>：访问根结点，先序遍历左子树，先序遍历右子树<br><strong>中序遍历InOrder</strong>：中序遍历左子树，访问根结点，中序遍历右子树<br><strong>后序遍历PostOrder</strong>：后序遍历左子树，后序遍历右子树，访问根结点<br>时间复杂度均为O(n)，在递归遍历中，递归工作栈的栈深恰好为树的高度。</p>
+<p><strong>层次遍历：需要借助一个队列</strong>。先将二叉树根结点入队，然后出队，访问该结点，如果它有左子树，则将左子树根结点入队；如果它有右子树，则将右子树根结点入队。然后出队，对出队结点访问，如此反复，直到队列为空。</p>
+<p>由二叉树的<strong>先序序列和中序序列</strong>可以唯一确定一棵二叉树；<br>由二叉树的<strong>后序序列和中序序列</strong>可以唯一确定一棵二叉树；<br>由二叉树的<strong>层序序列和中序序列</strong>可以唯一确定一棵二叉树。<br>如果只知道二叉树的先序序列和后序序列，则无法确定一棵二叉树。</p>
+<p><strong>线索二叉树：为了加快查找结点前驱和后继的速度。</strong><br>在<strong>二叉树线索化</strong>时，通常规定：若无左子树，令lchild指向其前驱结点；若无右子树，令rchild指向其后继结点，还需要增加那个标志域表明当前指针域所指对象时指向左（右）子结点还是直接前驱（后继）。<br>ltag=0（lchild域指示结点的左孩子）<br>ltag=1（lchild域指示结点的前驱）<br>rtag=0（rchild域指示结点的右孩子）<br>rtag=1（rchild域指示结点的后继）</p>
+<p><strong><em>选择题</em></strong></p>
+<p>22.引入线索二叉树的目的是（加快查找结点的前驱和后继的速度）。</p>
+<p>23.线索二叉树是一种（物理）结构。</p>
+<p>24.n个结点的线索二叉树上含有的线索数为（n+1）</p>
+<p>29.二叉树在线索化后，仍不能有效求解的问题是（后序线索二叉树中求后序后继）<br>A 先序线索二叉树中求先序后继<br>B 中序线索二叉树中求中序后继<br>C 中序线索二叉树中求中序前驱<br>D 后序线索二叉树中求后序后继</p>
+<p>31.（后序线索树）的遍历仍需要栈的支持<br>A 前序线索树 B 中序线索树 C 后序线索树 D 所有线索树</p>
+<p>34.先序序列为a,b,c,d的不同二叉树的个数是（14）(1/(n+1) <em> (2n!)/(n! </em> n!))</p>
+<h3 id="4-4-树、森林"><a href="#4-4-树、森林" class="headerlink" title="4.4 树、森林"></a>4.4 树、森林</h3>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+	<div>
+	  
+		<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">------本文结束<i class="fa fa-paw"></i>感谢阅读------</div>
+    
+</div>
+	  
+	</div>
+	
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/08/图表作文四星级真题/" rel="next" title="图表作文四星级真题">
+                <i class="fa fa-chevron-left"></i> 图表作文四星级真题
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/me.jpg"
+                alt="linjiafengyang" />
+            
+              <p class="site-author-name" itemprop="name">linjiafengyang</p>
+              <p class="site-description motion-element" itemprop="description">Debug myself and debug the world!</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">115</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/linjiafengyang" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://blog.csdn.net/sinat_31790817" target="_blank" title="CSDN"><i class="fa fa-fw fa-angellist"></i>CSDN</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第1章-绪论"><span class="nav-number">1.</span> <span class="nav-text">第1章 绪论</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-数据结构的基本概念"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 数据结构的基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-算法和算法评价"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 算法和算法评价</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第2章-线性表"><span class="nav-number">2.</span> <span class="nav-text">第2章 线性表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-线性表的定义和基本操作"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 线性表的定义和基本操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-线性表的顺序表示"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 线性表的顺序表示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-线性表的链式表示"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 线性表的链式表示</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第3章-栈和队列"><span class="nav-number">3.</span> <span class="nav-text">第3章 栈和队列</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-栈"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 栈</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-队列"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 队列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#栈和队列的应用"><span class="nav-number">3.3.</span> <span class="nav-text">栈和队列的应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-特殊矩阵的压缩存储"><span class="nav-number">3.4.</span> <span class="nav-text">3.4 特殊矩阵的压缩存储</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第4章-树与二叉树"><span class="nav-number">4.</span> <span class="nav-text">第4章 树与二叉树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-树的基本概念"><span class="nav-number">4.1.</span> <span class="nav-text">4.1 树的基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-二叉树的概念"><span class="nav-number">4.2.</span> <span class="nav-text">4.2 二叉树的概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-二叉树的遍历和线索二叉树"><span class="nav-number">4.3.</span> <span class="nav-text">4.3 二叉树的遍历和线索二叉树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-4-树、森林"><span class="nav-number">4.4.</span> <span class="nav-text">4.4 树、森林</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">linjiafengyang</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="站点总字数">522k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+    <span title="站点总阅读时长">8:42</span>
+  
+</div>
+
+
+
+<!--
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Muse</a> v6.1.0</div>
+
+
+-->
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.1.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=6.1.0"></script>
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+
+<!-- 背景动画 -->
+<!--
+<script type="text/javascript" src="/js/src/particle.js"></script>
+-->
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
