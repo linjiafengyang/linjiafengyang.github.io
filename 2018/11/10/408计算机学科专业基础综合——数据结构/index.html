@@ -108,7 +108,7 @@
 <meta property="og:site_name" content="伪程序员的世界">
 <meta property="og:description" content="整理自王道单科">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-10T13:36:51.622Z">
+<meta property="og:updated_time" content="2018-11-12T15:26:41.285Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="408计算机学科专业基础综合——数据结构">
 <meta name="twitter:description" content="整理自王道单科">
@@ -443,7 +443,7 @@
                 
                   <span class="post-meta-item-text">字数统计：</span>
                 
-                <span title="字数统计">9.9k</span>
+                <span title="字数统计">24k</span>
               
 
               
@@ -457,7 +457,7 @@
                 
                   <span class="post-meta-item-text">阅读时长&asymp;</span>
                 
-                <span title="阅读时长">0:10</span>
+                <span title="阅读时长">0:24</span>
               
             </div>
           
@@ -615,7 +615,176 @@
 <p>29.二叉树在线索化后，仍不能有效求解的问题是（后序线索二叉树中求后序后继）<br>A 先序线索二叉树中求先序后继<br>B 中序线索二叉树中求中序后继<br>C 中序线索二叉树中求中序前驱<br>D 后序线索二叉树中求后序后继</p>
 <p>31.（后序线索树）的遍历仍需要栈的支持<br>A 前序线索树 B 中序线索树 C 后序线索树 D 所有线索树</p>
 <p>34.先序序列为a,b,c,d的不同二叉树的个数是（14）(1/(n+1) <em> (2n!)/(n! </em> n!))</p>
-<h3 id="4-4-树、森林"><a href="#4-4-树、森林" class="headerlink" title="4.4 树、森林"></a>4.4 树、森林</h3>
+<h3 id="4-4-树、森林"><a href="#4-4-树、森林" class="headerlink" title="4.4 树、森林"></a>4.4 树、森林</h3><p>树的存储结构：既可以采用<strong>顺序存储结构</strong>，也可以采用<strong>链式存储结构</strong>。</p>
+<p><strong>双亲表示法</strong>：采用一组连续空间来存储每个结点，同时在每个结点中增设一个伪指针，指示其双亲结点在数组中的位置。<br><strong>利用了每个结点（根结点除外）只有唯一双亲的性质，可以很快得到每个结点的双亲结点，但是求结点的孩子时需要遍历整个结构。</strong></p>
+<p><strong>孩子表示法</strong>：将每个结点的孩子结点都用单链表链接起来形成一个线性结构，则N个结点就有N个孩子链表（叶子结点的孩子链表为空表）。<br><strong>寻找子女的操作非常直接，而寻找双亲的操作需要遍历N个结点中孩子链表指针域所指向的N个孩子链表。</strong></p>
+<p><strong>孩子兄弟表示法</strong>：又称为二叉树表示法，即以二叉树表作为树的存储结构，使每个结点包括三部分内容：结点值、指向结点第一个孩子结点的指针和指向结点下一个兄弟结点的指针（沿此域可以找到结点的所有兄弟结点）。<br><strong>可以方便地实现树转换为二叉树的操作，易于查找结点的孩子等，但缺点是从当前结点查找其双亲结点比较麻烦。</strong></p>
+<p>给定一棵树，可以找到唯一的一棵二叉树与之对应。</p>
+<p><strong>树转换为二叉树的规则：每个结点左指针指向它的第一个孩子结点，右指针指向它在树中的相邻兄弟结点，可表示为“左孩子右兄弟”。由于根结点没有兄弟，所以由树转换而得的二叉树没有右子树。</strong></p>
+<p>森林转换为二叉树的规则与树相似。</p>
+<p><strong>二叉树转换为森林的规则：若二叉树非空，则二叉树根及其左子树为第一棵树的二叉树形式，二叉树根的右子树又可以看做是一个由除第一棵树外的森林转换后的二叉树，应用同样的方法，直到最后产生一棵没有右子树的二叉树为止。<br>二叉树转换为树和森林是唯一的。</strong></p>
+<p><strong>树的遍历</strong>：<br><strong>先根遍历</strong>：若树非空，则先访问根结点，再按从左到右的顺序遍历根结点的每一棵子树。其访问顺序与这棵树相应二叉树的<strong>先序遍历顺序相同</strong>。<br><strong>后根遍历</strong>：若树非空，则按从左到右的顺序遍历根结点的每一棵子树，之后再访问根结点。其访问顺序与这棵树相应二叉树的<strong>中序遍历顺序相同</strong>。<br><strong>层次遍历</strong>：与二叉树的层次遍历思想基本相同，即按层序依次访问各结点。</p>
+<p><strong>森林的遍历</strong>：<br><strong>先序遍历森林</strong>：访问森林中第一棵树的根结点；先序遍历第一棵树中根结点的子树森林；先序遍历除去第一棵树之后剩余的树构成的森林。<br><strong>中序遍历森林</strong>：中序遍历森林中第一棵树的根结点的子树森林；访问第一棵树的根结点；中序遍历除去第一棵树之后剩余的树构成的森林。</p>
+<p>树的应用——并查集</p>
+<p><strong><em>选择题</em></strong></p>
+<p>1.下列关于树的说法中，正确的是（II）<br>I. 对于有n个结点的二叉树，其高度为log2 n（错误，单支树，高度为n）<br>II. 完全二叉树中，若一个结点没有左孩子，则它必是叶结点<br>III. 高度为h的完全二叉树对应的森林所含的树的个数一定是h（错误，满二叉树才有该性质）<br>IV. 一棵树中的叶子数一定等于与其对应的二叉树的叶子数（错误）</p>
+<p>3.将森林转换为对应的二叉树，若在二叉树中，结点u是结点v的父结点的父结点，则在原来的森林中，u和v可能具有的关系是（I、II）<br>I. 父子关系 II. 兄弟关系 III. u的父结点与v的父结点是兄弟关系</p>
+<p>7.设F是一个森林，B是由F变换来的二叉树。若F中有n个非终端结点，则B中右指针域为空的结点有（n+1）个</p>
+<p>9.将森林F转换为对应的二叉树T，F中叶结点的个数等于（T中左孩子指针为空的结点个数）</p>
+<p>12.若森林F有15条边、25个结点，则F包含树的个数是（10）<br>在n个结点的树中有n-1条边，那么对于每棵树，其结点数比边数多1.</p>
+<h3 id="4-5-树与二叉树的应用"><a href="#4-5-树与二叉树的应用" class="headerlink" title="4.5 树与二叉树的应用"></a>4.5 树与二叉树的应用</h3><p><strong>二叉排序树（BST，又称为二叉查找树）</strong>：左子树上所有结点关键字值均小于根结点的关键字值；右子树上所有结点关键字值均大于根结点的关键字值；左右子树本身也分别是一棵二叉排序树。<br>对二叉排序树进行<strong>中序遍历</strong>，可以得到一个递增的有序序列。</p>
+<p>二叉排序树的查找、插入、构造、删除<br><strong>二叉排序树查找算法的平均查找长度</strong>，主要取决于树的高度，即与二叉树的形态有关。<br>当有序表是静态查找表时，宜用顺序表作为其存储结构，而采用二分查找实现其查找操作；若有序表是动态查找表，则应选择二叉排序树作为其逻辑结构。</p>
+<p><strong>平衡二叉树（AVL）</strong>：左子树和右子树都是平衡二叉树，且任意结点的左右子树高度差的绝对值不超过1。<br>平衡因子的值只可能是-1,0或1（左子树的高度-右子树的高度）</p>
+<p><strong>平衡二叉树的插入</strong>：LL平衡旋转（右单旋转）、RR平衡旋转（左单旋转）、LR平衡旋转（先左后右双旋转）、RL平衡旋转（先右后左双旋转）</p>
+<p><strong>平衡二叉树的查找：平均查找长度为O(log2 n)</strong></p>
+<p>从树根结点到任意结点的路径长度（经过的边数）与该结点上权值的乘积称为<strong>该结点的带权路径长度</strong>。树中所有叶结点的带权路径长度之和称为<strong>该树的带权路径长度</strong>。</p>
+<p>在含有N个带权叶子结点的二叉树中，其中带权路径长度（WPL）最小的二叉树称为<strong>哈夫曼树，也称为最优二叉树</strong>。</p>
+<p><strong>哈夫曼树的构造</strong>：给定N个权值分别为w1~wN的结点<br>1）将这N个结点分别作为N棵仅含一个结点的二叉树，构成森林F<br>2）构造一个新结点，并从F中选取两棵根结点权值最小的树作为新结点的左右子树，并且将新结点的权值置为左右子树上根结点的权值之和<br>3）从F中删除刚才选出的两棵树，同时将新得到的树加入F中<br>4）重复2）和3），直至F中只剩下一棵树为止<br><strong>特点</strong>：<br>1）每个初始结点最终都成为叶结点，并且<strong>权值越小的结点到根结点的路径长度越大</strong><br>2）构造过程中共新建了N-1个结点（双分支结点），因此哈夫曼树的<strong>结点总数为2N-1</strong><br>3）每次构造都选择2棵树作为新结点的孩子，因此哈夫曼树中<strong>不存在度为1的结点</strong></p>
+<p><strong>可变长度编码</strong>：对频率高的字符赋以短编码，而对频率较低的字符赋以较长一些的编码，从而使字符平均编码长度减短，起到压缩数据的效果。<br>如果没有一个编码是另一个编码的前缀，则称这样的编码为<strong>前缀编码</strong>。<br><strong>由哈夫曼树构造哈弗曼编码</strong>：首先将每个出现的字符当做一个独立的结点，其权值为它出现的频度，构造出相应的哈夫曼树。显然，所有字符结点都出现在叶结点中。我们可以将字符的编码解释为从根至该字符的路径上边标记的序列，其中边标记为0表示“转向左孩子”，标记为1表示“转向右孩子”。</p>
+<p><strong><em>选择题</em></strong></p>
+<p>1.对于二叉排序树，下面的说法（C）是正确的<br>A 二叉排序树是动态树表，查找失败时插入新结点时，会引起树的重新分裂和组合（错）<br>B 对二叉排序树进行层序遍历可得到有序序列（错，中序遍历）<br>C 用逐点插入法构造二叉排序树，若先后插入的关键字有序，二叉排序树的深度最大<br>D 在二叉排序树进行查找，关键字的比较次数不超过结点数的1/2（错）</p>
+<h2 id="第5章-图"><a href="#第5章-图" class="headerlink" title="第5章 图"></a>第5章 图</h2><h3 id="5-1-图的基本概念"><a href="#5-1-图的基本概念" class="headerlink" title="5.1 图的基本概念"></a>5.1 图的基本概念</h3><p><strong>有向图、无向图</strong><br><strong>简单图</strong>：不存在重复边，不存在顶点到自身的边（数据结构中仅讨论简单图）<br><strong>多重图</strong>的定义和简单图相反。</p>
+<p><strong>无向完全图</strong>：在无向图中，如果任意两个顶点之间都存在边，则称该图为无向完全图。含有n个顶点的无向完全图有<strong>n(n-1)/2</strong>条边。<br><strong>有向完全图</strong>：在有向图中，如果任意两个顶点之间都存在方向相反的两条弧，则称该图为有向完全图。含有n个顶点的有向完全图有<strong>n(n-1)</strong>条有向边。</p>
+<p><strong>子图</strong>：设有两个图G=(V,E)和G’=(V’,E’)，若V’是V的子集，且E’是E的子集，则称G’是G的<strong>子图</strong>。若有满足V(G’)=V(G)的子图G’，则为G的<strong>生成子图</strong>。</p>
+<p><strong>连通、连通图和连通分量（无向图）</strong>：在<strong>无向图</strong>中，若从顶点v到顶点w有路径存在，则称v和w是<strong>连通</strong>的。若图G中任意两个顶点都是连通的，则称图G为<strong>连通图</strong>，否则称为非连通图。<strong>无向图中的极大连通子图称为连通分量</strong>。<strong>如果一个图有n个顶点，并且有小于n-1条边，则此图必是非连通图。</strong></p>
+<p><strong>强连通图、强连通分量（有向图）</strong>：在<strong>有向图</strong>中，若从顶点v到顶点w和从顶点w到顶点v之间都有路径，则称这两个顶点是<strong>强连通</strong>的。若图中任何一对顶点都是强连通的，则称该图为<strong>强连通图</strong>。<strong>有向图中的极大强连通子图称为强连通分量</strong>。</p>
+<p><strong>生成树、生成森林：连通图的生成树是包含图中全部顶点的一个极小连通子图。若图中顶点数为n，则它的生成树含有n-1条边</strong>。对于生成树而言，若砍去它的一条边，则它会变成非连通图，若加上一条边则会形成一个回路。</p>
+<p><strong>对于无向图，顶点v的度是指依附于该顶点的边的条数，记为TD(v)。<br>在具有n个顶点e条边的无向图中，全部顶点的度之和为2e，即无向图的全部顶点的度之和等于边数的两倍。</strong></p>
+<p><strong>对于有向图，顶点v的度分为入度和出度，入度记为ID(v)，出度记为OD(v)。顶点v的度等于其入度和出度之和，即TD(v)=ID(v)+OD(v)。<br>在具有n个顶点e条边的有向图中，有向图的全部顶点的入度之和与出度之和相等并且等于边数</strong>。</p>
+<p>带权图也称为网。<br><strong>稠密图</strong>：边数很多；<strong>稀疏图</strong>：边数很少。一般当图G满足|E|&lt;|V|*log|V|时，可以将G看成是稀疏图。</p>
+<p><strong>路径</strong>：顶点序列；<strong>路径长度</strong>：路径上边的数目。第一个顶点和最后一个顶点相同的路径称为<strong>回路或环</strong>。<strong>如果一个图有n个顶点，并且有大于n-1条边，则此图一定有环</strong>。</p>
+<p>在路径序列中，顶点不重复出现的路径称为<strong>简单路径</strong>。除第一个顶点和最后一个顶点之外，其余顶点不重复出现的回路称为<strong>简单回路</strong>。</p>
+<p>有一个顶点的入度为0，其余顶点的入度均为1的有向图称为<strong>有向树</strong>。</p>
+<p><strong><em>选择题</em></strong></p>
+<p>2.一个有n个顶点和n条边的无向图一定是（有环的）。</p>
+<p>3.如果从无向图的任意顶点出发进行一次深度优先搜索即可访问所有顶点，则该图一定是（连通图）。</p>
+<p>4.下列关于图的叙述，正确的是（III）<br>I. 回路是简单路径（错误，回路是第一个顶点和最后一个顶点相同的路径，简单路径是顶点不重复出现的路径）<br>II. 存储稀疏图，用邻接矩阵比邻接表更省空间（错误，应用邻接表）<br>III. 若有向图中存在拓扑序列，则该图不存在回路（正确，存在回路的图不存在拓扑序列）</p>
+<p>7.若无向图G=(V,E)中含有7个顶点，要保证图G在任何情况下都是连通的，则需要的边数最少是（16）（6*5/2+1）</p>
+<p>10.一个有28条边的非连通子图至少有（9）个顶点。（25=8*7/2,8+1=9）</p>
+<p>11.对于一个有n个顶点的图：如果是连通无向图，其边的个数至少为（n-1）；如果是连通有向图，其边的个数至少为（n）</p>
+<p>13.在有n个顶点的有向图中，每个顶点的度最大可达（2n-2）</p>
+<p>14.具有6个顶点的无向图，当有（11）条边时能确保是一个连通图。（5*4/2+1）</p>
+<p>17.如果有n个顶点的图是一个环，则它有（n-1）棵生成树。</p>
+<p>18.若一个具有n个顶点，e条边的无向图是一个森林，则该森林中必有（n-e）棵树。</p>
+<h3 id="5-2-图的存储及基本操作"><a href="#5-2-图的存储及基本操作" class="headerlink" title="5.2 图的存储及基本操作"></a>5.2 图的存储及基本操作</h3><p><strong>邻接矩阵存储</strong>，就是用一个一维数组存储图中顶点的信息，用一个二维数组存储图中边的信息（即各顶点之间的邻接关系），存储顶点之间邻接关系的二维数组称为<strong>邻接矩阵</strong>。<br>1）<strong>无向图的邻接矩阵是对称矩阵（并且唯一）</strong>，在实际存储邻接矩阵时只需存储上（或下）三角矩阵的元素即可，对规模特大的邻接矩阵可采用压缩存储。<br>2）邻接矩阵表示法的空间复杂度为O(n2)，其中n为图的顶点数|V|<br>3）<strong>对于无向图，邻接矩阵的第i行（或第i列）非零元素（或非∞元素）的个数正好是第i个顶点的度</strong><br>4）<strong>对于有向图，邻接矩阵的第i行（或第i列）非零元素（或非∞元素）的个数正好是第i个顶点的出度（或入度）</strong><br>5）<strong>容易确定顶点之间是否有边相连，但难以确定图中有多少条边</strong>。<br>6）<strong>稠密图适合使用邻接矩阵的存储表示</strong>。</p>
+<p><strong>邻接表</strong>就是对图G中的每个顶点vi建立一个单链表，第i个单链表中的结点表示依附于顶点vi的边（对于有向图则是以顶点vi为尾的弧），这个单链表就称为顶点vi的边表（对于有向图则称为出边表）。边表的头指针和顶点的数据信息采用顺序存储（称为顶点表），所以在邻接表中存在两种结点：<strong>顶点表结点和边表结点</strong>。<br>顶点表结点由顶点域（data）和指向第一条邻接边的指针（firstarc）构成，边表（邻接表）结点由邻接点域（adjvex）和指向下一条邻接边的指针域（nextarc）构成。<br>1）如果G为无向图，则所需的存储空间为O(|V|+2|E|)；如果G为有向图，则所需的存储空间为O(|V|+|E|)<br>2）<strong>对于稀疏图，采用邻接表表示将极大地节省存储空间</strong>。<br>3）<strong>容易找出顶点的所有邻边，但难以确定两个顶点之间是否存在边</strong><br>4）<strong>图的邻接表表示并不唯一</strong></p>
+<p><strong>十字链表</strong>是<strong>有向图</strong>的一种<strong>链式</strong>存储结构。<br>既容易找到vi为尾的弧，也容易找到vi为头的弧，因而容易求得顶点的出度和入度。<br>图的十字链表表示是不唯一的，但一个十字链表表示确定的一个图。</p>
+<p><strong>邻接多重表</strong>是<strong>无向图</strong>的另一种<strong>链式</strong>存储结构。</p>
+<p><strong><em>选择题</em></strong></p>
+<p>1.关于图的存储结构，（B）是错误的<br>A 使用邻接矩阵存储一个图时，在不考虑压缩存储的情况下，所占用的存储空间大小只与图中的顶点数有关，与边数无关<br>B 邻接表只用于有向图的存储，邻接矩阵适用于有向图和无向图<br>C 若一个有向图的邻接矩阵，对角线以下元素为0，则该图的拓扑序列必定存在<br>D 存储无向图的邻接矩阵是对称的，故只需存储邻接矩阵的下（或上）三角部分即可</p>
+<p>2.若图的邻接矩阵中主对角线上的元素皆为0，其余元素全为1，则可以断定该图一定是（完全图）</p>
+<p>8.一个图的邻接矩阵表示唯一，邻接表表示不唯一。</p>
+<p>9.用邻接表法存储图所用的空间大小（与图的顶点数和边数有关）</p>
+<p>10.若邻接表中有奇数个边表结点，则一定是（图为有向图）（无向图采用邻接表表示，有偶数个边表结点）</p>
+<p>13.假设有n个顶点e条边的有向图用邻接表表示，则删除与某个顶点v相关的所有边的时间复杂度为（O(n+e)）</p>
+<p>14.求有向图结点的度，必须遍历整个邻接表</p>
+<p>15.邻接多重表是（无向图）的存储结构</p>
+<p>16.十字链表是（有向图）的存储结构</p>
+<h3 id="5-3-图的遍历"><a href="#5-3-图的遍历" class="headerlink" title="5.3 图的遍历"></a>5.3 图的遍历</h3><p><strong>广度优先搜索（BFS）</strong>：不是一个递归的算法，必须借助一个辅助<strong>队列</strong>，以记忆正在访问的顶点的下一层顶点。<br>类似的思想还应用于Dijkstra单源最短路径算法和Prim最小生成树算法。<br><strong>空间复杂度为O(|V|)；采用邻接表存储方式时，时间复杂度为O(|V|+|E|)；采用邻接矩阵存储方式时，时间复杂度为O(|V|^2)</strong>。</p>
+<p>广度优先生成树：一给定图的邻接矩阵存储表示是唯一的，故其广度优先生成树也是唯一的，但由于邻接表存储表示不唯一，故其广度优先生成树也是不唯一的。</p>
+<p><strong>深度优先搜索（DFS）</strong>：对于同样一个图，基于邻接矩阵的遍历所得到的DFS序列和BFS序列是唯一的，基于邻接表的遍历所得到的DFS序列和BFS序列是不唯一的。<br><strong>空间复杂度为O(|V|)；采用邻接表存储方式时，时间复杂度为O(|V|+|E|)；采用邻接矩阵存储方式时，时间复杂度为O(|V|^2)</strong>。</p>
+<p><strong><em>选择题</em></strong></p>
+<p>2.对于一个非连通无向图G，采用深度优先遍历访问所有顶点，调用DFS的次数正好等于（连通分量数）</p>
+<p>7.用邻接表存储的图的深度优先遍历算法类似于树的（先序遍历），而其广度优先遍历算法类似于树的（按层次遍历）</p>
+<p>12.判断有向图是否存在回路，除了可以利用拓扑排序外，还可以利用（深度优先遍历算法）</p>
+<p>13.使用DFS算法递归地遍历一个无环有向图，并在退出递归时输出相应顶点，这样得到的顶点序列是（逆拓扑有序）</p>
+<p>15.图的广度优先生成树的树高比深度优先生成树的树高（小或相等）</p>
+<h3 id="5-4-图的应用"><a href="#5-4-图的应用" class="headerlink" title="5.4 图的应用"></a>5.4 图的应用</h3><p><strong>最小生成树（MST）：Prim算法、Kruskal算法</strong><br>1）最小生成树不是唯一的。当图G中的各边权值互不相等时，G的最小生成树是唯一的；若无向连通图G的边比顶点树少1，即G本身就是一棵树时，Ｇ的最小生成树就是它本身。<br>2）最小生成树的边的权值之和总是唯一的。<br>3）最小生成树的边数为顶点数减１<br><strong>Prim算法的时间复杂度为O(|V|^2)，不依赖于|E|，因此它适用于求解边稠密的的图的最小生成树。<br>Kruskal算法适用于边稀疏而顶点较多的图。</strong></p>
+<p><strong>最短路径</strong>分为两类：一是单源最短路径：即求图中某一顶点到其他各顶点的最短路径，可通过<strong>Dijkstra算法</strong>求解；二是求每一对顶点间的最短路径，可通过<strong>Floyd-Warshall算法</strong>来求解。<br>Dijkstra算法：单源最短路径时间复杂度为O(|V|^2)。如果边上带有负权值，Dijkstra算法并不适用。<br>Floyd算法的时间复杂度为O(|V|^3)。Floyd算法允许图中带负权值的边，但不允许有包含带负权值的边组成的回路。Floyd算法同样也适用于带权无向图。</p>
+<p><strong>有向无环图（DAG）</strong><br><strong>AOV网</strong>：如果用DAG图表示一个工程，其顶点表示活动，用有向边&lt;Vi,Vj&gt;表示活动Vi必须先于活动Vj进行的这样一种关系，则将这种有向图称为顶点表示活动的网络，记为AOV网。<br><strong>拓扑排序</strong>：由一个有向无环图的顶点组成的序列，当且仅当满足下列条件时，称为该图的一个拓扑排序：<br>1）每个顶点出现且只出现一次。<br>2）若顶点A在序列中排在顶点B的前面，则在图中不存在从顶点B到顶点A的路径。<br>每个DAG图都有一个或多个拓扑序列。<br>对一个DAG图进行拓扑排序的算法：<br>1）从DAG图中选择一个没有前驱的顶点并输出<br>2）从图中删除该顶点和所有以它为起点的有向边<br>3）重复1和2直到当前的DAG图为空或当前图中不存在无前驱的顶点为止。而后一种情况说明有向图中必然存在环<br><strong>时间复杂度为O(|V|+|E|)</strong></p>
+<p><strong>AOE网</strong>：在带权有向图中，以顶点表示事件，有向边表示活动，边上的权值表示完成该活动的开销，则称这种有向图为用边表示活动的网络，简称为AOE网。<br>1）只有在某顶点所代表的事件发生后，从该顶点出发的各有向边所代表的活动才能开始<br>2）只有在进入某一顶点的各有向边所代表的活动都已经结束时，该顶点所代表的事件才能发生。<br>在AOE网中，仅有一个入度为0的顶点，称为开始顶点（源点），它表示整个工程的开始，仅有一个出度为0的顶点，称为结束顶点（汇点），它表示整个工程的结束。<br>从源点到汇点的所有路径中，具有最大路径长度的路径称为<strong>关键路径</strong>。关键路径上的活动称为关键活动。<br>完成整个工程的最短时间就是关键路径的长度，也就是关键路径上各活动花费开销的总和。</p>
+<p><strong>事件vk的最早发生时间ve(k)</strong>：指从开始顶点V到Vk的最长路径长度。事件的最早发生时间决定了所有从Vk开始的活动能够开工的最早时间。（从前往后计算）<br><strong>事件vk的最迟发生时间vl(k)</strong>：指在不推迟整个工程完成的前提下，即保证它所指向的事件vi在ve(i)时刻能够发生时，该事件最迟必须发生的事件。（从后往前计算）<br><strong>活动ai的最早开始时间e(i)</strong>：指该活动的起点所表示的事件最早发生时间<br><strong>活动ai的最迟开始时间l(i)</strong>：指该活动的终点所表示的事件最迟发生时间与该活动所需时间之差。<br><strong>一个活动ai的最迟开始时间l(i)和其最早开始时间e(i)的差额d(i)=l(i)-e(i)</strong>：指该活动完成的时间余量，是在不增加完成整个工程所需的总时间的情况下，活动ai可以拖延的时间。如果为0，说明该活动必须要如期完成。</p>
+<p><strong>求关键路径的算法步骤如下</strong>：<br>1）求AOE网中所有事件的最早发生时间ve()<br>2）求AOE网中所有事件的最迟发生时间vl()<br>3）求AOE网中所有活动的最早开始时间e()<br>4）求AOE网中所有活动的最迟开始时间l()<br>5）求AOE网中所有活动的差额d()，找出所有d()=0的活动构成关键路径</p>
+<p><strong>注意</strong>：<br>1）关键路径上的所有活动都是关键活动，因此可通过加快关键活动来缩短整个工程的工期，但不能任意缩短关键活动，因为一旦缩短到一定程度，该关键活动可能变成非关键活动。<br>2）网中的关键路径并不唯一。只提高一条关键路径上的的关键活动速度并不能缩短整个工程的工期，只有加快那些包括在所有关键路径上的关键活动才能达到缩短工期的目的。</p>
+<p><strong><em>选择题</em></strong></p>
+<p>2.任何一个无向连通图的最小生成树（有一棵或多棵）</p>
+<p>3.用Prim算法和Kruskal算法构造图的最小生成树，所得到的最小生成树（可能相同，可能不同）</p>
+<p>4.只要无向连通图中没有权值相同的边，则最小生成树唯一</p>
+<p>6.最短路径一定是简单路径</p>
+<p>10.下面哪一方法可以判断出一个有向图是否有环（回路）（I、II、III）<br>I. 深度优先 II.拓扑排序 III. 求最短路径 IV. 求关键路径</p>
+<p>13.若一个有向图的顶点不能排在一个拓扑序列中，则可判定该有向图（含有顶点数目大于1的强连通分量）</p>
+<p>14.以下关于拓扑排序的说法中错误的是（III）<br>I. 如果某有向图存在环路，则该有向图一定不存在拓扑排序<br>II. 在拓扑排序算法中，为暂存入度为零的顶点可以使用栈，也可以使用队列<br>III. 若有向图的拓扑有序序列唯一，则图中每个顶点的入度和出度最多为1</p>
+<p>18.若一个有向图具有有序的拓扑排序序列，那么它的邻接矩阵必定为（三角矩阵）</p>
+<h2 id="第6章-查找"><a href="#第6章-查找" class="headerlink" title="第6章 查找"></a>第6章 查找</h2><h3 id="6-1-查找的基本概念"><a href="#6-1-查找的基本概念" class="headerlink" title="6.1 查找的基本概念"></a>6.1 查找的基本概念</h3><p><strong>查找</strong>：<br>1）查询某个特定的数据元素是否在查找表中<br>2）检索满足条件的某个特定的数据元素的各种属性<br>3）在查找表中插入一个数据元素<br>4）从查找表中删除某个数据元素<br><strong>静态查找表：顺序查找、折半查找、散列查找<br>动态查找表：二叉排序树的查找、散列查找、二叉平衡树、B树</strong><br><strong>平均查找长度</strong>：一次查找的长度是指需要比较的关键字次数，而平均查找长度是所有查找过程中进行关键字的比较次数的平均值。<strong>平均查找长度是衡量查找算法效率的最主要的指标</strong>。</p>
+<h3 id="6-2-顺序查找和折半查找"><a href="#6-2-顺序查找和折半查找" class="headerlink" title="6.2 顺序查找和折半查找"></a>6.2 顺序查找和折半查找</h3><p><strong>一般线性表的顺序查找：查找成功时的平均查找长度为(n+1)/2，查找不成功时的平均查找长度为n+1</strong>；缺点是当n较大时，平均查找长度较大，效率低，优点是对数据元素的存储没有要求，顺序存储或链式存储皆可。<br><strong>有序表的顺序查找：查找成功时的平均查找长度为(n+1)/2，查找不成功时的平均查找长度为n/2+n/(n+1)</strong>。</p>
+<p><strong>折半查找：又称为二分查找，仅适用于有序的顺序表，仅适合于线性表的顺序存储结构，不适合链式存储结构，且要求元素按关键字有序排列</strong>。<br>若有序序列有n个元素，则对应的判定树有n个圆形的非叶结点和n+1各方形的叶结点。<br><strong>查找成功的平均查找长度</strong>为1/n<em>(1</em>1+2<em>2+…+h</em>2^(h-1))。</p>
+<p><strong>分块查找，又称为索引顺序查找</strong>，吸取了顺序查找和折半查找各自的优点，既有动态结构，又适于快速查找。<br><strong>基本思想</strong>：将查找表分为若干个子块，块内的元素可以无序，但块之间是有序的，即第一个块中的最大关键字小于第二个块中的所有记录的关键字，以此类推。再建立一个索引表，索引表中的每个元素含有各块的最大关键字和各块总第一个元素的地址，索引表按关键字有序排列。<br><strong>分块查找的平均查找长度为索引查找和块内查找的平均长度之和</strong>，设将长度为n的查找表均匀分为b块，每块有s个记录，若在块内和索引表中均采用顺序查找，则<strong>平均查找长度为(b+1)/2+(s+1)/2=(s^2+2s+n)/(2s)</strong>，此时<strong>若S=根号n，则平均查找长度取最小值</strong>。若对索引表采用折半查找，则平均查找长度为<strong>log2 (b+1)+(s+1)/2</strong></p>
+<p><strong><em>选择题</em></strong></p>
+<p>1.顺序查找适合于存储结构为（顺序存储结构或链式存储结构）的线性表。</p>
+<p>5.二分查找：表必须有序，且表只能以顺序方式存储</p>
+<p>7.折半查找过程所对应的判定树是一棵（平衡二叉树）</p>
+<p>9.折半查找和二叉排序树的时间性能（有时不相同）</p>
+<p>12.对表长为n的有序表进行折半查找，其判定树的高度为（log2 (n+1)向上取整）</p>
+<h3 id="6-3-B树和B-树"><a href="#6-3-B树和B-树" class="headerlink" title="6.3 B树和B+树"></a>6.3 B树和B+树</h3><p>B树，又称为多路平衡二叉树，B树中所有结点的孩子结点数的最大值称为B树的阶，通常用m表示。<br>1）<strong>树中每个结点至多有m棵子树（即至多含有m-1个关键字）</strong><br>2）若根结点不是终端结点，则至少有两棵子树<br>3）除根结点外的所有非叶结点至少有m/2（向上取整）棵子树（即至少含有m/2向上取整-1个关键字）<br>4）<strong>结点中关键字个数n满足m/2（向上取整）-1≤n≤m-1</strong><br>B树是所有结点的平衡因子均等于0的多路查找树。<br>B树中的大部分操作所需的磁盘存取次数于B树的高度成正比。应该明确B树的高度不包括最后的不带任何信息的叶结点所处的那一层。<strong>高度logm (n+1)≤h≤logm/2 ((n+1)/2)+1其中m/2向上取整</strong></p>
+<p><strong>B树的查找：即爱找到目标结点后，先将结点中的信息读入内存，然后再采用顺序查找法或折半查找法查找等于K的关键字<br>1）在B树中找结点（在磁盘上进行）<br>2）在结点内找关键字（在内存中进行）</strong></p>
+<p><strong>B树的插入：<br>1）定位<br>2）插入：由于结点中的关键字个数n满足m/2（向上取整）-1≤n≤m-1，若插入后超过m-1，则必须对结点进行分裂</strong></p>
+<p><strong>B树的删除：要使得删除后的结点中的关键字个数≥m/2（向上取整）-1，涉及到合并问题</strong></p>
+<p><strong>m阶的B+树与m阶的B树的主要差异在于</strong>：<br>1）<strong>在B+树中，具有n个关键字的结点只含有n棵子树，即每个关键字对应一棵子树；而在B树中，具有n个关键字的结点含有n+1棵子树</strong><br>2）在B+树中，每个结点（非根内部结点）关键字个数n的范围是<strong>m/2（向上取整）≤n≤m</strong>（根结点1≤n≤m），在B树中，每个结点（非根内部结点）关键字个数n的范围是<strong>m/2（向上取整）-1≤n≤m-1</strong>（根结点1≤n≤m-1）<br>3）在B+树中，叶结点包含信息，所有非叶结点仅起到索引作用，非叶结点中的每个索引项只含有对应子树的最大关键字和指向该子树的指针，不含有该关键字对应记录的存储地址。<br>4）<strong>在B+树中，叶结点包含了全部关键字</strong>，即在非叶结点中出现的关键字也会出现在叶结点中；而在B树中，叶结点包含的关键字和其他结点包含的关键字是不重复的。</p>
+<p><strong><em>选择题</em></strong></p>
+<p>7.具有n个关键字的m阶B树，应有（n+1）个叶结点</p>
+<p>14.B树不支持顺序查找，B+树支持顺序查找</p>
+<p>16.下列应用中，适合使用B+树的是（B）<br>A 编译器中的词法分析 B 关系数据库系统中的索引 C 网络中的路由表快速查找 D 操作系统的磁盘空间块管理</p>
+<h3 id="6-4-散列（Hash）表"><a href="#6-4-散列（Hash）表" class="headerlink" title="6.4 散列（Hash）表"></a>6.4 散列（Hash）表</h3><p><strong>散列函数</strong>：一个把查找表中的关键字映射称该关键字对应的地址的函数，记为Hash(key)=Addr<br><strong>散列表</strong>：是根据关键字而直接进行访问的数据结构，即散列表建立了关键字和存储地址之间的一种直接映射关系。<br>理想情况下，对散列表进行查找的时间复杂度为O(1)，即与表中元素个数无关。</p>
+<p><strong>散列函数的构造方法</strong>：<br>1.直接定址法：H(key)=a*key+b<br>2.<strong>除留余数法</strong>：H(key)=key%p（p是一个不大于m但最接近或等于m的质数）<br>3.数字分析法<br>4.平均取中法<br>5.折叠法</p>
+<p><strong>处理冲突的方法</strong>：<br>1.<strong>开放定址法</strong>：Hi=(H(key)+di)%m（m表示散列表表长，di为增量序列）<br>1）线性探测法：di=0,1,2…m-1<br>2）平方探测法（二次探测法）<br>3）再散列法：Hi=(H(key)+i*Hash2(key))%m<br>4）伪随机序列法<br>2.<strong>拉链法</strong>（链接法，chaining）</p>
+<p><strong>散列表的查找效率取决于三个因素：散列函数、处理冲突的方法和装填因子</strong><br><strong>装填因子</strong>：一般记为a，定义为一个表的装满程度，即<strong>a=表中记录数n/散列表长度m</strong><br><strong>散列表的平均查找长度依赖于散列表的装填因子a，而不直接依赖于n或m</strong></p>
+<p><strong><em>选择题</em></strong></p>
+<p>1.只能在顺序存储结构上进行的查找方法是（B折半查找）<br>A 顺序查找法 B 折半查找 C 树型查找法 D 散列查找法</p>
+<p>4.在开址法中散列到同一个地址而引起的“堆积”问题是由于（同义词之间或非同义词之间发生冲突）引起的。</p>
+<p>5.下列关于散列冲突处理方法的说法中，正确的有（I、III）<br>I. 采用再散列法处理冲突时不易产生聚集<br>II. 采用线性探测法处理冲突时，所有同义词在散列表中一定相邻（错误）<br>III. 采用链地址法处理冲突时，若限定在链首插入，则插入任一个元素的时间是相同的<br>IV. 采用链地址法处理冲突容易引起聚集现象（错误）</p>
+<p>8.对包含n个元素的散列表进行查找，平均查找长度（不直接依赖于n）</p>
+<p>9.采用开放定址法解决冲突的散列查找中，发生聚集的原因主要是（解决冲突的方法选择不当）</p>
+<h3 id="6-5-字符串模式匹配"><a href="#6-5-字符串模式匹配" class="headerlink" title="6.5 字符串模式匹配"></a>6.5 字符串模式匹配</h3><p><strong>串的模式匹配</strong>，是求第一个字符串（模式串）在第二个字符串（主串）中的位置。<br><strong>简单模式匹配算法的最坏时间复杂度为O(n*m)，n、m分别为主串和模式串的长度</strong>。</p>
+<p><strong>KMP算法</strong>可以在<strong>O(n+m)</strong>的时间数量级上完成串的模式匹配操作。<br><strong>手工求解next数组的方法</strong>：<br>1）next[1]=0，next[2]=1（next[0]不使用）<br>2）后面求解每一位的next[j]值时，根据j的前一位进行比较，令k=next[j-1]<br>3）将S[j-1]与S[k]进行比较：<br>a. 如果相等，则该next[j]=k+1<br>b. 如果不等，令k=next[k]，若k不等于0，跳到3；若k等于0，next[j]=1</p>
+<h2 id="第7章-排序"><a href="#第7章-排序" class="headerlink" title="第7章 排序"></a>第7章 排序</h2><h3 id="7-1-排序的基本概念"><a href="#7-1-排序的基本概念" class="headerlink" title="7.1 排序的基本概念"></a>7.1 排序的基本概念</h3><p><strong>内部排序</strong>是指在排序期间元素全部存放在<strong>内存</strong>中的排序；<strong>外部排序</strong>是指在排序期间元素无法全部同时存放在内存中，必须在排序的过程中根据要求不断地在<strong>内、外存</strong>之间移动的排序。</p>
+<h3 id="7-2-插入排序"><a href="#7-2-插入排序" class="headerlink" title="7.2 插入排序"></a>7.2 插入排序</h3><p>基本思想：每次将一个待排序的记录，按其关键字大小插入到前面已经排好序的子序列中，直到全部记录插入完成。</p>
+<p><strong>直接插入排序：空间复杂度O(1)，时间复杂度O(n^2)，稳定，适用于顺序存储和链式存储的线性表</strong>。</p>
+<p><strong>注意：大部分排序算法都仅适用于顺序存储的线性表。</strong></p>
+<p><strong>折半插入排序：时间复杂度O(n^2)，稳定</strong></p>
+<p><strong>希尔排序：空间复杂度O(1)，时间复杂度O(n^1.3)，不稳定</strong></p>
+<p><strong><em>选择题</em></strong></p>
+<p>2.在待排序的元素序列基本有序的前提下，效率最高的排序方法是（A）<br>A 直接插入排序 B 简单选择排序 C 快速排序 D 归并排序</p>
+<p>3.对同一待排序序列分别进行折半插入和直接插入排序，两者之间可能的不同之处是（元素之间的比较次数）</p>
+<p>4.对有n个元素的顺序表采用直接插入排序算法进行排序，在最坏情况下所需的比较次数是（n(n-1)/2），在最好情况下所需的比较次数是（n-1）</p>
+<p>7.下列算法中，（C直接插入排序）算法可能出现下列情况：在最后一趟开始之前，所有元素都不在最终位置上<br>A 堆排序 B 冒泡排序 C 直接插入排序 D快速排序</p>
+<p>15.有些排序算法在每趟排序过程中，都会有一个元素被放置到其最终位置上，下列算法不会出现这种情况的是（A希尔排序）<br>A 希尔排序 B 堆排序 C 冒泡排序 D 快速排序</p>
+<p>16&amp;17.冒泡排序、直接插入排序、归并排序是稳定的；<br>快速排序、堆排序、简单选择排序、希尔排序是不稳定的</p>
+<p>18.希尔排序的组内排序采用的是（直接插入排序）</p>
+<h3 id="7-3-交换排序"><a href="#7-3-交换排序" class="headerlink" title="7.3 交换排序"></a>7.3 交换排序</h3><p><strong>冒泡排序：空间复杂度O(1)，时间复杂度O(n^2)，稳定，每一趟排序都会将一个元素放置到其最终的位置</strong></p>
+<p><strong>快速排序：空间复杂度最坏是O(n)，平均是O(log2 n)，时间复杂度O(nlog2 n)，不稳定，每一趟排序都会将一个元素（基准元素）放置到其最终的位置</strong>，是所有内部排序算法中平均性能最优的排序算法</p>
+<p><strong><em>选择题</em></strong></p>
+<p>4.为实现快速排序算法，待排序序列宜采用的存储方式是（顺序存储）</p>
+<p>7.快速排序算法在（要排序的数据已基本有序）的情况下最不利于发挥其长处。</p>
+<p>15.采用递归方式对顺序表进行快速排序，下列关于递归次数的叙述中，正确的是（递归次数与每次划分后得到的分区的处理顺序无关）</p>
+<p>16.对n个关键字进行快速排序，最大递归深度为（n），最小递归深度为（nlog2 n）</p>
+<h3 id="7-4-选择排序"><a href="#7-4-选择排序" class="headerlink" title="7.4 选择排序"></a>7.4 选择排序</h3><p><strong>简单选择排序：空间复杂度O(1)，元素间比较的次数与序列的初始状态无关，始终是n(n-1)/2次，所以时间复杂度始终是O(n^2)，不稳定，每一趟排序都会将一个元素放置到其最终的位置</strong></p>
+<p><strong>堆排序：空间复杂度O(1)，建堆时间O(n)，每次调整的时间复杂度为O(h)，时间复杂度O(nlog2 n)，不稳定</strong></p>
+<p><strong><em>选择题</em></strong></p>
+<p>2.简单选择排序算法的比较次数和移动次数分别为（O(n^2)，O(n)）</p>
+<p>4.如果只想得到1000个元素组成的序列中第10个最小元素之前的部分排序的序列，用（堆排序）最快。</p>
+<p>8.向具有n个结点的堆中插入一个新元素的时间复杂度为（O(log2 n)），删除一个元素的时间复杂度为（O(log2 n)）</p>
+<p>9.构建n个记录的初始堆，其时间复杂度为（O(n)），对n个记录进行堆排序，最坏情况下其时间复杂度为（O(nlog2 n)）</p>
+<p>13.下列四种排序方法中，排序过程中的比较次数与序列初始状态无关的是（选择排序法）</p>
+<h3 id="7-5-归并排序和基数排序"><a href="#7-5-归并排序和基数排序" class="headerlink" title="7.5 归并排序和基数排序"></a>7.5 归并排序和基数排序</h3><p><strong>归并排序：空间复杂度O(n)，时间复杂度O(nlog2 n)，稳定</strong></p>
+<p><strong>基数排序</strong>：不是基于比较进行排序的，而是采用多关键字排序思想（即基于关键字各位的大小进行排序的），借助“分配”和“收集”两种操作对单逻辑关键字进行排序。<strong>分为最高位优先排序和最低位优先排序</strong>。<br><strong>空间复杂度O(r)，时间复杂度O(d*(n+r))，与序列的初始状态无关，稳定</strong></p>
+<p><strong><em>选择题</em></strong></p>
+<p>1.以下排序方法中，（C归并排序）在一趟排序后不一定能选出一个元素放在其最终位置上<br>A 简单选择排序 B 冒泡排序 C 归并排序 D 堆排序</p>
+<p>2.（基数排序）不需要进行关键字的比较</p>
+<p>3.平均情况下空间复杂度为O(n)的是（归并排序），最坏情况下空间复杂度为O(n)的是（归并排序、快速排序）</p>
+<p>6.对10TB的数据文件进行排序，应使用的方法是（归并排序）</p>
+<p>8.将两个各有N个元素的有序表合并成一个有序表，最少的比较次数是（N），最多的比较次数是（2N-1）</p>
+<p>11.如果将中国人按照生日（不考虑年份，只考虑月、日）来排序，那么使用下列排序算法中最快的是（基数排序）</p>
+<p><strong>7.6 各种内部排序算法的比较及应用</strong></p>
+<p>选择题</p>
+<p>6.排序趟数与序列的原始状态无关的排序方法是（直接插入排序、简单选择排序、基数排序）</p>
+<p>7.每一趟排序结束都至少能够确定一个元素最终位置的方法是（简单选择排序、快速排序、堆排序）</p>
+<p>11.若将顺序存储更换为链式存储，则算法的时间效率会降低的是（希尔排序、堆排序）</p>
+<h3 id="7-7-外部排序"><a href="#7-7-外部排序" class="headerlink" title="7.7 外部排序"></a>7.7 外部排序</h3><p>1）外部排序指待排序文件较大，内存一次放不下，需存放在外部介质的文件的排序<br>2）为减少平衡归并中外存读写次数所采取的方法：<strong>增大归并路数和减少归并段个数</strong><br>3）<strong>利用败者树增大归并路数</strong><br>4）<strong>利用置换-选择排序增大归并段长度来减少归并段个数</strong><br>5）<strong>由长度不等的归并段，进行多路平衡归并，需要构造最佳归并树</strong></p>
+<p>选择题</p>
+<p>3.置换-选择排序的作用是（用于生成外排序的初始归并段）</p>
+<p>4.最佳归并树在外排序的作用是（设计m路归并排序的优化方案）</p>
+<p>6.在昨m路平衡归并排序的过程中，为实现输入/内部归并/输出的并行处理，需要设置（2m）个输入缓冲区和（2）个输出缓冲区</p>
+
       
     </div>
 
@@ -836,7 +1005,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第1章-绪论"><span class="nav-number">1.</span> <span class="nav-text">第1章 绪论</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-数据结构的基本概念"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 数据结构的基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-算法和算法评价"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 算法和算法评价</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第2章-线性表"><span class="nav-number">2.</span> <span class="nav-text">第2章 线性表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-线性表的定义和基本操作"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 线性表的定义和基本操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-线性表的顺序表示"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 线性表的顺序表示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-线性表的链式表示"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 线性表的链式表示</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第3章-栈和队列"><span class="nav-number">3.</span> <span class="nav-text">第3章 栈和队列</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-栈"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 栈</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-队列"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 队列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#栈和队列的应用"><span class="nav-number">3.3.</span> <span class="nav-text">栈和队列的应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-特殊矩阵的压缩存储"><span class="nav-number">3.4.</span> <span class="nav-text">3.4 特殊矩阵的压缩存储</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第4章-树与二叉树"><span class="nav-number">4.</span> <span class="nav-text">第4章 树与二叉树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-树的基本概念"><span class="nav-number">4.1.</span> <span class="nav-text">4.1 树的基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-二叉树的概念"><span class="nav-number">4.2.</span> <span class="nav-text">4.2 二叉树的概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-二叉树的遍历和线索二叉树"><span class="nav-number">4.3.</span> <span class="nav-text">4.3 二叉树的遍历和线索二叉树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-4-树、森林"><span class="nav-number">4.4.</span> <span class="nav-text">4.4 树、森林</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第1章-绪论"><span class="nav-number">1.</span> <span class="nav-text">第1章 绪论</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-数据结构的基本概念"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 数据结构的基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-算法和算法评价"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 算法和算法评价</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第2章-线性表"><span class="nav-number">2.</span> <span class="nav-text">第2章 线性表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-线性表的定义和基本操作"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 线性表的定义和基本操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-线性表的顺序表示"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 线性表的顺序表示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-线性表的链式表示"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 线性表的链式表示</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第3章-栈和队列"><span class="nav-number">3.</span> <span class="nav-text">第3章 栈和队列</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-栈"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 栈</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-队列"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 队列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#栈和队列的应用"><span class="nav-number">3.3.</span> <span class="nav-text">栈和队列的应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-特殊矩阵的压缩存储"><span class="nav-number">3.4.</span> <span class="nav-text">3.4 特殊矩阵的压缩存储</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第4章-树与二叉树"><span class="nav-number">4.</span> <span class="nav-text">第4章 树与二叉树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-树的基本概念"><span class="nav-number">4.1.</span> <span class="nav-text">4.1 树的基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-二叉树的概念"><span class="nav-number">4.2.</span> <span class="nav-text">4.2 二叉树的概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-二叉树的遍历和线索二叉树"><span class="nav-number">4.3.</span> <span class="nav-text">4.3 二叉树的遍历和线索二叉树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-4-树、森林"><span class="nav-number">4.4.</span> <span class="nav-text">4.4 树、森林</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-5-树与二叉树的应用"><span class="nav-number">4.5.</span> <span class="nav-text">4.5 树与二叉树的应用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第5章-图"><span class="nav-number">5.</span> <span class="nav-text">第5章 图</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-图的基本概念"><span class="nav-number">5.1.</span> <span class="nav-text">5.1 图的基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-图的存储及基本操作"><span class="nav-number">5.2.</span> <span class="nav-text">5.2 图的存储及基本操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-3-图的遍历"><span class="nav-number">5.3.</span> <span class="nav-text">5.3 图的遍历</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-4-图的应用"><span class="nav-number">5.4.</span> <span class="nav-text">5.4 图的应用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第6章-查找"><span class="nav-number">6.</span> <span class="nav-text">第6章 查找</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-查找的基本概念"><span class="nav-number">6.1.</span> <span class="nav-text">6.1 查找的基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-顺序查找和折半查找"><span class="nav-number">6.2.</span> <span class="nav-text">6.2 顺序查找和折半查找</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-3-B树和B-树"><span class="nav-number">6.3.</span> <span class="nav-text">6.3 B树和B+树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-4-散列（Hash）表"><span class="nav-number">6.4.</span> <span class="nav-text">6.4 散列（Hash）表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-5-字符串模式匹配"><span class="nav-number">6.5.</span> <span class="nav-text">6.5 字符串模式匹配</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第7章-排序"><span class="nav-number">7.</span> <span class="nav-text">第7章 排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-1-排序的基本概念"><span class="nav-number">7.1.</span> <span class="nav-text">7.1 排序的基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-2-插入排序"><span class="nav-number">7.2.</span> <span class="nav-text">7.2 插入排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-3-交换排序"><span class="nav-number">7.3.</span> <span class="nav-text">7.3 交换排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-4-选择排序"><span class="nav-number">7.4.</span> <span class="nav-text">7.4 选择排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-5-归并排序和基数排序"><span class="nav-number">7.5.</span> <span class="nav-text">7.5 归并排序和基数排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-7-外部排序"><span class="nav-number">7.6.</span> <span class="nav-text">7.7 外部排序</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -868,7 +1037,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">523k</span>
+    <span title="站点总字数">536k</span>
   
 
   
@@ -877,7 +1046,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点总阅读时长">8:43</span>
+    <span title="站点总阅读时长">8:56</span>
   
 </div>
 
