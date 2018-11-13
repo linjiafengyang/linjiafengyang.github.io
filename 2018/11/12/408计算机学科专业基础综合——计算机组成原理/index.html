@@ -108,7 +108,7 @@
 <meta property="og:site_name" content="伪程序员的世界">
 <meta property="og:description" content="整理自王道单科">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-12T15:38:43.433Z">
+<meta property="og:updated_time" content="2018-11-13T09:00:42.612Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="408计算机学科专业基础综合——计算机组成原理">
 <meta name="twitter:description" content="整理自王道单科">
@@ -443,7 +443,7 @@
                 
                   <span class="post-meta-item-text">字数统计：</span>
                 
-                <span title="字数统计">2.3k</span>
+                <span title="字数统计">11k</span>
               
 
               
@@ -457,7 +457,7 @@
                 
                   <span class="post-meta-item-text">阅读时长&asymp;</span>
                 
-                <span title="阅读时长">0:02</span>
+                <span title="阅读时长">0:11</span>
               
             </div>
           
@@ -504,8 +504,186 @@
 <p>20.相联存储器（既可以按地址寻址又可以按内容寻址）</p>
 <h3 id="1-3-计算机的性能指标"><a href="#1-3-计算机的性能指标" class="headerlink" title="1.3 计算机的性能指标"></a>1.3 计算机的性能指标</h3><p><strong>机器字长是指计算机进行一次整数运算（即定点整数运算）所能处理的二进制数据的位数</strong>，一般等于内部寄存器的大小，字长越长，数的表示范围越大，计算精度就越高。</p>
 <p><strong>数据通路带宽</strong>是指数据总线一次所能并行传送信息的位数。</p>
-<p>吞吐量：系统吞吐量主要取决于主存的存取周期<br>响应时间：通常包括CPU时间（运行一个程序所花费的时间）与等待时间<br>CPU时钟周期：即主频的倒数，它是CPU中最小的时间单位<br>主频（CPU时钟频率）：主频的倒数是CPU时钟周期，对于同一个型号的计算机，其主频越高，完成指令的一个执行步骤所用的时间越短，执行指令的速度越快。<br>CPI：执行一条指令所需的时钟周期数<br>CPU执行时间，指运行一个程序所花费的时间<br>CPU执行时间=CPU时钟周期数/主频=（指令条数*CPI）/主频<br>CPU的性能（CPU执行时间）取决于三个要素：主频</p>
-
+<p>吞吐量：系统吞吐量主要取决于主存的存取周期<br>响应时间：通常包括CPU时间（运行一个程序所花费的时间）与等待时间<br><strong>CPU时钟周期</strong>：即主频的倒数，它是CPU中最小的时间单位<br><strong>主频（CPU时钟频率）</strong>：主频的倒数是CPU时钟周期，对于同一个型号的计算机，其主频越高，完成指令的一个执行步骤所用的时间越短，执行指令的速度越快。<br><strong>CPI</strong>：执行一条指令所需的时钟周期数<br>CPU执行时间，指运行一个程序所花费的时间</p>
+<p><strong>CPU执行时间=CPU时钟周期数/主频=（指令条数*CPI）/主频<br>CPU的性能（CPU执行时间）取决于三个要素：主频，每条指令执行所用的时钟周期数（CPI）、指令条数</strong></p>
+<p>MIPS：每秒执行多少百万条指令。MIPS=指令条数/（执行时间*10^6）=主频/CPI<br>MFLOPS：每秒执行多少百万次浮点计算<br>GFLOPS：每秒执行多少十亿次浮点计算<br>TFLOPS：每秒执行多少万亿次浮点计算</p>
+<p><strong><em>选择题</em></strong></p>
+<p>4.存储字长是指（存放在一个存储单元中的二进制代码位数）</p>
+<p>6.下列关于机器字长、指令字长和存储字长的说法中，正确的是（三者在数值上可能不等、存储字长是存放在一二存储单元中的二进制代码位数，存储字长是MDR的位数）</p>
+<p>7.32位微机是指该计算机所用CPU（B能同时处理32位的二进制数）<br>A 具有32位寄存器 B 能同时处理32位的二进制数 C 具有32个寄存器 D 能处理32个字符</p>
+<p>8.用于科学计算的计算机中，标志系统性能的最有用的参数是（C MFLOPS）（科学计算：评估浮点运算的性能）<br>A 主时钟频率 B 主存容量 C MFLOPS D MIPS</p>
+<p>9.若一台计算机的机器字长为4字节，则表明该机器（在CPU中能够作为一个整体处理32位的二进制代码）</p>
+<p>10.在CPU的寄存器中，（B指令寄存器）对用户是完全透明的<br>A 程序计数器 B 指令寄存器 C 状态寄存器 D 通用寄存器</p>
+<p>11.计算机操作的最小单位时间是（A 时钟周期）<br>A 时钟周期 B 指令周期 C CPU周期（又称机器周期，由多个时钟周期组成） D 中断周期</p>
+<p>12.CPU的CPI与下列哪个因素无关（A 时钟频率）<br>A 时钟频率 B 系统结构 C 指令集 D 计算机组织</p>
+<p>15.下列关于“兼容”的叙述，正确的是（指计算机软件或硬件的通用性，通常在同一系列不同型号的计算机间通用）</p>
+<h3 id="1-5-常见问题和易混淆知识点"><a href="#1-5-常见问题和易混淆知识点" class="headerlink" title="1.5 常见问题和易混淆知识点"></a>1.5 常见问题和易混淆知识点</h3><p><strong>在逻辑功能上，软件和硬件是等效的</strong>。在计算机系统中，许多功能既可以由硬件直接实现，也可以在硬件的配合下由软件实现。</p>
+<p><strong>翻译程序</strong>是指把高级语言源程序翻译成机器语言程序（目标代码）的软件，可以分为两种：一种是<strong>编译程序</strong>，将高级语言源程序一次全部翻译成目标程序，只要源程序不变，就无须重新编译，目标程序与体系结构相关，但仍不是计算机硬件能够直接执行的程序；另一种是<strong>解释程序</strong>，翻译一句执行一句，并且不会生成目标程序。<br><strong>汇编程序</strong>把汇编语言源程序翻译成机器语言程序。</p>
+<p>在计算机领域中，站在某一类用户的角度，如果感觉不到某个事物或属性的存在，即“看”不到某个事物或属性，则称为“对该用户而言，某个事物或属性是透明的”。<strong>在CPU中，IR、MAR和MDR对各类程序员都是透明的。</strong></p>
+<p><strong>机器字长：计算机能直接处理的二进制数据的位数，机器字长一般等于内部寄存器的大小，它决定了计算机的运算精度。<br>指令字长：一个指令字中包含二进制代码的位数。<br>存储字长：一个存储单元存储二进制代码的长度。</strong></p>
+<h2 id="第2章-数据的表示和运算"><a href="#第2章-数据的表示和运算" class="headerlink" title="第2章 数据的表示和运算"></a>第2章 数据的表示和运算</h2><h3 id="2-1-数制与编码"><a href="#2-1-数制与编码" class="headerlink" title="2.1 数制与编码"></a>2.1 数制与编码</h3><p><strong>二进制转换为八进制和十六进制</strong>：以小数点为界，其整数部分，从小数点开始往左数，将一串二进制数分为3位（八进制）一组或4位（十六进制）一组，在数的最左边根据需要加“0”补齐；对于小数部分，从小数点开始往右数，将一串二进制数分为3位（八进制）一组或4位（十六进制）一组，在数的最右边根据需要加“0”补齐。<br><strong>八进制或十六进制转换为二进制</strong>：略。<br><strong>任意进制转换为十进制</strong>：略<br><strong>十进制转换为任意进制</strong>：基数乘除法。对于整数部分用除基取余法；对于小数部分用乘基取整法。</p>
+<p><strong>注意：并不是每一个十进制小数都可以准确地用二进制表示，但任意一个二进制小数都可以用十进制小数表示。</strong></p>
+<p>二进制编码的十进制数（BCD码）：<br><strong>8421码</strong>：设其各位的数值为b3、b2、b1、b0，则权值从高到低依次为8/4/2/1，则它表示的十进制数为D=8b3+4b2+2b1+1b0。如果两个8421码相加之和小于等于(1001)，即(9)，则不需要修正；<strong>如果相加之和大于等于(1010)，即(10)，则要加6修正</strong>。<br><strong>余3码</strong>：在8421码的基础上加上(0011)形成的，即每个数都多余“3”<br><strong>2421码</strong>：权值由高到低分别为2/4/2/1，特点是大于等于5的4位二进制数中最高位为1，小于5的最高位为0。如5为1011而不是0101。</p>
+<p><strong>小端模式</strong>：先存储低位字节、后存储高位字节的顺序（即从低位字节向高位字节顺序）存放字符串的内容<br><strong>大端模式</strong>：先存储高位字节、后存储低位字节的顺序（即从高位字节向低位字节顺序）存放字符串的内容</p>
+<p><strong>奇偶校验码</strong>：在原编码上加一个校验位，它的码距等于2，<strong>可以检测出一位错误（或奇数位错误），但不能确定出错的位置，也不能够检测出偶数位错误</strong>，增加的冗余位称为奇偶校验位。<br>奇校验码：整个校验码（有效信息位和校验位）中“1”的个数为奇数<br>偶校验码：整个校验码（有效信息位和校验位）中“1”的个数为偶数</p>
+<p><strong>海明（汉明）校验码：不但可以发现错位，还能指出错位的位置，为自动纠错提供了依据。</strong><br>L-1=D+C且D≥C，即编码最小码距L越大，则其检测错误的位数D越大，纠正错误的位数C也越大，且纠错能力恒小于或等于检错能力。<br><strong>信息位n和校验位k应满足n+k≤2^k-1</strong><br>求海明码的步骤（略）</p>
+<p><strong>循环冗余校验码（CRC）</strong>：在K为信息码后再拼接R位的校验码，整个编码的长度为N位</p>
+<p><strong><em>选择题</em></strong></p>
+<p>16.能发现两位错误并能纠正1位错的编码是（海明码）</p>
+<p>17.在CRC中，接收端检测出某一位数据错误后，纠正的方法是（D）<br>A 请求重发 B 删除数据 C 通过余数值自行纠正 D 以上均可</p>
+<p>18.在大量数据传送过程中，常用且有效的检测法是（CRC）</p>
+<h3 id="2-2-定点数的表示与运算"><a href="#2-2-定点数的表示与运算" class="headerlink" title="2.2 定点数的表示与运算"></a>2.2 定点数的表示与运算</h3><p><strong>原码表示法</strong>：用机器数的最高位表示该数的符号，其余的各位表示数的绝对值<br><strong>纯小数的原码定义</strong>：若字长为n+1，则原码小数的表示范围为-(1-2^-n)≤x≤1-2 ^-n<br>[x] = x，1&gt;x≥0<br>[x] = 1-x = 1+|x|，0≥x&gt;-1<br><strong>纯整数的原码定义</strong>：若字长为n+1，则原码小数的表示范围为-(2^n-1)≤x≤2 ^n-1<br>[x] = 0,x，2^n&gt;x≥0<br>[x] = 2^n-x = 2 ^n+|x|，0≥x&gt;-2 ^n<br><strong>注意：真值零的原码表示有正零和负零两种形式：[+0]=00000, [-0]=10000</strong></p>
+<p><strong>补码表示法</strong>：<br><strong>纯小数的补码定义</strong>：若字长为n+1，则原码小数的表示范围为-1≤x≤1-2 ^-n<br>[x] = x，1&gt;x≥0<br>[x] = 2+x = 2-|x|，0≥x&gt;-1<br><strong>纯整数的补码定义</strong>：若字长为n+1，则原码小数的表示范围为-2^n≤x≤2 ^n-1<br>[x] = 0,x，2^n&gt;x≥0<br>[x] = 2^(n+1)+x = 2 ^(n+1)-|x|，0≥x≥-2 ^n<br><strong>注意：真值零的补码表示是唯一的：[+0]=[-0]=0.0000</strong></p>
+<p><strong>由原码求补码、由补码求原码：<br>对于正数，补码与原码的表示相同。<br>对于负数，原码符号位不变，数值部分按位取反，末位加1.</strong></p>
+<p><strong>反码表示法</strong>：<br><strong>纯小数的原码定义</strong>：若字长为n+1，则原码小数的表示范围为-(1-2^-n)≤x≤1-2 ^-n<br>[x] = x，1&gt;x≥0<br>[x] = 2-2^-n +x，0≥x&gt;-1<br><strong>纯整数的原码定义</strong>：若字长为n+1，则原码小数的表示范围为-(2^n-1)≤x≤2 ^n-1<br>[x] = 0,x，2^n&gt;x≥0<br>[x] = 2^(n+1)-1+x，0≥x&gt;-2 ^n<br><strong>注意：真值零的原码表示有正零和负零两种形式：[+0]=0.0000, [-0]=1.1111</strong></p>
+<p><strong>移码表示法</strong>：移码常用来表示浮点数的阶码，它只能表示整数。<br>[x] = 2^n+x（其中2 ^n&gt;x≥-2 ^n，机器字长为n+1）<br><strong>注意</strong>：<br>1）移码中零的表示唯一，[+0]=2^n+0=[-0]=2 ^n-0=100…0（n个0）<br>2）一个真值的移码和补码仅差一个符号位，补码的符号位取反即得移码（1表示正，0表示负，这与其他机器数的符号位取值正好相反）<br>3）移码全0时，对应真值的最小值-2^n；移码全1时，对应真值的最大值2 ^n -1<br>4）移码大真值就大，移码小真值就小</p>
+<p><strong>不同机器数算术移位后的空位填补规则</strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>码制</th>
+<th>添加代码</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>正数</td>
+<td>原码、补码、反码</td>
+<td>0</td>
+</tr>
+<tr>
+<td>负数</td>
+<td>原码</td>
+<td>0</td>
+</tr>
+<tr>
+<td>负数</td>
+<td>补码</td>
+<td>左移添0，右移添1</td>
+</tr>
+<tr>
+<td>负数</td>
+<td>反码</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p><strong>逻辑移位：将操作数当做无符号数看待，逻辑左移时，高位移丢，低位添0；逻辑右移时，低位移丢，高位添0.</strong><br>注意：逻辑移位不管左移还是右移，都是添0.</p>
+<p>溢出是指运算结果超过了数的表示范围，称大于机器所能表示的最大正数为上溢，小于机器所能表示的最小负数为下溢。<br><strong>仅当两个符号相同的数相加，或两个符号相异的数相减才可能产生溢出。</strong></p>
+<p>补码定点数加减运算溢出判断的方法有3种：<br>1）<strong>采用一位符号位</strong>：只要参加运算的两个数符号相同，结果又与原操作数符号不同，则表示结果溢出。<br>2）<strong>采用双符号位</strong>：运算结果的两个符号位相同，表示未溢出；运算结果的两个符号位不同，表示溢出，此时最高位符号位代表真正的符号。<br>00，表示结果为正数，无溢出；<br>01，表示结果正溢出；<br>10，表示结果负溢出；<br>11，表示结果为负数，无溢出。<br>3）<strong>采用一位符号位根据数据位的进位情况判断溢出</strong>：如果符号位的进位与最高数位的进位相同，说明没有溢出，否则表示发生溢出。</p>
+<p>选择题</p>
+<p>6.对真值0表示形式唯一的机器数是（补码和移码）</p>
+<p>9.如果X为负数，由[X]补求[-X]补是将（[X]补连同符号位一起变反，末位加1）</p>
+<p>10.8位原码能表示的不同数据有（255）<br>要去掉0,0的原码表示有两种，若将题中原码改为反码，也是255，但若改为补码或移码，则有256</p>
+<p>47.原码乘法是（先取操作数绝对值相乘，符号位单独处理）</p>
+<p>48.x、y为定点整数，其格式为1位符号位，n位数值位，若采用补码一位乘法实现乘法运算，则最多需要（n+1）次加法运算</p>
+<p>49.在原码一位乘法中，（符号位不参加运算）</p>
+<p>50.原码乘法时，符号位单独处理乘积的方式是（两个操作数符号相“异或”）</p>
+<p>51.实现N位（不包括符号位）补码一位乘时，乘积为（2N+1）位</p>
+<p>52.在原码不恢复余数除法（又称原码加减交替法）的算法中，（仅当最后一步不够减时，才恢复一次余数）</p>
+<p>53.下列关于补码除法正确的是（补码不恢复余数除法中，异号相除时，够减商0，不够减商1）</p>
+<p>54.在计算机中，通常用来表示主存地址的是（无符号数）</p>
+<h3 id="2-3-浮点数的表示与运算"><a href="#2-3-浮点数的表示与运算" class="headerlink" title="2.3 浮点数的表示与运算"></a>2.3 浮点数的表示与运算</h3><p>IEEE754标准中，规格化的短浮点数的真值为(-1)^S<em>1.M</em>2 ^(E-127)<br>规格化长浮点数的真值为(-1)^S<em>1.M</em>2 ^(E-1023)<br>其中，s=0表示正数，s=1表示负数；短浮点数E的取值为1~254（8位表示），M为23位，共32位；长浮点数E的取值为1 ~2046（11位表示），M为52位，共64位。</p>
+<p>浮点数的加减运算：<br>1）对阶<br>2）尾数求和<br>3）规格化<br>4）舍入<br>5）溢出判断</p>
+<p>选择题</p>
+<p>6.长度相同但格式不同的两种浮点数，假设前者阶码长、尾数短，后者阶码短、尾数长，则它们可表示的数的范围和精度为（前者可表示的数的范围大但精度低）</p>
+<p>7.长度相同但格式不同的两种浮点数，假设前者基数大，后者基数小，则它们可表示的数的范围和精度为（前者可表示的数的范围大但精度低）</p>
+<p>19.在浮点数编码表示中，（基数）在机器数中不出现，是隐含的</p>
+<p>21.采用规格化的浮点数最主要是为了（增加数据的表示精度）</p>
+<h3 id="2-4-算术逻辑单元ALU"><a href="#2-4-算术逻辑单元ALU" class="headerlink" title="2.4 算术逻辑单元ALU"></a>2.4 算术逻辑单元ALU</h3><p>运算器由算术逻辑单元ALU、累加器、状态寄存器和通用寄存器等组成。运算器的操作和操作种类由控制器决定，运算器处理的数据来自存储器，处理后的结果数据通常送回存储器，或暂存在运算器中。</p>
+<p><strong>一位全加器</strong>：<br><strong>和表达式</strong>：Si=Ai⊕Bi⊕Ci-1（Ai、Bi、Ci-1有奇数个1，则Si=1，否则Si=0）<br><strong>进位表达式</strong>：Ci=AiBi+(Ai⊕Bi)Ci-1</p>
+<p>串行加法器：只有一个全加器<br><strong>并行加法器</strong>：由多个全加器组成，提高并行加法器速度的关键是尽量加快进位产生和传递的速度。<br><strong>进位表达式</strong>：Ci=Gi+PiCi-1，Gi是进位产生函数，Gi=AiBi；Pi是进位传递函数，Pi=Ai⊕Bi<br>并行加法器的进位通常分为串行进位和并行进位<br>分组并行进位方式：<br><strong>单级先行进位方式又称为组内并行、组间串行进位方式；多组先行进位方式又称为组内并行、组间并行进位方式。</strong></p>
+<p><strong><em>选择题</em></strong></p>
+<p>3.在串行进位的并行加法器中，影响加法器运算速度的关键因素是（进位传递延迟）</p>
+<p>6.组成一个运算器需要多个部件，但下面（D地址寄存器）不是组成运算器的部件<br>A 状态寄存器 B 数据总线 C ALU D 地址寄存器（属于存储器）</p>
+<h2 id="第3章-存储系统"><a href="#第3章-存储系统" class="headerlink" title="第3章 存储系统"></a>第3章 存储系统</h2><h3 id="3-1-存储器的层次结构"><a href="#3-1-存储器的层次结构" class="headerlink" title="3.1 存储器的层次结构"></a>3.1 存储器的层次结构</h3><p>按在计算机中的作用（层次）分类：<strong>主存储器、辅助存储器、高速缓冲存储器Cache</strong><br>按存储介质分类：<strong>磁表面存储器</strong>（磁盘、磁带）、<strong>磁芯存储器半导体存储器</strong>（MOS型存储器、双极型存储器）、<strong>光存储器</strong>（光盘）<br>按存取方式分类：<strong>随机存储器</strong>（静态RAM、动态RAM）、<strong>只读存储器</strong>（ROM）、<strong>串行访问存储器</strong>（顺序存取存储器（磁带）、直接存取存储器（磁盘））<br>按信息的可保存性分类：<strong>易失性存储器</strong>（RAM）、<strong>非易失性存储器</strong>（ROM、磁表面存储器、光存储器）</p>
+<p><strong>存储容量=存储字数*字长，存储字数表示存储器的地址空间大小，字长表示一次存取操作的数据量</strong></p>
+<p><strong>存储速度：数据传输率=数据的宽度/存储周期</strong><br><strong>存取时间Ta</strong>：指从启动一次存储器操作到完成该操作所经历的时间，分为读出时间和写入时间<br><strong>存取周期Tm</strong>：指存储器进行一次完整的读写操作所需的全部时间，即连续两次独立地访问存储器操作（读或写操作）之间所需的最小时间间隔<br><strong>主存带宽Bm</strong>：又称数据传输率，表示每秒从主存进出信息的最大数量<br><strong>存取时间不等于存储周期，通常存储周期大于存取时间</strong>。</p>
+<p><strong><em>选择题</em></strong></p>
+<p>2.磁盘属于（直接存取存储器（DAM））类型的存储器</p>
+<p>5.相联存储器是按（内容指定方式和地址指定方式相结合）进行寻址的存储器</p>
+<h3 id="3-2-存储器的层次化结构"><a href="#3-2-存储器的层次化结构" class="headerlink" title="3.2 存储器的层次化结构"></a>3.2 存储器的层次化结构</h3><p><strong>“Cache-主存”：解决CPU和主存速度不匹配的问题<br>“主存-辅存”：解决存储系统的容量问题</strong></p>
+<p><strong>Cache、主存能与CPU直接交换信息，辅存则要通过主存与CPU交换信息；主存与CPU、Cache、辅存都嗯呢该交换信息</strong></p>
+<p><strong>注意</strong>：<strong>主存和Cache</strong>之间的数据调动是由<strong>硬件</strong>自动完成的，<strong>对所有程序员均是透明的</strong>；而<strong>主存和辅存</strong>之间的数据调动是由<strong>硬件和操作系统</strong>共同完成的，<strong>对应用程序员是透明的</strong>。<br>Cache中的内容只是主存中内容的一部分，主存中的内容只是辅存中内容的一部分</p>
+<p><strong><em>选择题</em></strong></p>
+<p>4.存储器从速度最快到最慢的排列顺序是（寄存器-Cache-主存-辅存）</p>
+<h3 id="3-3-半导体随机存储器"><a href="#3-3-半导体随机存储器" class="headerlink" title="3.3 半导体随机存储器"></a>3.3 半导体随机存储器</h3><p>1）存储矩阵<br>2）译码驱动<br>3）读写电路<br>4）读写控制线<br><strong>5）片选线：确定哪个存储芯片被选中<br>6）地址线：单向输入<br>7）数据线：双向的，数据线数和地址线数共同反映存储芯片容量的大小。如地址线10根，数据线8根，则芯片容量=2^10*8=8K位</strong></p>
+<p><strong>静态随机存储器SRAM</strong>：用双稳态触发器（六管MOS）来记忆信息，属于易失性半导体存储器，一般用来组成高速缓冲存储器<br><strong>动态随机存储器DRAM</strong>：利用存储元电路中栅极电容上的电荷来存储信息，一般用来组成大容量主存系统。刷新方式有三种：集中刷新、分散刷新、异步刷新</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>SRAM</th>
+<th>DRAM</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>存储信息</td>
+<td>触发器</td>
+<td>电容</td>
+</tr>
+<tr>
+<td>破坏性读出</td>
+<td>非</td>
+<td>是</td>
+</tr>
+<tr>
+<td>需要刷新</td>
+<td>不要</td>
+<td>需要</td>
+</tr>
+<tr>
+<td>送行列地址</td>
+<td>同时送</td>
+<td>分两次送</td>
+</tr>
+<tr>
+<td>运行速度</td>
+<td>快</td>
+<td>慢</td>
+</tr>
+<tr>
+<td>集成度</td>
+<td>低</td>
+<td>高</td>
+</tr>
+<tr>
+<td>发热量（功耗）</td>
+<td>大</td>
+<td>小</td>
+</tr>
+<tr>
+<td>存储成本</td>
+<td>高</td>
+<td>低</td>
+</tr>
+<tr>
+<td>主要用途</td>
+<td>高速缓存</td>
+<td>主机内存</td>
+</tr>
+</tbody>
+</table>
+<p>掩膜式只读存储器MROM：写入以后任何人都无法改变其内容<br>一次可编程只读存储器PROM：允许用户用专门设备写入程序，写入后内容就无法改变<br>可擦除可编程只读存储器EPROM：允许用户写入信息，而且可以对其内容进行多次改写<br>闪速存储器Flash Memory：在不加电时仍可长期保存信息且能进行快速擦除重写<br>固态硬盘SSD：用固态电子存储芯片阵列而制成的硬盘，由控制单元和存储单元（Flash芯片）组成</p>
+<p><strong><em>选择题</em></strong></p>
+<p>3.若RAM中每个存储单元为16位，则下面所述正确的是（数据线是16位）</p>
+<p>4.DRAM的刷新是以（行）为单位的</p>
+<p>14.U盘属于（C只读存储器）类型的存储器<br>A 高速缓存 B 主存 C 只读存储器 D 随机存取存储器</p>
+<h3 id="3-4-主存储器与CPU的连接"><a href="#3-4-主存储器与CPU的连接" class="headerlink" title="3.4 主存储器与CPU的连接"></a>3.4 主存储器与CPU的连接</h3><p>1）主存储器通过数据总线、地址总线和控制总线与CPU连接<br>2）数据总线的位数与工作频率的乘积正比于数据传输率<br>3）地址总线的位数决定了可寻址的最大内存空间<br>4）控制总线（读/写）指出总线周期的类型和本次输入/输出操作完成的时刻</p>
+<p>主存容量的扩展：位扩展法、字扩展法、字位同时扩展法</p>
+<p>CPU要实现对存储单元的访问，首先要选择存储芯片，即进行片选，然后再为选中的芯片依地址码选择相应的存储单元，以进行数据的存取，即进行字选。<br>片选信号的产生分为线选法和译码片选法。</p>
+<h3 id="3-5-双口RAM和多模块存储器"><a href="#3-5-双口RAM和多模块存储器" class="headerlink" title="3.5 双口RAM和多模块存储器"></a>3.5 双口RAM和多模块存储器</h3><p><strong>双端口RAM</strong>：指同一个存储器有左、右两个独立的端口，分别具有两组相互独立的地址线、数据线和读写控制线，允许两个独立的控制器同时异步地访问存储单元。<br>1）两个端口不同时对同一地址单元存取数据（正常）<br>2）两个端口同时对同一地址单元读出数据（正常）<br>3）两个端口同时对同一地址单元写入数据（可能会写入错误）<br>4）两个端口同时对同一地址单元，一个写入数据，另一个读出数据（出现读出错误）</p>
+<p><strong>多模块存储器</strong>：<br><strong>单体多字存储器</strong>：存储器中只有一个存储体，每个存储单元存储m个字，总线宽度也为m个字。一次并行读出m个字，地址必须顺序排列并处于同一存储单元<br><strong>多体并行存储器</strong>：由多体模块组成，每个模块都有相同的容量和存取速度，各模块都有独立的读写控制电路、地址寄存器和数据寄存器，既能并行工作，又能交叉工作<br>多体并行存储器由分为高位交叉编址（顺序方式）和低位交叉编址（交叉方式）<br><strong>高位交叉编址</strong>：高位地址表示体号，低位地址为体内地址<br><strong>低位交叉编址</strong>：低位地址为体号，高位地址为体内地址<br>流水线方式，存储器交叉模块数应大于等于<strong>m=T/r</strong>（T为存取周期，r为总线传送周期），连续读取m个字所需时间为<strong>t1=T+(m-1)r</strong>，而顺序方式连续读取m个字所需时间为t2=mT</p>
+<h3 id="3-6-高速缓冲存储器"><a href="#3-6-高速缓冲存储器" class="headerlink" title="3.6 高速缓冲存储器"></a>3.6 高速缓冲存储器</h3><p>高速缓冲技术就是利用程序访问的<strong>局部性原理</strong>。<br>当CPU发出读请求时，如果访存地址在Cache中命中，就将此地址转换成Cache地址，直接对Cache进行读操作，与主存无关；如果Cache不命中，则仍需访问主存，并把此字所在的块一次从主存调入Cache内。若此时Cache已满，则需根据某种替换算法，用这个块替换掉Cache中原来的某块信息。<br><strong>注意：CPU与Cache之间的数据交换以字位单位，而Cache与主存之间的数据交换以Cache块为单位</strong></p>
+<p>Cache命中率H=Nc/(Nc+Nm)<br>平均访问时间Ta=Htc+(1-H)tm</p>
+<p><strong>直接映射</strong>：j = i mod 2^c（j是Cache的块号，又称行号，i是主存的块号，2 ^c是Cache的总块数）<br>地址结构为：<br>| 主存字块标记 | Cache字块地址| 字块内地址|<br>| —— | —— | —— |</p>
+<p><strong>全相联映射</strong>：<br>地址结构为：<br>| 主存字块标记 | 字块内地址 |<br>| —— | —— |</p>
+<p><strong>组相联映射</strong>：将Cache空间分成大小相同的组，主存的一个数据块可以装入到一组内的任何一个位置，即组间采取直接映射，而组内采取全相联映射。<br>j = i mod Q（j是Cache的组号，i是主存的块号，Q是Cache的组数，Q=1变为全相联映射，Q=Cache块数变为直接映射）<br>地址结构为：<br>| 主存字块标记 | 组地址 | 字块内地址 |<br>| —— | —— | —— |</p>
+<p><strong>置换算法</strong>：<br>1）随机算法RAND：没有依据程序访问的局部性原理<br>2）先进先出算法FIFO：没有依据程序访问的局部性原理<br>3）近期最少使用算法LRU<br>4）最不经常使用算法LFU</p>
+<p><strong>Cache写策略</strong><br><strong>对于Cache写命中</strong>：<br>1）<strong>全写法</strong>（写直通法write-through）：必须把数据同时写入Cache和主存<br>2）<strong>写回法</strong>（write-back）：只修改Cache的内容，而不立即写入主存，只有当此块被换出时才写回主存<br><strong>对于Cache写不命中</strong>：<br>1）<strong>写分配法</strong>（write-allocate）：加载主存中的块到Cache中，然后更新这个Cache块<br>2）<strong>非写分配法</strong>（not-write-allocate）：只写入主存，不进行调块<br><strong>非写分配法通常与全写法合用，写分配法通常和写回法合用。</strong></p>
+<h3 id="3-7-虚拟存储器"><a href="#3-7-虚拟存储器" class="headerlink" title="3.7 虚拟存储器"></a>3.7 虚拟存储器</h3>
       
     </div>
 
@@ -726,7 +904,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第1章-计算机系统概述"><span class="nav-number">1.</span> <span class="nav-text">第1章 计算机系统概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-计算机发展历程"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 计算机发展历程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-计算机系统层次结构"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 计算机系统层次结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-计算机的性能指标"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 计算机的性能指标</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第1章-计算机系统概述"><span class="nav-number">1.</span> <span class="nav-text">第1章 计算机系统概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-计算机发展历程"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 计算机发展历程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-计算机系统层次结构"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 计算机系统层次结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-计算机的性能指标"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 计算机的性能指标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5-常见问题和易混淆知识点"><span class="nav-number">1.4.</span> <span class="nav-text">1.5 常见问题和易混淆知识点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第2章-数据的表示和运算"><span class="nav-number">2.</span> <span class="nav-text">第2章 数据的表示和运算</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-数制与编码"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 数制与编码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-定点数的表示与运算"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 定点数的表示与运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-浮点数的表示与运算"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 浮点数的表示与运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-算术逻辑单元ALU"><span class="nav-number">2.4.</span> <span class="nav-text">2.4 算术逻辑单元ALU</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第3章-存储系统"><span class="nav-number">3.</span> <span class="nav-text">第3章 存储系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-存储器的层次结构"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 存储器的层次结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-存储器的层次化结构"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 存储器的层次化结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-半导体随机存储器"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 半导体随机存储器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-主存储器与CPU的连接"><span class="nav-number">3.4.</span> <span class="nav-text">3.4 主存储器与CPU的连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-5-双口RAM和多模块存储器"><span class="nav-number">3.5.</span> <span class="nav-text">3.5 双口RAM和多模块存储器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-6-高速缓冲存储器"><span class="nav-number">3.6.</span> <span class="nav-text">3.6 高速缓冲存储器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-7-虚拟存储器"><span class="nav-number">3.7.</span> <span class="nav-text">3.7 虚拟存储器</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -758,7 +936,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">540k</span>
+    <span title="站点总字数">548k</span>
   
 
   
@@ -767,7 +945,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点总阅读时长">9:01</span>
+    <span title="站点总阅读时长">9:08</span>
   
 </div>
 
