@@ -108,7 +108,7 @@
 <meta property="og:site_name" content="伪程序员的世界">
 <meta property="og:description" content="整理自王道单科">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-13T09:00:42.612Z">
+<meta property="og:updated_time" content="2018-11-13T14:47:30.239Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="408计算机学科专业基础综合——计算机组成原理">
 <meta name="twitter:description" content="整理自王道单科">
@@ -443,7 +443,7 @@
                 
                   <span class="post-meta-item-text">字数统计：</span>
                 
-                <span title="字数统计">11k</span>
+                <span title="字数统计">15k</span>
               
 
               
@@ -457,7 +457,7 @@
                 
                   <span class="post-meta-item-text">阅读时长&asymp;</span>
                 
-                <span title="阅读时长">0:11</span>
+                <span title="阅读时长">0:15</span>
               
             </div>
           
@@ -683,7 +683,178 @@
 <p><strong>组相联映射</strong>：将Cache空间分成大小相同的组，主存的一个数据块可以装入到一组内的任何一个位置，即组间采取直接映射，而组内采取全相联映射。<br>j = i mod Q（j是Cache的组号，i是主存的块号，Q是Cache的组数，Q=1变为全相联映射，Q=Cache块数变为直接映射）<br>地址结构为：<br>| 主存字块标记 | 组地址 | 字块内地址 |<br>| —— | —— | —— |</p>
 <p><strong>置换算法</strong>：<br>1）随机算法RAND：没有依据程序访问的局部性原理<br>2）先进先出算法FIFO：没有依据程序访问的局部性原理<br>3）近期最少使用算法LRU<br>4）最不经常使用算法LFU</p>
 <p><strong>Cache写策略</strong><br><strong>对于Cache写命中</strong>：<br>1）<strong>全写法</strong>（写直通法write-through）：必须把数据同时写入Cache和主存<br>2）<strong>写回法</strong>（write-back）：只修改Cache的内容，而不立即写入主存，只有当此块被换出时才写回主存<br><strong>对于Cache写不命中</strong>：<br>1）<strong>写分配法</strong>（write-allocate）：加载主存中的块到Cache中，然后更新这个Cache块<br>2）<strong>非写分配法</strong>（not-write-allocate）：只写入主存，不进行调块<br><strong>非写分配法通常与全写法合用，写分配法通常和写回法合用。</strong></p>
-<h3 id="3-7-虚拟存储器"><a href="#3-7-虚拟存储器" class="headerlink" title="3.7 虚拟存储器"></a>3.7 虚拟存储器</h3>
+<h3 id="3-7-虚拟存储器"><a href="#3-7-虚拟存储器" class="headerlink" title="3.7 虚拟存储器"></a>3.7 虚拟存储器</h3><p>主机和联机工作的辅存共同构成了虚拟存储器，对于应用程序而言，虚拟存储器是透明的。</p>
+<p><strong>页式虚拟存储器</strong>：以页为基本单位，虚拟空间和主存空间都被划分成同样大小的页，主存的页称为实页，虚存的页称为虚页。<strong>把虚拟地址分为两个字段：虚页号和页内地址</strong>。<br><strong>优点</strong>是页面的长度固定，页表简单，调入方便。<strong>缺点</strong>是由于程序不可能正好是页面的整数倍，最后一页的零头将无法利用而造成浪费，并且页不是逻辑上独立的实体，所以处理、保护和共享都不及段式虚拟存储器方便。</p>
+<p><strong>段式虚拟存储器</strong>：段是按程序的逻辑结构划分的，各个段的长度因程序而异。<strong>把虚拟地址分为两部分：段号和段内地址</strong>。<br><strong>优点</strong>是段的分界与程序的自然分界相对应，因而具有逻辑独立性，使它易于编译、管理、修改和保护，也便于多道程序的共享；<strong>缺点</strong>是因为段长度可变，分配空间不便，容易在段间留下碎片，不好利用，造成浪费。</p>
+<p><strong>段页式虚拟存储器</strong>：把程序按逻辑结构分段，每段再划分为固定大小的页，主存空间也划分为大小相等的页，程序对主存的调入、调出仍以页为基本传送单位。每个程序对应一个段表，每段对应一个页表，段的长度必须是页长的整数倍，段的起点必须是某一页的起点。<strong>虚地址分为段号、段内页号、页内地址三部分</strong>。<br><strong>优点</strong>是兼具页式和段式虚拟存储器的优点，可以按段实现共享和保护。<strong>缺点</strong>是在地址变换过程中需要两次查表，系统开销比较大。</p>
+<p><strong>快表TLB</strong>依据程序执行的局部性原理，快表只是慢表Page的一个副本，而且只存放了慢表中很少的一部分。<br>查找时，快表和慢表同时进行，快表由于根据内容指定地址，一般使用相联存储器。<br><strong>注意：TLB是Page的一个很小的副本，所以若TLB命中则Page一定命中。<br>在同时具有虚拟页式存储器（有TLB）和Cache的系统中，访问顺序为TLB-&gt;页表-&gt;Cache-&gt;主存</strong></p>
+<p><strong>虚拟存储器和Cache的不同之处</strong>：<br>1）Cache主要解决系统速度，而虚拟存储器是为了解决主存容量<br>2）Cache全由硬件实现，是硬件存储器，对所有程序员透明；而虚拟存储器由OS和硬件共同实现，是逻辑上的存储器，对系统程序员不透明，但对应用程序员透明。<br>3）虚拟存储器系统不命中时对系统性能影响更大。<br>4）Cache不命中时主存能和CPU直接通信，同时将数据调入Cache中；而虚拟存储器系统不命中时，只能先由硬盘调入内存中，而不能直接和CPU通信。</p>
+<p>选择题</p>
+<p>2.虚拟存储管理系统的基础是程序访问的局部性原理，此理论的基本含义是（在程序的执行过程中，程序对主存的访问是不均匀的）</p>
+<p>6.虚存（对应用程序员透明，对系统程序员不透明）</p>
+<p>7.在虚拟存储器中，当程序正在执行时，由（操作系统）完成地址映射。</p>
+<p>8.采用虚拟存储器的主要目的是（扩大主存储器的存储空间）</p>
+<h2 id="第4章"><a href="#第4章" class="headerlink" title="第4章"></a>第4章</h2><h3 id="4-1-指令格式"><a href="#4-1-指令格式" class="headerlink" title="4.1 指令格式"></a>4.1 指令格式</h3><p>指令的长度是指一条指令中所包含的二进制代码的位数。指令字长取决于操作码的长度、操作数地址码的长度和操作数地址的个数。指令长度与机器字长没有固定的关系。</p>
+<p><strong>零地址指令</strong>：<br>1）不需要操作数的指令：空操作指令、停机指令、关中断指令<br>2）零地址的运算类指令仅用在堆栈计算机中<br><strong>一地址指令</strong>：<br>1）只有目的操作数的单操作数指令，按A1地址读取操作数，进行OP操作后，结果存回原地址，即OP(A1)-&gt;A，如加1，减1，求反、求补等<br>2）隐含约定目的地址的双操作数指令，按指令地址A1可读取源操作数，指令可隐含约定另一个操作数由ACC（累加器）提供，运算结果也存放在ACC中，即(ACC)OP(A1)-&gt;ACC<br><strong>二地址指令</strong>：给出目的操作数和源操作数的地址，其中目的操作数地址还用于保存本次的运算结果，即(A1)OP(A2)-&gt;A1<br><strong>三地址指令</strong>：(A1)OP(A2)-&gt;A3<br><strong>四地址指令</strong>：(A1)OP(A2)-&gt;A3，A4=下一条将要执行指令的地址</p>
+<p><strong>选择题</strong></p>
+<p>9.能够完成两个数的算术运算的单地址指令，地址码指明一个操作数，另一个操作数来自于（隐含寻址）方式</p>
+<p>12.在指令格式中，采用扩展操作码设计方案的目的是（保持指令字长度不变而增加指令的数量）</p>
+<h3 id="指令寻址方式"><a href="#指令寻址方式" class="headerlink" title="指令寻址方式"></a>指令寻址方式</h3><p><strong>隐含寻址</strong>：在指令中隐含着操作数的地址，累加器ACC对单地址指令格式来说是隐含地址<br><strong>优点</strong>：有利于缩短指令字长<br><strong>缺点</strong>：需增加存储操作数或隐含地址的硬件</p>
+<p><strong>立即（数）寻址</strong>：指出的是操作数本身，又称为立即数<br><strong>优点</strong>：指令在执行阶段不访问主存，指令执行时间最短<br><strong>缺点</strong>：A的位数限制了立即数的范围</p>
+<p><strong>直接寻址</strong>：指令字中的形式地址A就是操作数的真实地址EA，即EA=A<br><strong>优点</strong>：简单，指令在执行阶段仅访问一次主存，不需要专门计算操作数的地址<br><strong>缺点</strong>：A的位数决定了该指令操作数的寻址范围，操作数的地址不易修改</p>
+<p><strong>间接寻址</strong>：指令的地址字段给出的形式地址不是操作数的真正地址，而是操作数有效地址所在的存储单元的地址，也就是操作数地址的地址，即EA=(A)<br><strong>优点</strong>：可扩大寻址范围，便于编制程序（用间接寻址可以方便地完成子程序返回）<br><strong>缺点</strong>：指令在执行阶段要多次访存（一般问到扩大寻址范围通常都是寄存器间接寻址）</p>
+<p><strong>寄存器寻址</strong>：在指令字中直接给出操作数所在的寄存器编号，即EA=Ri，其操作数在由Ri所指的寄存器内<br><strong>优点</strong>：指令在执行阶段不访问主存，只访问寄存器，执行速度快，支持向量/矩阵运算<br><strong>缺点</strong>：寄存器价格昂贵，寄存器个数有限</p>
+<p><strong>寄存器间接寻址</strong>：在寄存器Ri中给出的不是一个操作数，而是操作数所在主存单元的地址，即EA=(Ri)<br><strong>优点</strong>：与一般间接寻址相比速度更快<br><strong>缺点</strong>：需要访问主存</p>
+<p><strong>相对寻址</strong>：把程序计数器PC的内容加上指令格式中的形式地址A而形成操作数的有效地址，即EA=(PC)+A<br><strong>优点</strong>：操作数的地址不是固定的，随着PC的变化而变化，并且与指令地址之间总是相差一个固定值，因此便于程序浮动，广泛应用于转移指令</p>
+<p><strong>基址寻址</strong>：将CPU中基址寄存器（BR）的内容加上指令格式中的形式地址A，而形成操作数的有效地址，即EA=(BR)+A<br><strong>优点</strong>：可扩大寻址范围，用户不必考虑自己的程序位于主存的哪一空间区域，故有利于多道程序设计，以及用于编制浮动程序</p>
+<p><strong>变址寻址</strong>：有效地址EA等于指令字中的形式地址A与变址寄存器IX的内容相加之和，即EA=(IX)+A<br><strong>优点</strong>：可扩大寻址范围，用于处理数组问题</p>
+<p><strong>堆栈寻址</strong>：硬堆栈、软堆栈</p>
+<table>
+<thead>
+<tr>
+<th>寻址方式</th>
+<th>有效地址</th>
+<th>访存次数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>隐含寻址</td>
+<td>程序指定</td>
+<td>0</td>
+</tr>
+<tr>
+<td>立即寻址</td>
+<td>A即是操作数</td>
+<td>0</td>
+</tr>
+<tr>
+<td>直接寻址</td>
+<td>EA=A</td>
+<td>1</td>
+</tr>
+<tr>
+<td>一次间接寻址</td>
+<td>EA=(A)</td>
+<td>2</td>
+</tr>
+<tr>
+<td>寄存器寻址</td>
+<td>EA=Ri</td>
+<td>0</td>
+</tr>
+<tr>
+<td>寄存器间接一次寻址</td>
+<td>EA=(Ri)</td>
+<td>1</td>
+</tr>
+<tr>
+<td>相对寻址</td>
+<td>EA=(PC)+A</td>
+<td>1</td>
+</tr>
+<tr>
+<td>基址寻址</td>
+<td>EA=(BR)+A</td>
+<td>1</td>
+</tr>
+<tr>
+<td>变址寻址</td>
+<td>EA=(IX)+A</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p><strong><em>选择题</em></strong></p>
+<p>2.指令系统中采用不同寻址方式的目的是（可缩短指令字长，扩大寻址空间，提高编程的灵活性）</p>
+<p>3.直接寻址的无条件转移指令的功能是将指令中的地址码送入（程序计数器PC）</p>
+<p>4.为了缩短指令中某个地址段的位数，有效的方法是采取（寄存器寻址）</p>
+<p>5.简化地址结构的基本方法是尽量采用（隐含地址）</p>
+<p>6.在指令寻址的各种方式中，获取操作数最快的方式是（立即寻址）</p>
+<p>9.（变址寻址）便于处理数组问题</p>
+<p>11.相对寻址方式总，指令所提供的相对地址实质上是一种（以下条指令在内存中首地址为基准位置的偏移量）</p>
+<p>12.下列寻址方式中，最适合按下标顺序访问一维数组元素的是（变址寻址）</p>
+<p>19.对按字寻址的机器，程序计数器和指令寄存器的位数各取决于（存储器的字数、指令字长）</p>
+<h3 id="4-3-CISC和RISC的基本概念"><a href="#4-3-CISC和RISC的基本概念" class="headerlink" title="4.3 CISC和RISC的基本概念"></a>4.3 CISC和RISC的基本概念</h3><table>
+<thead>
+<tr>
+<th>类别</th>
+<th>CISC</th>
+<th>RISC</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>指令系统</td>
+<td>复杂，庞大</td>
+<td>简单，精简</td>
+</tr>
+<tr>
+<td>指令数目</td>
+<td>一般大于200条</td>
+<td>一般小于100条</td>
+</tr>
+<tr>
+<td>指令字长</td>
+<td>不固定</td>
+<td>固定</td>
+</tr>
+<tr>
+<td>可访存指令</td>
+<td>不加限制</td>
+<td>只有Load/Store指令</td>
+</tr>
+<tr>
+<td>各种指令执行时间</td>
+<td>相差较大</td>
+<td>绝大多数在一个周期内完成</td>
+</tr>
+<tr>
+<td>各种指令使用频度</td>
+<td>相差很大</td>
+<td>都比较常用</td>
+</tr>
+<tr>
+<td>通用寄存器数量</td>
+<td>较少</td>
+<td>多</td>
+</tr>
+<tr>
+<td>目标代码</td>
+<td>难以用优化编译生成高效的目标代码程序</td>
+<td>采用优化的编译程序，生成代码较为高效</td>
+</tr>
+<tr>
+<td>控制方式</td>
+<td>绝大多数为微程序控制</td>
+<td>绝大多数为组合逻辑控制</td>
+</tr>
+<tr>
+<td>指令流水线</td>
+<td>可以通过一定方式实现</td>
+<td>必须实现</td>
+</tr>
+</tbody>
+</table>
+<h2 id="第5章-中央处理器"><a href="#第5章-中央处理器" class="headerlink" title="第5章 中央处理器"></a>第5章 中央处理器</h2><h3 id="5-1-CPU的功能和基本结构"><a href="#5-1-CPU的功能和基本结构" class="headerlink" title="5.1 CPU的功能和基本结构"></a>5.1 CPU的功能和基本结构</h3><p>具体功能：指令控制、操作控制、时间控制、数据加工、中断处理</p>
+<p>运算器：主要由算术逻辑单元、暂存寄存器、累加寄存器、通用寄存器组、程序状态字寄存器、移位器、计数器等组成<br>控制器：主要由程序计数器、指令寄存器、指令译码器、存储器地址寄存器、存储器数据寄存器、时序系统和微操作信号发生器等组成</p>
+<p><strong>注意：通用寄存器组、程序状态字寄存器对用户是可见的，存储器地址寄存器、存储器数据寄存器、指令寄存器对用户是透明的，不可见的。</strong></p>
+<p><strong><em>选择题</em></strong></p>
+<p>1.汇编语言程序员可见的是（程序计数器PC）</p>
+<p>3.通用寄存器是（可编程指定多种功能的寄存器）</p>
+<p>4.CPU中保存当前正在执行指令的寄存器是（指令寄存器）</p>
+<p>5.CPU中跟踪后继指令地址的寄存器是（程序计数器）</p>
+<p>6.条件转移指令执行时所依据的条件来自（标志寄存器）</p>
+<p>7.所谓n位的CPU，这里的n是指（数据总线线数）（CPU一次能处理的数据的位数）</p>
+<p>11.在一条无条件跳转指令的指令周期内，PC的值被修改（2）次</p>
+<p>12.程序计数器的位数取决于（存储器的容量）</p>
+<p>13.指令寄存器的位数取决于（指令字长）</p>
+<p>14.CPU中通用寄存器的位数取决于（机器字长）</p>
+<p>15.CPU中的通用寄存器（可以存放数据和地址）</p>
+<p>19.指令译码是对（指令的操作码字段）进行译码</p>
+<p>20.CPU中不包括（地址译码器）（地址译码器在主存中）</p>
+<p>22.间址周期结束时，CPU内寄存器MDR中的内容为（操作数地址）</p>
+<h3 id="5-2-指令执行过程"><a href="#5-2-指令执行过程" class="headerlink" title="5.2 指令执行过程"></a>5.2 指令执行过程</h3>
       
     </div>
 
@@ -904,7 +1075,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第1章-计算机系统概述"><span class="nav-number">1.</span> <span class="nav-text">第1章 计算机系统概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-计算机发展历程"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 计算机发展历程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-计算机系统层次结构"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 计算机系统层次结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-计算机的性能指标"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 计算机的性能指标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5-常见问题和易混淆知识点"><span class="nav-number">1.4.</span> <span class="nav-text">1.5 常见问题和易混淆知识点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第2章-数据的表示和运算"><span class="nav-number">2.</span> <span class="nav-text">第2章 数据的表示和运算</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-数制与编码"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 数制与编码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-定点数的表示与运算"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 定点数的表示与运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-浮点数的表示与运算"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 浮点数的表示与运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-算术逻辑单元ALU"><span class="nav-number">2.4.</span> <span class="nav-text">2.4 算术逻辑单元ALU</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第3章-存储系统"><span class="nav-number">3.</span> <span class="nav-text">第3章 存储系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-存储器的层次结构"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 存储器的层次结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-存储器的层次化结构"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 存储器的层次化结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-半导体随机存储器"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 半导体随机存储器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-主存储器与CPU的连接"><span class="nav-number">3.4.</span> <span class="nav-text">3.4 主存储器与CPU的连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-5-双口RAM和多模块存储器"><span class="nav-number">3.5.</span> <span class="nav-text">3.5 双口RAM和多模块存储器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-6-高速缓冲存储器"><span class="nav-number">3.6.</span> <span class="nav-text">3.6 高速缓冲存储器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-7-虚拟存储器"><span class="nav-number">3.7.</span> <span class="nav-text">3.7 虚拟存储器</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第1章-计算机系统概述"><span class="nav-number">1.</span> <span class="nav-text">第1章 计算机系统概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-计算机发展历程"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 计算机发展历程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-计算机系统层次结构"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 计算机系统层次结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-计算机的性能指标"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 计算机的性能指标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5-常见问题和易混淆知识点"><span class="nav-number">1.4.</span> <span class="nav-text">1.5 常见问题和易混淆知识点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第2章-数据的表示和运算"><span class="nav-number">2.</span> <span class="nav-text">第2章 数据的表示和运算</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-数制与编码"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 数制与编码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-定点数的表示与运算"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 定点数的表示与运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-浮点数的表示与运算"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 浮点数的表示与运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-算术逻辑单元ALU"><span class="nav-number">2.4.</span> <span class="nav-text">2.4 算术逻辑单元ALU</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第3章-存储系统"><span class="nav-number">3.</span> <span class="nav-text">第3章 存储系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-存储器的层次结构"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 存储器的层次结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-存储器的层次化结构"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 存储器的层次化结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-半导体随机存储器"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 半导体随机存储器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-主存储器与CPU的连接"><span class="nav-number">3.4.</span> <span class="nav-text">3.4 主存储器与CPU的连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-5-双口RAM和多模块存储器"><span class="nav-number">3.5.</span> <span class="nav-text">3.5 双口RAM和多模块存储器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-6-高速缓冲存储器"><span class="nav-number">3.6.</span> <span class="nav-text">3.6 高速缓冲存储器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-7-虚拟存储器"><span class="nav-number">3.7.</span> <span class="nav-text">3.7 虚拟存储器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第4章"><span class="nav-number">4.</span> <span class="nav-text">第4章</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-指令格式"><span class="nav-number">4.1.</span> <span class="nav-text">4.1 指令格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#指令寻址方式"><span class="nav-number">4.2.</span> <span class="nav-text">指令寻址方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-CISC和RISC的基本概念"><span class="nav-number">4.3.</span> <span class="nav-text">4.3 CISC和RISC的基本概念</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第5章-中央处理器"><span class="nav-number">5.</span> <span class="nav-text">第5章 中央处理器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-CPU的功能和基本结构"><span class="nav-number">5.1.</span> <span class="nav-text">5.1 CPU的功能和基本结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-指令执行过程"><span class="nav-number">5.2.</span> <span class="nav-text">5.2 指令执行过程</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -936,7 +1107,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">548k</span>
+    <span title="站点总字数">552k</span>
   
 
   
@@ -945,7 +1116,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点总阅读时长">9:08</span>
+    <span title="站点总阅读时长">9:12</span>
   
 </div>
 
