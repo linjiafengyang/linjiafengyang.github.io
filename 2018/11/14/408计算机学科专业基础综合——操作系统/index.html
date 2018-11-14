@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.1.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/github.ico?v=6.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/github.ico?v=6.1.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.1.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.1.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: 'LN4LXV8IAB',
+      apiKey: '90ebfafd072712068da61174d566b61c',
+      indexName: 'My_Blog',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="整理自王道单科">
+<meta property="og:type" content="article">
+<meta property="og:title" content="408计算机学科专业基础综合——操作系统">
+<meta property="og:url" content="https://linjiafengyang.github.io/2018/11/14/408计算机学科专业基础综合——操作系统/index.html">
+<meta property="og:site_name" content="伪程序员的世界">
+<meta property="og:description" content="整理自王道单科">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-11-14T15:34:03.597Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="408计算机学科专业基础综合——操作系统">
+<meta name="twitter:description" content="整理自王道单科">
+
+
+
+
+
+
+  <link rel="canonical" href="https://linjiafengyang.github.io/2018/11/14/408计算机学科专业基础综合——操作系统/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>408计算机学科专业基础综合——操作系统 | 伪程序员的世界</title>
+  
+
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?d62ec62ec2c41677b6ad9e62a7eaede3";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <a href="https://github.com/linjiafengyang" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> 
+
+<div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">伪程序员的世界</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Debug myself and debug the world!</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+          
+  
+  <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+</li>
+
+      
+        
+        
+          
+  
+  <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+</li>
+
+      
+        
+        
+          
+  
+  <li class="menu-item menu-item-categories menu-item-active">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+</li>
+
+      
+        
+        
+          
+  
+  <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+</li>
+
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+    
+
+  
+
+
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+  
+
+
+
+ </div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://linjiafengyang.github.io/2018/11/14/408计算机学科专业基础综合——操作系统/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="linjiafengyang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/me.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="伪程序员的世界">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">408计算机学科专业基础综合——操作系统</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-14T23:33:15+08:00">2018-11-14</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/程序人生/" itemprop="url" rel="index"><span itemprop="name">程序人生</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计：</span>
+                
+                <span title="字数统计">5.3k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长&asymp;</span>
+                
+                <span title="阅读时长">0:05</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>整理自王道单科</p>
+<a id="more"></a>
+<h2 id="第1章-操作系统概述"><a href="#第1章-操作系统概述" class="headerlink" title="第1章 操作系统概述"></a>第1章 操作系统概述</h2><h3 id="1-1-操作系统的基本概念"><a href="#1-1-操作系统的基本概念" class="headerlink" title="1.1 操作系统的基本概念"></a>1.1 操作系统的基本概念</h3><p><strong>操作系统</strong>是指控制和管理整个计算机系统的硬件和软件资源，并合理地组织调度计算机的工作和资源的分配，以提供给用户和其他软件方便的接口和环境的程序集合。</p>
+<p><strong>并发</strong>是指两个多多个事件在<strong>同一时间间隔内</strong>发生，引入进程的目的是使程序能并发执行。<br>注意：同一时间间隔（并发）和同一时刻（并行）的区别。微观上这些程序还是分时交替执行。<br><strong>共享</strong>是指系统中的资源可供内存中多个并发执行的进程共同使用，可分为互斥共享方式、同时访问方式。<br><strong>并发和共享是操作系统两个最基本的特征。</strong><br><strong>虚拟</strong>是指把一个物理上的实体变为若干个逻辑上的对应物，如虚拟处理器、虚拟内存、虚拟外部设备。<br><strong>异步</strong>：在多道程序环境下，允许多个程序并发执行，但由于资源有限，进程的执行不是一贯到底，而是走走停停，以不可预知的速度向前推进。</p>
+<p><strong>操作系统作为计算机系统资源的管理者</strong>：处理机管理、存储器管理、文件管理、设备管理<br><strong>操作系统作为用户与计算机硬件系统之间的接口</strong>：<br>1）<strong>命令接口</strong>：联机命令接口又称交互式命令接口，适用于分时或实时系统的接口，由一组键盘操作命令组成；脱机命令接口又称批处理命令接口，即适用于批处理系统，由一组作业控制命令组成。<br>2）<strong>程序接口</strong>：由一组系统调用命令（简称系统调用，也称广义指令）组成<br><strong>操作系统用作扩充机器</strong></p>
+<p><strong><em>选择题</em></strong></p>
+<p>8.单处理机系统中，可并行的是（II、III、IV）<br>I. 进程与进程<br>II. 处理机与设备<br>III. 处理机与通道<br>IV. 设备与设备</p>
+<p>12.操作系统提供给编程人员的接口是（系统调用）</p>
+<p>19.计算机开机后，操作系统最终被加载到（RAM）</p>
+<h3 id="1-2-操作系统的发展与分类"><a href="#1-2-操作系统的发展与分类" class="headerlink" title="1.2 操作系统的发展与分类"></a>1.2 操作系统的发展与分类</h3><p><strong>手工操作阶段（此阶段无操作系统）<br>批处理阶段（操作系统开始出现）</strong>：<br>1）单道批处理系统：自动性、顺序性、单道性<br>2）多道批处理系统：多道、宏观上并行、微观上串行<br><strong>分时操作系统</strong>：同时性、交互性、独立性、及时性<br><strong>实时操作系统</strong>：及时性、可靠性<br><strong>网络操作系统</strong>：网络中各种资源的共享以及各台计算机之间的通信<br><strong>分布式计算机系统</strong>：分布性、并行性<br>分布式操作系统与网络操作系统本质上的不同之处在于<strong>分布式操作系统中，若干台计算机相互协同完成同一任务。</strong><br><strong>个人计算机操作系统</strong></p>
+<p><strong><em>选择题</em></strong></p>
+<p>1.提高单机资源利用率的关键技术是（多道程序设计技术）</p>
+<p>2.批处理系统的主要缺点是（无交互能力）</p>
+<p>8.实时系统的进程调度，通常采用（抢占式的优先级高者优先）算法</p>
+<p>9.（资源利用率）不是设计实时操作系统的主要追求目标</p>
+<p>10.（航空订票、机床控制、股票交易系统）应用工作最好采用实时操作系统平台</p>
+<p>11.分时系统的一个重要性能是系统的响应时间，对操作系统（优先级+非抢占式调度算法）因素进行改进有利于改善系统的响应时间</p>
+<p>12.分时系统追求的目标是（比较快速响应用户）</p>
+<p>13.在分时系统中，时间片一定时，（用户数越多）响应时间越长（T=Q*N，Q为时间片，N为用户数）</p>
+<h3 id="1-3-操作系统的运行环境"><a href="#1-3-操作系统的运行环境" class="headerlink" title="1.3 操作系统的运行环境"></a>1.3 操作系统的运行环境</h3><p>操作系统内核包括：时钟管理、中断机制、原语、系统控制的数据结构及处理</p>
+<p><strong>中断</strong>，也称外中断，指来自CPU执行指令以外的事件的发生<br><strong>异常</strong>，也称内中断、例外或陷入，指源自CPU执行指令内部的事件</p>
+<p><strong>如果程序的运行由用户态转到核心态，会用到访管指令，访管指令是在用户态使用的，所以它不可能是特权指令。</strong></p>
+<p><strong><em>选择题</em></strong></p>
+<p>2.下列说法正确的是（II、IV）<br>I. 批处理的主要缺点是需要大量内存（错误，缺少交互性）<br>II. 当计算机提供了核心态和用户态时，输入/输出指令必须在核心态下执行（正确）<br>III. 操作系统中采用多道程序设计技术的最主要原因是为了提高CPU和外部设备的可靠性（错误，提高系统资源利用率和吞吐量）<br>IV. 操作系统中，通道技术是一种硬件技术（正确）</p>
+<p>4.（中断处理）是操作系统必须提供的功能</p>
+<p>5.用户程序在用户态下要使用特权指令引起的中断属于（访管中断）</p>
+<p>8.在中断发生后，进入中断处理的程序属于（操作系统程序）</p>
+<p>10.下列选项中，在用户态执行的是（A）<br>A 命令解释程序（命令接口）<br>B 缺页处理程序<br>C 进程调度程序<br>D 时钟中断处理程序</p>
+<p>11.下列选项中，不可能在用户态发生的事件是（C）<br>A 系统调用 B 外部中断 C 进程切换 D 缺页</p>
+<p>13.访管指令（仅在用户态下）使用</p>
+<p>15.在操作系统中，下列只能在核心态下执行的指令是（广义指令）（调用可能在用户态）</p>
+<p>16.输入/输出指令必须在核心态下执行</p>
+<p>17.当CPU处于核心态时，可以执行的指令是（除访管指令的全部指令）</p>
+<h2 id="第2章-进程管理"><a href="#第2章-进程管理" class="headerlink" title="第2章 进程管理"></a>第2章 进程管理</h2><h3 id="2-1-进程与线程"><a href="#2-1-进程与线程" class="headerlink" title="2.1 进程与线程"></a>2.1 进程与线程</h3><p><strong>进程控制块PCB</strong>，描述进程的基本情况和运行状态，进而控制和管理进程。<br>由程序段、相关数据段和PCB三部分构成了<strong>进程映像</strong>（进程实体）。<br><strong>注意：进程映像是静态的，进程是动态的。PCB是进程存在的唯一标志</strong></p>
+<p><strong>进程</strong>是进程实体的运行过程，是系统进行资源分配合调度的一个独立单位，其特征包括：<strong>动态性（最基本）、并发性、独立性、异步性、结构性</strong>。<br>进程的状态：<strong>运行、就绪、阻塞（等待）、创建、结束</strong><br>就绪-&gt;运行<br>运行-&gt;就绪<br>运行-&gt;阻塞（主动的行为）<br>阻塞-&gt;就绪（被动的行为）</p>
+<p>进程：<br>1）进程控制块PCB：进程创建时，操作系统就新建一个PCB，它之后就常驻内存，在进程结束时删除，PCB是进程实体的一部分，是进程存在的唯一标志<br>2）程序段<br>3）数据段</p>
+<p>进程的通信是指进程之间的信息交换<br>1）<strong>共享存储</strong>：基于数据结构的共享（低级）；基于存储区的共享（高级）<br>2）<strong>消息传递</strong>：直接通信方式、间接通信方式<br>3）<strong>管道通信</strong>：管道是指用于连接一个读进程和一个写进程以实现它们之间通信的一个共享文件</p>
+<p><strong>引入进程的目的，是为了更好地使多道程序并发执行，以提高资源利用率和系统吞吐量，增加并发程序<br>引入线程的目的，是为了减小程序在并发执行时所付出的时空开销，提高操作系统的并发性能</strong></p>
+<p><strong>线程</strong>：“轻量级进程”，CPU执行单元，也是程序执行流的最小单元，由线程ID、程序计数器、寄存器集合和堆栈组成，线程自己不拥有系统资源</p>
+<p><strong>线程是独立调度的基本单位，进程是拥有资源的基本单位。在同一进程中，线程的切换不会引起进程切换；在不同进程中进行线程切换，会引起进程切换。</strong></p>
+<p><strong>线程的属性</strong>：<br>1）线程不拥有系统资源<br>2）不同的线程可以执行相同的程序<br>3）同一进程中的各个线程共享该进程所拥有的资源<br>4）线程是处理机的独立调度单位，多个线程是可以并发执行的</p>
+<p><strong>用户级线程</strong>：有关线程管理的所有工作都由应用程序完成，内核意识不到线程的存在<br><strong>内核级线程</strong>：线程管理的所有工作都由内核完成<br><strong>组合方式的多线程实现</strong>：内核级线程数目小于等于用户级线程的数目</p>
+<p><strong>多线程模型</strong>：<br>1）<strong>多对一模型</strong>：将多个用户级线程映射到一个内核级线程<br>2）<strong>一对一模型</strong>：每个用户级线程映射到一个内核级线程<br>3）<strong>多对多模型</strong>：将n个用户级线程映射到m个内核级线程上，要求m≤n</p>
+<p><strong><em>选择题</em></strong></p>
+<p>4.进程与程序的根本区别是（静态和动态特点）</p>
+<p>7.一个进程的状态变化（不一定）引起另一个进程的状态变化</p>
+<p>12.并发进程失去封闭性，是指（并发进程共享变量，其执行结果与速度有关）</p>
+<p>16.在多对一的线程模型中，当一个多线程进程中的某个线程被阻塞后（整个进程都将阻塞）</p>
+<p>20.全局赋值变量（正文段）、未赋值的局部变量（栈段）、函数调用实参传递值（栈段）、用malloc要求动态分配的存储区（堆段）、常量值（正文段）、进程的优先级（PCB）</p>
+<p>22.系统动态DLL库中的系统线程，被不同的进程所调用，它们是（相同）的线程</p>
+<p>27.在具有通道设备的单处理器系统中实现并发技术后（各进程在某一时间段内并发运行，CPU与I/O设备间并行工作）</p>
+<p>29.对进程的管理和控制使用（原语）</p>
+<p>41.（一个进程从运行状态变为就绪状态）必会引起进程切换</p>
+<h3 id="2-2-处理机调度"><a href="#2-2-处理机调度" class="headerlink" title="2.2 处理机调度"></a>2.2 处理机调度</h3><p><strong>调度层次</strong>：<br><strong>作业调度（高级调度）</strong>：选择处于后备状态的作业分配资源，发生频率最低<br><strong>内存调度（中级调度）</strong>：选择暂时不能运行的进程调出内存，发生频率中等<br><strong>进程调度（低级调度）</strong>：选择就绪队列中合适的进程分配处理机，发生频率最高，最基本，不可或缺</p>
+<p><strong>进程调度方式</strong>：<br><strong>剥夺式调度方式，又称抢占方式</strong>：有更为重要或紧迫的进程需要使用处理，立即分配<br><strong>非剥夺式调度方式，又称非抢占方式</strong>：有更为重要或紧迫的进程需要使用处理机，仍让当前进程继续执行</p>
+<p>周转时间 = 作业完成时间 - 作业提交时间<br>平均周转时间 = （作业1的周转时间 + … + 作业n的周转时间）/ n<br>带权周转时间 = 作业周转时间 / 作业实际运行时间<br>平均带权周转时间 = （作业1的带权周转时间 + … + 作业n的带权周转时间）/ n</p>
+<p><strong>调度算法</strong>：<br><strong>先来先服务FCFS</strong>：选择最先进入队列的，<strong>属于不可剥夺算法，对长作业比较有利，但对短作业不利，有利于CPU繁忙型作业，不利于I/O繁忙型作业</strong><br><strong>短作业优先SJF</strong>：选择完成时间最短的，<strong>对长作业不利，“饥饿”现象，SJF的平均等待时间、平均周转时间最少</strong><br><strong>优先级调度</strong>：选择优先级别最高的<br>1）非剥夺式优先级调度算法<br>2）剥夺式优先级调度算法<br>1）静态优先级<br>2）动态优先级<br><strong>高响应比优先</strong>：选择响应比最高的，对FCFS调度和SJF算法的一种平衡，<strong>有利于短作业，克服了“饥饿”，兼顾了长作业</strong><br>响应比Rp=（等待时间+要求服务时间）/ 要求服务时间<br><strong>时间片轮转</strong>：总是选择就绪队列中第一个进程，但仅能运行一个时间片，<strong>主要适用于分时系统</strong><br><strong>多级反馈队列</strong>：<strong>时间片轮转调度算法和优先级调度算法</strong>的综合和发展，<strong>终端型作业用户：短作业优先；短批处理作业用户：周转时间较短；长批处理作业用户：不会长期得不到处理</strong><br>1）应设置多个就绪队列，并为各个队列赋予不同的优先级<br>2）赋予各个队列中进程执行时间片的大小也各不相同，在优先级越高的队列中，每个进程的运行时间片就越小</p>
+<p><strong><em>选择题</em></strong></p>
+<p>6.若每个作业只能建立一个进程，为了照顾短作业用户，应采用（短作业优先调度算法）；为了照顾紧急作业用户，应采用（剥夺式优先级调度算法）；为了实现人机交互，应采用（时间片轮转调度算法）；而能使短作业、长作业和交互作业用户都满意，应采用（多级反馈队列调度算法）</p>
+<p>14.（时间片轮转）调度算法是绝对可抢占的</p>
+<p>29.满足短作业优先且不会发生饥饿现象的是（高响应比）调度算法</p>
+<p>30.不可能导致饥饿现象的是（时间片轮转）调度算法</p>
+<h3 id="2-3-进程同步"><a href="#2-3-进程同步" class="headerlink" title="2.3 进程同步"></a>2.3 进程同步</h3><p><strong>同步</strong>：需要在某些位置上协调进程之间的工作次序而等待、传递信息所产生的制约关系<br><strong>互斥</strong>：当一个进程进入临界区使用临界资源时，其他要求进入临界区必须等待</p>
+<p><strong>临界资源</strong>：一次仅允许一个进程使用的资源<br>对临界资源的访问，必须互斥地进行，在每个进程中，访问临界资源的那段代码称为<strong>临界区</strong><br>临界资源的访问过程分为四个部分：<br>1）进入区<br>2）临界区<br>3）退出区<br>4）剩余区</p>
+<p><strong>原则：空闲让进、忙则等待、有限等待、让权等待</strong></p>
+<p><strong>实现临界区互斥的基本方法</strong>：<br><strong>软件实现</strong><br>1）<strong>单标志法：违背“空闲让进”原则</strong><br>2）<strong>双标志法先检查：违背“忙则等待”原则</strong><br>3）<strong>双标志法后检查：会导致“饥饿”现象</strong><br>4）<strong>皮特森算法</strong>：单标志法和双标志法后检查的结合<br><strong>硬件实现</strong><br>中断屏蔽法：进区关中断，出区开中断<br>硬件指令法：设立原子操作指令：TestAndSet指令、Swap指令</p>
+<p><strong>信号量</strong>：只能被两个标准的原语wait(S)和signal(S)来访问，利用PV操作实现互斥<br>原语是指完成某种功能且不被分割不被中断执行的操作序列。</p>
+<p>当信号量K&gt;0时，表示还有K个相关资源可用；<br>当信号量K=0时，表示临界区外无进程等待；<br>当信号量K&lt;0时，表示临界区中有一个进程，且临界区外有|K|个进程在等待该资源；<br>当资源信号量小于0时，表示所有资源已经全部用完，而且还有进程正在等待该资源，等待的进程数就是资源量的绝对值。</p>
+<p><strong>管程</strong>：由一组数据以及定义在这组数据之上的对这组数据的操作组成的软件模块，这组操作能初始化并改变管程的数据和同步过程<br><strong>管程的组成</strong>：<br>1）局部于管程的共享结构数据说明<br>2）对该数据结构进行操作的一组过程<br>3）对局部于管程的共享数据设置初始值的语句<br><strong>管程的基本特性</strong>：<br>1）局部于管程的数据只能被局部于管程内的过程所访问<br>2）一个进程只有通过调用管程内的过程才能进入管程访问共享数据<br>3）每次仅允许一个进程在管程内执行某个内部过程</p>
+<p><strong>经典同步问题</strong>：<br>生产者-消费者问题<br>读者-写者问题<br>哲学家进餐问题<br>吸烟者问题</p>
+<p><strong><em>选择题</em></strong></p>
+<p>1.临界区是指进程中用于访问共享资源的那段代码</p>
+<p>7.临界区是指并发进程访问共享变量段的（代码程序）</p>
+<p>11.在操作系统中，要对并发进程进行同步的原因是（并发进程是异步的）</p>
+<p>13.在操作系统红，PV操作是一种（低级进程通信原语）</p>
+<p>14.P操作可能导致（进程阻塞）</p>
+<p>18.在用信号量机制实现互斥时，互斥信号量的初值为（1）</p>
+<p>19.用PV操作实现进程同步，信号量的初值为（由用户确定）</p>
+<p>32.如果系统有n个进程，则就绪队列中进程的个数最多有（n-1）个；阻塞队列中进程的个数最多有（n）个</p>
+<p>33.PV操作是一种低级进程通信原语，PV操作是由两个不可被中断的过程组成</p>
+<h3 id="2-4-死锁"><a href="#2-4-死锁" class="headerlink" title="2.4 死锁"></a>2.4 死锁</h3>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+	<div>
+	  
+		<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">------本文结束<i class="fa fa-paw"></i>感谢阅读------</div>
+    
+</div>
+	  
+	</div>
+	
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/12/408计算机学科专业基础综合——计算机组成原理/" rel="next" title="408计算机学科专业基础综合——计算机组成原理">
+                <i class="fa fa-chevron-left"></i> 408计算机学科专业基础综合——计算机组成原理
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/me.jpg"
+                alt="linjiafengyang" />
+            
+              <p class="site-author-name" itemprop="name">linjiafengyang</p>
+              <p class="site-description motion-element" itemprop="description">Debug myself and debug the world!</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">117</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/linjiafengyang" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://blog.csdn.net/sinat_31790817" target="_blank" title="CSDN"><i class="fa fa-fw fa-angellist"></i>CSDN</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第1章-操作系统概述"><span class="nav-number">1.</span> <span class="nav-text">第1章 操作系统概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-操作系统的基本概念"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 操作系统的基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-操作系统的发展与分类"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 操作系统的发展与分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-操作系统的运行环境"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 操作系统的运行环境</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第2章-进程管理"><span class="nav-number">2.</span> <span class="nav-text">第2章 进程管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-进程与线程"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 进程与线程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-处理机调度"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 处理机调度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-进程同步"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 进程同步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-死锁"><span class="nav-number">2.4.</span> <span class="nav-text">2.4 死锁</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">linjiafengyang</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="站点总字数">573k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+    <span title="站点总阅读时长">9:33</span>
+  
+</div>
+
+
+
+<!--
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Muse</a> v6.1.0</div>
+
+
+-->
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.1.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=6.1.0"></script>
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+
+<!-- 背景动画 -->
+<!--
+<script type="text/javascript" src="/js/src/particle.js"></script>
+-->
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
