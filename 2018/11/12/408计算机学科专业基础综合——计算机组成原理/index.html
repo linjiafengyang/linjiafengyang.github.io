@@ -108,7 +108,7 @@
 <meta property="og:site_name" content="伪程序员的世界">
 <meta property="og:description" content="整理自王道单科">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-13T14:47:30.239Z">
+<meta property="og:updated_time" content="2018-11-14T15:29:31.311Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="408计算机学科专业基础综合——计算机组成原理">
 <meta name="twitter:description" content="整理自王道单科">
@@ -443,7 +443,7 @@
                 
                   <span class="post-meta-item-text">字数统计：</span>
                 
-                <span title="字数统计">15k</span>
+                <span title="字数统计">28k</span>
               
 
               
@@ -457,7 +457,7 @@
                 
                   <span class="post-meta-item-text">阅读时长&asymp;</span>
                 
-                <span title="阅读时长">0:15</span>
+                <span title="阅读时长">0:28</span>
               
             </div>
           
@@ -854,7 +854,230 @@
 <p>19.指令译码是对（指令的操作码字段）进行译码</p>
 <p>20.CPU中不包括（地址译码器）（地址译码器在主存中）</p>
 <p>22.间址周期结束时，CPU内寄存器MDR中的内容为（操作数地址）</p>
-<h3 id="5-2-指令执行过程"><a href="#5-2-指令执行过程" class="headerlink" title="5.2 指令执行过程"></a>5.2 指令执行过程</h3>
+<h3 id="5-2-指令执行过程"><a href="#5-2-指令执行过程" class="headerlink" title="5.2 指令执行过程"></a>5.2 指令执行过程</h3><p>CPU从主存中取出并执行一条指令所需的全部时间称为<strong>指令周期</strong>，也就是CPU完成一条指令的时间。<br>一个完整的指令周期应包括<strong>取指、间址、执行和中断</strong>四个周期。<br><strong>注意</strong>：中断周期中进栈操作是<strong>将SP减1</strong>，和传统意义上的进栈操作相反，因为计算机的堆栈中都是向低地址增加，所以进栈操作是减1，不是加1.</p>
+<p><strong>取指周期</strong>是根据PC中的内容从主存中取出指令代码并存放在指令寄存器IR中，取指令的同时，PC加1<br><strong>间址周期</strong>是取操作数有效地址<br><strong>执行周期</strong>是根据IR中的指令字的操作码和操作数通过ALU操作产生执行结果<br><strong>中断周期</strong>是处理中断请求，假设程序断点存入堆栈中，并用SP表示栈顶地址，而且进栈操作是先修改栈顶指针，后存入数据。</p>
+<p><strong>单指令周期</strong>：对所有指令都选用相同的时间来完成，指令之间串行执行，指令周期取决于执行时间最长的指令的执行时间。<br><strong>多指令周期</strong>：指令之间串行执行，不再要求所有指令占用相同的执行时间<br><strong>流水线方案</strong>：指令之间并行执行，尽量让多条指令同时执行，但各自处在不同的执行步骤中</p>
+<p><strong><em>选择题</em></strong></p>
+<p>1.冯诺依曼计算机中指令和数据均以二进制形式存放在存储器中，CPU区分它们的依据是（指令周期的不同阶段）</p>
+<p>3.计算机工作的最小时间周期是（时钟周期）</p>
+<p>4.采用DMA方式传递数据时，每传送一个数据就要占用（存取周期）</p>
+<p>6.指令（总是根据程序计数器）从主存中读出</p>
+<p>9.取指操作是自动进行的，也就是说控制器不需要得到相应的指令</p>
+<p>11.由于CPU内部操作的速度较快，而CP访问一次存储器的时间较长，因此机器周期通常由（存取周期）来确定</p>
+<p>13.执行各条指令的机器周期数可变，各机器周期的长度可变</p>
+<p>14.以下关于间址周期的描述中正确的是（C）<br>A 所有指令的间址操作都是相同的<br>B 凡是存储器间接寻址的指令，它们的操作都是相同的<br>C 对于存储器间接寻址和寄存器间接寻址，它们的操作是不同的<br>D 都不对</p>
+<p>15.CPU响应中断的时间是（一条指令执行结束）</p>
+<p>16.以下叙述中，错误的是（B）<br>A 取指操作是控制器固有的功能，不需要再操作码控制下完成<br>B 所有指令的取指操作是相同的（错误）<br>C 在指令长度相同的情况下，所有指令的取指操作是相同的（正确）<br>D 中断周期是在指令执行完成后出现的</p>
+<p>17.（控制器）可区分存储单元中存放的是指令还是数据</p>
+<p>18.指令字长等于存储字长的前提下，取指周期等于机器周期；指令字长和机器字长的长度没有任何关系</p>
+<h3 id="5-3-数据通路的功能和基本结构"><a href="#5-3-数据通路的功能和基本结构" class="headerlink" title="5.3 数据通路的功能和基本结构"></a>5.3 数据通路的功能和基本结构</h3><p>数据在功能部件之间传送的路径称为<strong>数据通路</strong>，其功能是<strong>实现CPU内部的运算器和寄存器以及寄存器之间的数据交换</strong>。</p>
+<p>基本结构：<br>1）<strong>CPU内部单总线方式</strong>：所有寄存器的输入端和输出端都连接到一条公共的通路上<br>2）<strong>CPU内部三总线方式</strong>：所有寄存器的输入端和输出端都连接到多条公共的通路上<br>3）<strong>专用数据通路方式</strong>：根据指令执行过程中的数据和地址的流动方向安排连接线路，避免使用共享的总线</p>
+<p><strong><em>选择题</em></strong></p>
+<p>2.在单总线的CPU中（ALU只能有一个输入端可与总线相连，另一输入端需通过暂存器与总线相连）</p>
+<p>3.采用CPU内部总线的数据通路与不采用CPU内部总线的数据相比（前者性能较低、前者的数据冲突问题较严重，后者的硬件量大、实现难度高）</p>
+<p>4.CPU的读/写控制信号的作用是（决定数据总线上的数据流方向，控制存储器操作的读/写类型，控制流入、流出存储器信息的方向）</p>
+<h3 id="5-4-控制器的功能和工作原理"><a href="#5-4-控制器的功能和工作原理" class="headerlink" title="5.4 控制器的功能和工作原理"></a>5.4 控制器的功能和工作原理</h3><p>1）运算器部件通过数据总线与内存储器、输入设备和输出设备传送数据<br>2）输入设备和输出设备通过接口电路与总线相连接<br>3）内存储器、输入设备和输出设备从地址总线接收地址信息，从控制总线得到控制信号，通过数据总线与其他部件传送数据<br>4）控制器部件从数据总线接收指令信息，从运算器部件接收指令转移地址，送出指令地址到地址总线，还要向系统中的部件提供它们运行所需要的控制信号</p>
+<p><strong>控制器的主要功能</strong>有：<br>1）从主存中取出一条指令，并指出下一条指令在主存中的位置<br>2）对指令进行译码或测试，产生相应的操作控制信号，以便启动规定的动作<br>3）指挥并控制CPU、主存、输入和输出设备之间的数据流动方向</p>
+<p><strong>硬布线控制器由复杂的组合逻辑门电路和一些触发器构成，因此又称为组合逻辑控制器</strong>。<br>通常以存取周期作为基准时间，即内存中读取一个指令字的最短时间作为机器周期。在存储字长等于指令字长的前提下，取指周期也可看做机器周期。</p>
+<p><strong>微程序控制器采用存储逻辑实现</strong>，也就是把微操作信号代码化，使每条机器指令转化成为一段微程序并存入一个专门的存储器（控制存储器）中，<strong>微操作控制信号由微指令产生</strong>。</p>
+<p>微程序设计思想是将每一条机器指令编写成一个微程序，每一个微程序包含若干条微指令，每一条微指令对应一个或几个微操作命令。<br>微命令是微操作的控制信号，微操作是微命令的执行过程。<br><strong>注意</strong>：在组合逻辑控制器中也存在微命令与微操作这两个概念，它们并非只是微程序控制器的专有概念。<br>微指令是若干微命令的集合，存放微指令的控制存储器的单元地址称为微地址。<br>微周期通常指从控制存储器中读取一条微指令并执行相应的微操作所需的时间。<br>主存储器用于存放程序和数据，在CPU外部，用RAM实现；控制存储器CM用于存放微程序，在CPU内部，用ROM实现。<br><strong>注意：若指令系统中具有n种机器指令，则控制存储器中的微程序数至少是n+1个（1为公共的取指微程序）</strong></p>
+<p><strong>微指令的编码方式又称为微指令的控制方式</strong>，指如何对微指令的控制字段进行编码，以形成控制信号。目标是在保证速度的情况下，尽量缩短微指令字长。<br>1）<strong>直接编码（直接控制）方式</strong><br>2）<strong>字段直接编码方式</strong>：将微指令的微命令字段分成若干个小字段，把互斥性微命令组合在同一字段中，把相容性微命令组合在不同的字段中<br>3）<strong>字段间接编码方式，又称隐式编码</strong></p>
+<p><strong>微指令的地址形成方式</strong>：<br>1）<strong>直接由微指令的下地址字段指出（又称为断定方式）</strong>：由微指令的下地址字段直接指出后继微指令的地址<br>2）<strong>根据机器指令的操作码形成</strong>：当机器指令取至指令寄存器后，微地址的地址由操作码经微地址形成部件形成</p>
+<p><strong>微指令的格式</strong>：<br>1）<strong>水平型微指令</strong>：指令字中的一位对应一个控制信号，有输出时为1，否则为0。一条水平型微指令定义并执行几种并行的基本操作。优点是微程序短，执行速度快；缺点是微指令长，编写微程序较麻烦。<br>2）<strong>垂直型微指令</strong>：类似机器指令操作码的方式，设置微操作码字段，由微操作码规定微指令的功能。一条垂直型微指令只能定义并执行一种基本操作。优点是微指令短、简单、规整，便于编写微程序；缺点是微程序长，执行速度慢，工作效率低。<br>3）<strong>混合型微指令</strong></p>
+<table>
+<thead>
+<tr>
+<th>类别</th>
+<th>微程序控制器</th>
+<th>硬布线控制器</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>工作原理</td>
+<td>微操作控制信号以微程序的形式存放在控制存储器中，执行指令时读出即可</td>
+<td>微操作控制信号由组合逻辑电路根据当前的指令码、状态和时序，即时产生</td>
+</tr>
+<tr>
+<td>执行速度</td>
+<td>慢</td>
+<td>快</td>
+</tr>
+<tr>
+<td>规整性</td>
+<td>较规整</td>
+<td>烦琐、不规整</td>
+</tr>
+<tr>
+<td>应用场合</td>
+<td>CISC CPU</td>
+<td>RISC CPU</td>
+</tr>
+<tr>
+<td>易扩充性</td>
+<td>易扩充修改</td>
+<td>困难</td>
+</tr>
+</tbody>
+</table>
+<p><strong><em>选择题</em></strong></p>
+<p>1.相对于微程序控制器，硬布线控制器的特点是（指令执行速度快，指令功能的修改和扩展难）</p>
+<p>2.取指令操作（是控制器固有的功能，不需要在操作码控制下进行）</p>
+<p>3.在组合逻辑控制器中，微操作控制信号的形成主要与（指令译码信号和时钟）信号有关</p>
+<p>4.在微程序控制器中，形成微程序入口地址的是（C机器指令的操作码字段）<br>A 机器指令的地址码字段 B 微指令的微地址码字段<br>C 机器指令的操作码字段 D 微指令的微操作码字段</p>
+<p>6.微程序控制器的速度比硬布线控制器慢，主要是因为（增加了从控制存储器读取微指令的时间）</p>
+<p>7.微程序控制存储器属于（CPU）的一部分</p>
+<p>9.硬布线控制器与微程序控制器相比（微程序控制器的时序系统比较简单）</p>
+<p>10.在微程序控制器中，控制部件向执行部件发出的某个控制信号称为（微命令）</p>
+<p>11.在微程序控制器中，机器指令与微指令的关系是（每一条机器指令由若干微指令组成的微程序来解释执行）</p>
+<p>12.微指令格式分为水平型和垂直型，水平型微指令的位数（较多），用它编写的微程序（较短）</p>
+<p>16.某带中断的计算机指令系统共有101中操作，采用微程序控制方式时，控制存储器中相应最少有（102）个微程序。（增加的1个位公共的取指微程序；另一个为对应中断周期的微程序）</p>
+<p>17.兼容性微指令是指那些可以同时产生、共同完成某一些微操作的微命令。</p>
+<p>18.每一条机器指令由一段微程序来解释执行；水平型微指令能充分利用数据通路的并行结构。</p>
+<p>20.通常情况下，一个微程序的周期对应一个（指令周期）</p>
+<h3 id="5-5-指令流水线"><a href="#5-5-指令流水线" class="headerlink" title="5.5 指令流水线"></a>5.5 指令流水线</h3><p>一条指令的执行过程：<br><strong>取指</strong>：根据PC内容访问主存储器，取出一条指令送到IR中<br><strong>分析</strong>：对指令操作码进行译码，按照给定的寻址方式和地址字段中的内容形成操作数的有效地址EA，并从有效地址EA中取出操作数<br><strong>执行</strong>：根据操作码字段，完成指令规定的功能，即把运算结果写到通用寄存器或主存中</p>
+<p>1）顺序执行方式：前一条指令执行完后，才启动下一条指令，T=3nt<br>2）一次重叠执行方式：第k条指令的执行阶段和第k+1条指令的取指阶段同时进行，T=(1+2n)t<br>3）二次重叠执行方式：把取第k+1条指令提前到分析第k条指令的期间完成，而将分析第k+1条指令与执行第k条指令同时进行，T=(2+n)t</p>
+<p>按使用级别分：部件功能级流水线、处理机级流水线、处理机间级流水线<br>按完成功能分：单功能流水线、多功能流水线<br>按连接方式分：动态流水线、静态流水线<br>按有无反馈信号分：线性流水线、非线性流水线</p>
+<p><strong>影响流水线的因素</strong><br>1）<strong>结构相关：由于多条指令在同一时刻争用同一资源而形成的冲突</strong><br>解决办法：<br>a. 前一指令访存时，使后一条相关指令（以及其后续指令）暂停一个时钟周期<br>b. 单独设置数据存储器和指令存储器，使两项操作各自在不同的存储器中进行，这属于资源重复配置</p>
+<p>2）<strong>数据相关：必须等前一条指令执行完才能执行后一条指令的情况</strong><br>a. 把遇到数据相关的指令及其后续指令都暂停一至几个时钟周期，可分为硬件阻塞（stall）和软件插入“NOP”指令两种方法<br>b. 设置相关专用通路，即不等前一条指令把计算结果返回寄存器组，下一条指令也不再读寄存器组，而是直接把前一条指令的ALU的计算结果作为自己的输入数据开始计算过程，使本来需要暂停的操作可以继续执行，称为数据旁路技术<br>c. 通过编译器对数据相关的指令编译优化的方法，调整指令顺序来解决数据相关</p>
+<p>3）<strong>控制相关：遇到转移指令和其他改变PC值得指令而造成断流</strong><br>a. 对转移指令进行分支预测，分为简单（静态）预测和动态预测，静态预测总是预测条件不满足，即继续执行后续指令；动态预测根据程序执行的历史情况，进行动态预测调整。<br>b. 预取转移成功和不成功两个控制流方向上的目标指令<br>c. 加快和提前形成条件码<br>d. 提高转移方向的猜准率</p>
+<p>两条连续的指令读取相同的寄存器时，就会产生RAR（读后读）相关，这种相关不会影响流水线；<br>当某条指令要读取上一条指令所写入的寄存器时，就会产生RAW（写后读）相关，这种称数据相关或真相关，影响流水线。按序流动的流水线只可能出现RAW相关。<br>当某条指令的上条指令要读/写该指令的输出寄存器时，就会产生WAR（读后写）和WAW（写后写）相关。在非按序流动的流水线中，既可能发生RAW，也可能发生WAR和WAW相关。<br>对流水线影响最严重的指令相关是数据相关。</p>
+<p><strong>流水线的性能指标</strong><br>1）<strong>流水线的吞吐率</strong>：TP=n/Tk，n是任务数，Tk是处理完成n个任务所用的时间；一条k段线性流水线能够在k+n-1个时钟周期内完成n个任务，此时<strong>TP=n/((k+n-1)*t)</strong>，t为时钟周期；当n趋于无穷时，得到最大吞吐率TPmax=1/t<br>2）<strong>流水线的加速比</strong>：完成同样一批任务，不使用流水线所用的时间与使用流水线所用的时间之比<br>S=T0/Tk=(knt)/((k+n-1)*t)=<strong>(kn)/(k+n-1)</strong>，当n趋于无穷时，得到最大加速比Smax=k<br>3）<strong>流水线的效率</strong>：E=n个任务占用k时空区有效面积/n个任务所用的时间与k个流水段所围成的时空区总面积=<strong>T0/(kTk)</strong></p>
+<p>超标量流水线技术：每个时钟周期内可并发多条独立指令，即以并行操作方式将两条或多条指令编译并执行，为此需配置多个功能部件<br>超流水线技术：在一个时钟周期内再分段，在一个时钟周期内一个功能部件使用多次<br>超长指令字：将多条能并行操作的指令组合成一条具有多个操作码字段的超长指令字，为此需要采用多个处理部件</p>
+<p><strong><em>选择题</em></strong></p>
+<p>4.下列关于超标量流水线不正确的是（D）<br>A 在一个时钟周期内一条流水线可执行一条以上的指令<br>B 一条指令分为多段指令由不同电路单元完成<br>C 超标量通过内置多条流水线来同时执行多个处理器，其实质是以空间换时间<br>D 超标量流水线式指运算操作并行（错误）</p>
+<p>5.下列关于超标量流水线特性的叙述中，正确的是（II、III）<br>I. 能缩短流水线功能段的处理时间（不影响）<br>II. 能在一个时钟周期内同时发射多条指令（正确）<br>III. 能结合动态调度技术提高指令执行并行性（正确）</p>
+<p>7.一个m段流水线稳定时的CPU的吞吐能力，与m个并行部件的CPU的吞吐能力相比（具有同等水平的吞吐能力）</p>
+<h2 id="第6章-总线"><a href="#第6章-总线" class="headerlink" title="第6章 总线"></a>第6章 总线</h2><h3 id="6-1-总线概述"><a href="#6-1-总线概述" class="headerlink" title="6.1 总线概述"></a>6.1 总线概述</h3><p><strong>总线</strong>是一组能为多个部件<strong>分时共享</strong>的公共信息传送线路。<strong>分时和共享</strong>是总线的两个特点。<br>分时是指同一时刻只允许由一个部件向总线发送信息；共享是指总线上可以挂接多个部件，各个部件之间互相交换的信息都可以通过这组线路分时共享。在某一时刻只允许由一个部件向总线发送信息，但多个部件可以同时从总线上接收相同的信息。</p>
+<p>主设备：是指获得总线控制权的设备<br>从设备：是指被主设备访问的设备，只能响应从主设备发来的各种总线命令</p>
+<p>总线特性：机械特性、电气特性、功能特性、时间特性</p>
+<p>猝发传输方式：在一个总线周期内传输存储地址连续的多个数据字的总线传输方式叫猝发传送</p>
+<p><strong>总线的分类</strong>：<br>1）<strong>片内总线</strong>：CPU芯片内部寄存器与寄存器之间、寄存器与ALU之间的公共连接线<br>2）<strong>系统总线</strong>：计算机系统内各功能部件（CPU、主存、I/O接口）之间相互连接的总线<br>a. <strong>数据总线</strong>：用来传输各功能部件之间的数据信息，双向传输，其位数与机器字长、存储字长有关<br>b. <strong>地址总线</strong>：用来指出数据总线上的源数据或目的数据所在的主存单元或I/O接口的地址，单向传输，其位数与主存地址空间有关<br>c. <strong>控制总线</strong>：传输控制信息，包括CPU送出的控制命令和主存（或外设）返回CPU的反馈信号<br>3）<strong>通信总线</strong>：用于计算机系统之间或计算机系统与其他系统（如远程通信设备、测试设备）之间信息传送的总线，也称为<strong>外部总线</strong></p>
+<p>系统总线的结构：<br>1）单总线结构：CPU、主存、I/O设备（通过I/O接口）都挂在一组总线上<br>2）双总线结构：主存总线、I/O总线<br>3）三总线结构：主存总线、I/O总线、DMA总线</p>
+<p>总线的性能指标：<br>1）传输周期，简称总线周期<br>2）时钟周期<br>3）工作频率：总线周期的倒数，总线工作频率=时钟频率/N（N表示N个时钟周期）<br>4）时钟频率<br>5）<strong>总线宽度</strong>，又称总线位宽，是总线上同时能够传输的数据位数，通常是指数据总线的根数<br>6）<strong>总线带宽</strong>，总线的数据传输率，即单位时间内总线上可传输数据的位数，总线带宽=总线工作频率 * (总线宽度/8)</p>
+<p>总线带宽=总线宽度 * 总线频率</p>
+<p><strong><em>选择题</em></strong></p>
+<p>1.在系统总线的数据线上，不可能传输的是（C握手（应答）信号）<br>A 指令 B 操作数 C 握手（应答）信号 D 中断类型号</p>
+<p>5.一次总线事务中，主设备只需给出一个首地址，从设备就能从首地址开始的若干连续单元读出或写入多个数据，这种总线事务方式成为（突发传输）</p>
+<p>6.挂接在总线上的多个部件（只能分时向总线发送数据，但可同时从总线接收数据）</p>
+<p>7.在总线上，同一时刻（只能有一个主设备控制总线传输操作）</p>
+<p>9.系统总线是用来连接（CPU、主存和外设部件）</p>
+<p>10.计算机使用总线结构便于增减外设，同时（C减少了信息传输线的条数）<br>A 减少了信息传输量 B 提高了信息的传输速度<br>C 减少了信息传输线的条数 D 提高了信息传输的并行性</p>
+<p>11.间址寻址第一次访问内存所得到信息经系统总线的（数据总线）传送到CPU</p>
+<p>12.系统总线中地址线的功能是（用于指定主存和I/O设备接口电路的地址）</p>
+<p>13.单周期处理器中所有指令的指令周期为一个时钟周期，下列关于单周期处理器的叙述中，错误的是（A）<br>A 可以采用单总线结构数据通路（错误）<br>B 处理器时钟频率较低<br>C 在指令 执行过程中控制信号不变<br>D 每条指令的CPI为1</p>
+<p>15.不同信号在同一条信号线上分时传输的方式称为（总线复用方式）</p>
+<p>16.主存通过（总线的类型）来识别信息是地址还是数据</p>
+<p>22.下列关于总线定时的叙述中，错误的是（C）<br>A 异步通信方式中，全互锁协议最慢<br>B 异步通信方式中，非互锁协议的可靠性最差<br>C 同步通信方式总，同步时钟信号可由各设备提供（错误，采用统一的时钟信号）<br>D 半同步通信方式中，握手信号的采样由同步时钟控制</p>
+<p>23.下列关于总线设计的叙述中，错误的是（A）<br>A 并行总线传输比串行总线传输速度快（错误，不一定）<br>B 采用信号线复用技术可减少信号线数量<br>C 采用突发传输方式可提高总线数据传输率<br>D 采用分离事务通信方式可提高总线利用率</p>
+<p>24.下列关于多总线结构的叙述中，错误的是（D）<br>A 靠近CPU的总线速度较快<br>B 存储器总线可支持突发传送方式<br>C 总线之间须通过桥接器相连<br>D PC I-Express*16 采用并行传输方式（错误，采用串行数据包传输数据）</p>
+<h3 id="6-2-总线仲裁"><a href="#6-2-总线仲裁" class="headerlink" title="6.2 总线仲裁"></a>6.2 总线仲裁</h3><p>为解决多个主设备同时竞争总线控制权的问题，应当采用总线仲裁部件，以某种方式选择一个主设备优先获得总线控制权。</p>
+<p><strong>集中仲裁方式</strong>：将所有的总线请求集中起来，利用一个特定的裁决算法进行裁决<br>1）<strong>链式查询方式</strong>：离总线控制器越近的部件，其优先级越高。优点：链式查询方式优先级固定，结构简单，扩充容易；缺点：对故障敏感，优先级不能改变<br>2）<strong>计数器定时查询方式</strong>：优点：设备使用总线的优先级相等，优先次序可以改变，对故障不敏感；缺点：增加了控制线数，相对复杂<br>3）<strong>独立请求方式</strong>：优点：响应速度快，对优先次序的控制相当灵活；缺点：控制线数量多，逻辑更复杂</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>链式查询</th>
+<th>计数器定时查询</th>
+<th>独立请求</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>控制线数</td>
+<td>3</td>
+<td>log2 n向上取整 + 2</td>
+<td>2n+1</td>
+</tr>
+<tr>
+<td>优点</td>
+<td>优先级固定；结构简单；扩充容易</td>
+<td>优先级灵活</td>
+<td>响应速度快；优先级灵活</td>
+</tr>
+<tr>
+<td>缺点</td>
+<td>对电路故障敏感；优先级不灵活</td>
+<td>控制线多；控制复杂</td>
+<td>控制线多；控制复杂</td>
+</tr>
+</tbody>
+</table>
+<p><strong>分布仲裁方式</strong>：不需要中央仲裁器，每个潜在的主模块都有自己的仲裁号和仲裁器。如果仲裁总线上的号优先级高，则它的总线请求不予响应，并撤销它的仲裁号，最后获胜者的仲裁号保留在仲裁总线上。</p>
+<p><strong><em>选择题</em></strong></p>
+<p>1.在技术器定时查询方式下，若每次计数从上一次计数的终止点开始，则（每个设备使用总线的机会相等）</p>
+<p>4.在计数器定时查询方式下，（总线设备的优先级可变）</p>
+<p>6.在某计算机系统中，各个主设备得到总线使用权的机会基本相等，则该系统采用的总线判优控制方式可能是（计数器定时查询方式、独立请求方式）</p>
+<h3 id="6-3-总线操作和定时"><a href="#6-3-总线操作和定时" class="headerlink" title="6.3 总线操作和定时"></a>6.3 总线操作和定时</h3><p>一个总线周期可分为4个阶段：<br>1）<strong>申请分配阶段</strong>：由需要使用总线的主模块（或主设备）提出申请，经总线仲裁机构决定将下一传输周期的总线使用权授予某一申请者。<br>2）<strong>寻址阶段</strong>：主模块通过总线发出本次要访问的从模块（或从设备）的地址及有关命令，启动参与本次传输的从模块。<br>3）<strong>传输阶段</strong>：主模块和从模块进行数据交换，可单向或双向进行数据传送<br>4）<strong>结束阶段</strong>：主模块的有关信息均从系统总线上撤除，让出总线使用权</p>
+<p><strong>同步定时方式</strong>：系统采用一个<strong>统一的时钟信号</strong>来协调发送和接收双方的传递定时关系。适用于总线长度较短及总线所接部件的存取时间比较接近的系统。<br>优点：传送速度快，具有较高的传输速率；总线控制逻辑简单<br>缺点：主从设备属于强制性同步；不能及时进行数据通信的有效性检验，可靠性较差</p>
+<p><strong>异步定时方式</strong>：没有统一的时钟，也没有固定的时间间隔，<strong>完全依靠传送双方相互制约的“握手”信号</strong>来实现定时控制。<br>优点：总线周期长度可变，能保证两个工作速度相差很大的部件或设备之间可靠地进行信息交换，自动适应时间的配合<br>缺点：比同步控制方式稍复杂一些，速度比同步定时方式慢<br>1）<strong>不互锁方式</strong>：主设备自动撤销“请求”信号，从设备自动撤销“回答”信号，双方不存在互锁关系<br>2）<strong>半互锁方式</strong>：主设备发出“请求”信号后，必须待接到从设备的“回答”信号后，才撤销“请求”信号，有互锁关系；而从设备在接到“请求”信号后，发出“回答”信号，但不必等待获知主设备的“请求”信号已经撤销，而是隔一段时间后自动撤销“回答”信号，不存在互锁关系。<br>3）<strong>全互锁关系</strong>：主设备发出“请求”信号后，必须待从设备“回答”后，才撤销“请求”信号；从设备发出“回答”信号，必须待获知主设备“请求”信号已撤销后，再撤销其“回答”信号。双方存在互锁关系。</p>
+<p><strong><em>选择题</em></strong></p>
+<p>5.（各部件的存取时间比较接近）是同步传输的特点</p>
+<p>6.在异步总线中，传送操作（由CPU控制）</p>
+<p>7.总线的异步通信方式是（不采用时钟信号，只采用“握手”信号）</p>
+<p>8.在各种异步通信方式中，（不互锁）的速度最快</p>
+<h3 id="6-4-总线标准"><a href="#6-4-总线标准" class="headerlink" title="6.4 总线标准"></a>6.4 总线标准</h3><p><strong>ISA总线</strong>：最早出现的微型计算机的<strong>系统总线</strong>标准，应用在IBM的AT机上<br><strong>EISA总线</strong>：为配合32位CPU而设计的总线扩展标准，EISA对ISA完全兼容<br><strong>VESA总线</strong>：32位标准的计算机<strong>局部总线</strong>，是针对多媒体PC要求<strong>高速传送活动图像的大量数据</strong>应运而生的<br><strong>PCI总线</strong>：高性能的32位或64位总线，专为<strong>高度集成的外围部件、扩充插板和处理器/存储器系统而设计的互联机制</strong>。目前常用的PCI适配器有<strong>显卡、声卡、网卡</strong>等。PCI总线<strong>支持即插即用</strong>，与处理器时钟频率无关，属于<strong>局部总线</strong>，可以通过<strong>桥连接</strong>实现多层PCI总线<br><strong>PCI-Express（PCI-E）是最新的总线和接口标准，将全面取代现行的PCI和AGP，最终实现总线标准的统一</strong><br><strong>AGP</strong>：是一种<strong>视频接口标准</strong>，专用于<strong>连接主存和图形存储器</strong>，属于<strong>局部总线</strong>。AGP技术为<strong>传输视频和三维图形数据</strong>提供了切实可行的解决方案。<br><strong>RS-232C总线</strong>是由美国电子工业协会（EIA）推荐的一种<strong>串行通信总线标准</strong>，是应用于<strong>串行二进制交换</strong>的数据终端设备（DTE）和数据通信设备（DCE）之间的标准接口<br><strong>USB总线</strong>：连接外部设备的I/O总线标准，属于<strong>设备总线</strong>，具有<strong>即插即用、热插拔</strong>等优点，有很强的连接能力<br><strong>PCMCIA</strong>：广泛<strong>应用于笔记本电脑</strong>中的一种接口标准，是一个小型的<strong>用于扩展功能的插槽，可即插即用</strong><br><strong>IDE总线</strong>：ATA，是一种IDE接口磁盘驱动器接口类型，<strong>硬盘和光驱通过IDE接口与主板连接</strong><br><strong>SCSI</strong>：用于<strong>计算机和智能设备之间（硬盘、软驱、光驱、打印机等）系统级接口</strong>的独立处理器标准<br><strong>SATA</strong>：基于行业标准的<strong>串行硬件驱动器接口</strong>，<strong>硬盘接口规范</strong></p>
+<p><strong><em>选择题</em></strong></p>
+<p>2.下列关于USB总线特性的描述中，错误的是（D）<br>A 可实现外设的即插即用和热拔插<br>B 可通过级联方式连接多台外设<br>C 是一种通信总线，连接不同外设<br>D 同时可传输2位数据，数据传输率高（USB总线是串行总线，不能同时传输）</p>
+<p>3.下列总线标准中是串行总线的是（B）<br>A PCI（并行总线） B USB（串行总线） C EISA（并行） D ISA（并行）</p>
+<p>4.用于设备和设备控制器（I/O接口）之间互连的接口标准是（USB）</p>
+<p>5.在现代微机主板上，采用局部总线技术的作用是（节省系统的总带宽）</p>
+<p>6.下列不属于计算机局部总线的是（D）<br>A VESA B PCI C AGP D ISA（系统总线）</p>
+<h2 id="第7章-输入-输出系统"><a href="#第7章-输入-输出系统" class="headerlink" title="第7章 输入/输出系统"></a>第7章 输入/输出系统</h2><h3 id="7-1-I-O系统基本概念"><a href="#7-1-I-O系统基本概念" class="headerlink" title="7.1 I/O系统基本概念"></a>7.1 I/O系统基本概念</h3><p>I/O控制方式主要有一下4种：<br>1）<strong>程序查询方式</strong>：由CPU通过程序不断查询I/O设备是否已做好准备，从而控制I/O设备与主机交换信息<br>2）<strong>程序中断方式</strong>：只在I/O设备准备就绪并向CPU发出中断请求时才予以响应<br>3）<strong>DMA方式</strong>：主存和I/O设备之间有一条直接数据通路，当主存和I/O设备交换信息时，无需调用中断服务程序<br>4）<strong>通道方式</strong>：在系统中设有通道控制部件，每个通道都挂接若干外设，主机在执行I/O命令时，只需启动有关通道，通道将执行通道程序，从而完成I/O操作。</p>
+<p><strong><em>选择题</em></strong></p>
+<p>1.在微型机系统中，I/O设备通过（设备控制器）与主板的系统总线相连接</p>
+<p>2.下列关于I/O指令的说法，错误的是（D）<br>A I/O指令是CPU系统指令的一部分<br>B I/O指令是机器指令的一类<br>C I/O指令反映CPU和I/O设备交换信息的特点<br>D I/O指令的格式和通用指令格式相同（错误）</p>
+<p>3.下列关于通道程序的叙述中，正确的是（A）<br>A 通道程序存放在主存中<br>B 通道程序存放在通道中<br>C 通道程序是由CPU执行的（错误，由通道执行）<br>D 通道程序可以在任何环境下执行I/O操作（错误）</p>
+<h3 id="7-2-外部设备"><a href="#7-2-外部设备" class="headerlink" title="7.2 外部设备"></a>7.2 外部设备</h3><p>显示存储器VRAM：<br>VRAM容量 = 分辨率 <em> 灰度级位数<br>VRAM带宽 = 分辨率 </em> 灰度级位数 * 帧频</p>
+<p>一块磁盘含有若干个记录面，每个记录面划分为若干条磁道，而每条磁道又划分为若干个扇区，扇区（也称为块）是磁盘读写的最小单位，也就是说磁盘按块读取。<br><strong>磁头数</strong>：即记录面数，磁头用于读取/写入盘片上记录面的信息，一个记录面对应一个磁头<br><strong>柱面数</strong>：表示硬盘每一面盘片上有多少条磁道<br><strong>扇区数</strong>：表示每一条磁道上有多少个扇区</p>
+<p><strong>平均存取时间由寻道时间（磁头移动到目的磁道）、旋转延迟时间（磁头定位到所在扇区）和传输时间（传输数据所花费的时间）三部分构成</strong></p>
+<p>硬盘属于机械式部件，其读写操作是串行的，不可能在同一时刻既读又写，也不可能在同一时刻读两组数据或写两组数据。</p>
+<p>RAID0没有容错能力，RAID1-RAID5的几种方案中，无论何时有磁盘损坏，都可以随时拔出受损的磁盘再插入好的磁盘，而数据不会损坏。<br>RAID0：无冗余和无校验的磁盘阵列<br>RAID1：镜像磁盘阵列<br>RAID2：采用纠错的海明码的磁盘阵列<br>RAID3：位交叉奇偶校验的磁盘阵列<br>RAID4：块交叉奇偶校验的磁盘阵列<br>RAID5：无独立校验的奇偶校验磁盘阵列<br>RAID通过同时使用多个磁盘，提高了传输率；通过在多个磁盘上并行存取来大幅提高存储系统的数据吞吐量；通过镜像功能，可以提高安全可靠性；通过数据校验，可以提供容错能力。</p>
+<p><strong><em>选择题</em></strong></p>
+<p>3.一台字符显示器的VRAM中存放的是（显示字符的ASCII码）</p>
+<p>9.下列选项中，用于提高RAID可靠性的措施有（I、III）<br>I. 磁盘镜像 II. 条带化 III. 奇偶校验 IV. 增加Cache机制</p>
+<h3 id="7-3-I-O接口"><a href="#7-3-I-O接口" class="headerlink" title="7.3 I/O接口"></a>7.3 I/O接口</h3><p><strong>I/O接口的功能</strong>：<br>1）实现主机和外设的通信联络控制<br>2）进行地址译码和设备选择<br>3）实现数据缓冲<br>4）信号格式的转换<br>5）传送控制命令和状态信息</p>
+<p><strong>内部接口</strong>：内部接口与系统总线相连，实质上是与内存、CPU相连，数据的传输方式只能是<strong>并行传输</strong><br>外部接口：外部接口通过接口电缆与外设相连，外部接口的数据传输可能是串行方式，因此I/O接口需具有串/并转换功能。<br><strong>注意</strong>：端口是指接口电路中可以进行读/写的寄存器，若干个端口加上相应的控制逻辑才可以组成接口。</p>
+<p><strong>I/O端口</strong>是指接口电路中可以被CPU直接访问的寄存器，主要有数据端口、状态端口和控制端口，若干个端口加上相应的控制逻辑电路组成接口。<strong>CPU能对数据端口执行读写操作，对状态端口只能执行读操作，对控制端口只能执行写操作。</strong><br><strong>I/O端口的编址方式</strong>：<br>1）<strong>统一编址</strong>，又称存储器映射方式，是指把I/O端口当做存储器的单元进行地址分配，这种方式CPU不需要设置专门的I/O指令，用<strong>统一的访存指令</strong>就可以访问I/O端口<br>2）<strong>独立编址</strong>，又称I/O映射方式，是指I/O端口地址与存储器地址无关，独立编址CPU<strong>需要设置专门的输入/输出指令访问端口</strong></p>
+<p><strong><em>选择题</em></strong></p>
+<p>1.下列选项中，在I/O总线的数据线上传输的信息包括（I、II、III）<br>I. I/O接口中的命令字 II. I/O接口中的状态字 III. 中断类型号</p>
+<p>2.在统一编址的方式下，区分存储单元和I/O设备是靠（不同的地址码）</p>
+<p>5.I/O的编址方式采用统一编址方式时，进行输入/输出的操作的指令是（访存指令）</p>
+<p>6.在具有专门I/O指令的计算机中，I/O设备才可以单独编址</p>
+<p>8.磁盘驱动器向盘片磁道记录数据时采用（串行）方式写入</p>
+<p>9.程序员进行系统调用访问设备用的是（逻辑地址）</p>
+<p>11.I/O指令实现的数据传送数据通常发生在（通用寄存器和I/O端口之间）</p>
+<h3 id="7-4-I-O方式"><a href="#7-4-I-O方式" class="headerlink" title="7.4 I/O方式"></a>7.4 I/O方式</h3><p><strong>程序查询方式</strong>：CPU一旦启动I/O，必须停止现行程序的运行，并在现行程序中插入一段程序，有“踏步”现象，<strong>CPU与I/O串行工作</strong><br>1）CPU执行初始化程序，并预置传送参数<br>2）向I/O接口发出命令字，启动I/O设备<br>3）从外设接口读取其状态信息<br>4）CPU不断查询I/O设备状态，直到外设准备就绪<br>5）传送一次数据<br>6）修改地址和计数器参数<br>7）判断传送是否结束，若没结束转第3步，直到计数器为0</p>
+<p><strong>程序中断方式：CPU与I/O并行工作</strong><br><strong>程序中断</strong>是指在计算机执行现行程序的过程中，出现某些急需处理的异常情况或特殊请求，CPU暂时中止现行程序，而转去对这些异常情况或特殊请求进行处理，在处理完毕后CPU又自动返回到现行程序的断点处，继续执行原程序。</p>
+<p><strong>程序中断方式工作流程</strong>：<br>1）中断请求：中断源向CPU发出中断信号<br><strong>外中断</strong>：来自处理器和内存以外的部件引起的中断<br><strong>内中断</strong>：在处理器和内存内部产生的中断<br><strong>硬件中断属于外中断；软件中断属于内中断。<br>非屏蔽中断是一种硬件中断，属于外中断；可屏蔽中断也是一种硬件中断，属于外中断。</strong></p>
+<p>2）中断判优：判断多个中断源的优先级，可由硬件实现或软件实现<br>硬件中断属于最高级，其次是软件中断，非屏蔽中断优于可屏蔽中断，DMA请求优于I/O设备传送的中断请求，高速设备优于低速设备，输入设备优于输出设备，实时设备优于普通设备。</p>
+<p>3）CPU响应中断的条件<br>有中断源提出中断请求<br>CPU允许中断及开中断<br>一条指令执行完毕且没有更紧迫的任务</p>
+<p>4）中断隐指令：完成关中断、保存断点、引出中断服务程序，由硬件直接实现，不允许、也不可能为用户使用的特殊指令。</p>
+<p>5）中断向量：查询中断服务程序的入口地址<br><strong>注意：中断向量是中断服务程序的入口地址，中断向量地址地址是指中断服务程序的入口地址的地址。</strong></p>
+<p>6）中断处理：执行中断服务程序最后恢复现场，中断返回<br>中断服务程序的最后一条指令通常是一条<strong>中断返回指令</strong>，使其返回到原程序的断点处，以便继续执行原程序。</p>
+<p><strong>多重中断</strong>：当CPU处理中断时，又有更高优先级的中断请求<br>条件：<br>1）在中断服务程序中提前设置开中断指令<br>2）优先级高的中断源有权中断优先级低的中断源</p>
+<p><strong>DMA方式</strong>：完全由<strong>硬件</strong>进行成组信息传送的控制方式，主存和DMA接口之间有一条直接数据通路，<strong>I/O与主机并行工作，程序和传送并行工作</strong></p>
+<p><strong>组成</strong>：<br>主存地址计数器：存放要交换数据的主存地址<br>传送长度计数器：用来记录传送数据的长度<br>数据缓冲寄存器：用于暂存每次传送的数据<br>DMA请求触发器：I/O设备准备好数据后使DMA请求触发器置位<br>控制/状态逻辑：由控制和时序电路及状态标志组成<br>中断机构：数据块传送完毕后触发中断机构，提出中断请求</p>
+<p><strong>传送方式</strong>：<br><strong>停止CPU访存</strong>：当需要传送数据时，停止CPU对主存的访问<br><strong>交替访存</strong>：将CPU周期分为DMA访存和CPU访存两个部分<br><strong>周期挪用（周期窃取）</strong>：I/O设备需要访存时，挪用一个或几个存取周期</p>
+<p><strong>传送过程</strong>：<br><strong>预处理</strong>：完成寄存器置初始值之类的准备工作，I/O设备向DMA控制器发送DMA请求，再由DMA控制器向CPU发送总线请求<br><strong>数据传送</strong>：占用总线传输数据，数据传送<strong>完全由DMA（硬件）控制</strong><br><strong>后处理</strong>：CPU执行中断服务程序做结束DMA处理</p>
+<p><strong>DMA方式和中断方式的区别</strong>：<br>1）中断方式是程序的切换，需要保护和恢复现场；而DMA方式除了预处理和后处理，其他时候不占用CPU的任何资源<br>2）对中断请求的响应只能发生在每条指令执行完毕时（即指令的执行周期之后）；而对DMA请求的响应可以发生在每个机器周期结束时（在取指、间址、执行周期之后均可），只要CPU不占用总线就可以被响应<br>3）中断传送过程需要CPU的干预；而DMA传送过程不需要CPU的干预，故数据传输速率非常高，适合于高速外设的成组数据传送<br>4）DMA请求的优先级高于中断请求<br>5）中断方式具有对异常事件的处理能力，而DMA方式仅限于传送数据块的I/O操作<br>6）从数据传送来看，中断方式靠程序传送，DMA方式靠硬件传送</p>
+<p><strong><em>选择题</em></strong></p>
+<p>10.浮点数运算下溢不产生中断</p>
+<p>11.“自陷”是人为预先设定的一种特定处理事件</p>
+<p>12.DMA方式的中断请求是为了报告CPU数据的传输结束，而程序中断方式的中断请求完全是为了传送数据。</p>
+<p>14.能产生DMA请求的总线部件是（具有DMA接口的设备）</p>
+<p>15.中断响应由高到低的优先次序宜用（访管-&gt;程序性-&gt;重新启动）</p>
+<p>19.主存故障引起的中断是（机器校验中断）（属于内中断）</p>
+<p>20.在配有通道的计算机系统中，用户程序需要输入/输出时，引起的中断是（访管中断）</p>
+<p>24.在中断周期中，由（中断隐指令）将允许中断触发器置0</p>
+<p>26.设置中断屏蔽标志可以改变（多个中断服务程序执行完的次序）</p>
+<p>29.中断方式的特点是（CPU与外设并行工作，传送与主程序串行工作），DMA方式的特点是（CPU与外设并行工作，传送与主程序并行工作）</p>
+<p>30.在DMA传送方式中，由（外部设备）发出DMA请求，在传送期间总线控制权由（DMA控制器）掌握</p>
+<p>31.程序中断方式和DMA方式中都有中断请求，但目的不同</p>
+<p>33.CPU响应DMA请求的条件是当前（机器周期）执行完</p>
+<p>38.中断发生时，程序计数器内容的保护和更新是由（硬件自动（中断隐指令））完成的</p>
+<p>40.在DMA方式下，数据从内存传送到外设经过的路径是（内存-&gt;数据总线-&gt;DMAC-&gt;外设）</p>
+
       
     </div>
 
@@ -1075,7 +1298,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第1章-计算机系统概述"><span class="nav-number">1.</span> <span class="nav-text">第1章 计算机系统概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-计算机发展历程"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 计算机发展历程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-计算机系统层次结构"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 计算机系统层次结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-计算机的性能指标"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 计算机的性能指标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5-常见问题和易混淆知识点"><span class="nav-number">1.4.</span> <span class="nav-text">1.5 常见问题和易混淆知识点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第2章-数据的表示和运算"><span class="nav-number">2.</span> <span class="nav-text">第2章 数据的表示和运算</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-数制与编码"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 数制与编码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-定点数的表示与运算"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 定点数的表示与运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-浮点数的表示与运算"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 浮点数的表示与运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-算术逻辑单元ALU"><span class="nav-number">2.4.</span> <span class="nav-text">2.4 算术逻辑单元ALU</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第3章-存储系统"><span class="nav-number">3.</span> <span class="nav-text">第3章 存储系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-存储器的层次结构"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 存储器的层次结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-存储器的层次化结构"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 存储器的层次化结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-半导体随机存储器"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 半导体随机存储器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-主存储器与CPU的连接"><span class="nav-number">3.4.</span> <span class="nav-text">3.4 主存储器与CPU的连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-5-双口RAM和多模块存储器"><span class="nav-number">3.5.</span> <span class="nav-text">3.5 双口RAM和多模块存储器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-6-高速缓冲存储器"><span class="nav-number">3.6.</span> <span class="nav-text">3.6 高速缓冲存储器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-7-虚拟存储器"><span class="nav-number">3.7.</span> <span class="nav-text">3.7 虚拟存储器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第4章"><span class="nav-number">4.</span> <span class="nav-text">第4章</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-指令格式"><span class="nav-number">4.1.</span> <span class="nav-text">4.1 指令格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#指令寻址方式"><span class="nav-number">4.2.</span> <span class="nav-text">指令寻址方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-CISC和RISC的基本概念"><span class="nav-number">4.3.</span> <span class="nav-text">4.3 CISC和RISC的基本概念</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第5章-中央处理器"><span class="nav-number">5.</span> <span class="nav-text">第5章 中央处理器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-CPU的功能和基本结构"><span class="nav-number">5.1.</span> <span class="nav-text">5.1 CPU的功能和基本结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-指令执行过程"><span class="nav-number">5.2.</span> <span class="nav-text">5.2 指令执行过程</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第1章-计算机系统概述"><span class="nav-number">1.</span> <span class="nav-text">第1章 计算机系统概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-计算机发展历程"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 计算机发展历程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-计算机系统层次结构"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 计算机系统层次结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-计算机的性能指标"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 计算机的性能指标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5-常见问题和易混淆知识点"><span class="nav-number">1.4.</span> <span class="nav-text">1.5 常见问题和易混淆知识点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第2章-数据的表示和运算"><span class="nav-number">2.</span> <span class="nav-text">第2章 数据的表示和运算</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-数制与编码"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 数制与编码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-定点数的表示与运算"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 定点数的表示与运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-浮点数的表示与运算"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 浮点数的表示与运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-算术逻辑单元ALU"><span class="nav-number">2.4.</span> <span class="nav-text">2.4 算术逻辑单元ALU</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第3章-存储系统"><span class="nav-number">3.</span> <span class="nav-text">第3章 存储系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-存储器的层次结构"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 存储器的层次结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-存储器的层次化结构"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 存储器的层次化结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-半导体随机存储器"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 半导体随机存储器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-主存储器与CPU的连接"><span class="nav-number">3.4.</span> <span class="nav-text">3.4 主存储器与CPU的连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-5-双口RAM和多模块存储器"><span class="nav-number">3.5.</span> <span class="nav-text">3.5 双口RAM和多模块存储器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-6-高速缓冲存储器"><span class="nav-number">3.6.</span> <span class="nav-text">3.6 高速缓冲存储器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-7-虚拟存储器"><span class="nav-number">3.7.</span> <span class="nav-text">3.7 虚拟存储器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第4章"><span class="nav-number">4.</span> <span class="nav-text">第4章</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-指令格式"><span class="nav-number">4.1.</span> <span class="nav-text">4.1 指令格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#指令寻址方式"><span class="nav-number">4.2.</span> <span class="nav-text">指令寻址方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-CISC和RISC的基本概念"><span class="nav-number">4.3.</span> <span class="nav-text">4.3 CISC和RISC的基本概念</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第5章-中央处理器"><span class="nav-number">5.</span> <span class="nav-text">第5章 中央处理器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-CPU的功能和基本结构"><span class="nav-number">5.1.</span> <span class="nav-text">5.1 CPU的功能和基本结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-指令执行过程"><span class="nav-number">5.2.</span> <span class="nav-text">5.2 指令执行过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-3-数据通路的功能和基本结构"><span class="nav-number">5.3.</span> <span class="nav-text">5.3 数据通路的功能和基本结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-4-控制器的功能和工作原理"><span class="nav-number">5.4.</span> <span class="nav-text">5.4 控制器的功能和工作原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-5-指令流水线"><span class="nav-number">5.5.</span> <span class="nav-text">5.5 指令流水线</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第6章-总线"><span class="nav-number">6.</span> <span class="nav-text">第6章 总线</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-总线概述"><span class="nav-number">6.1.</span> <span class="nav-text">6.1 总线概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-总线仲裁"><span class="nav-number">6.2.</span> <span class="nav-text">6.2 总线仲裁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-3-总线操作和定时"><span class="nav-number">6.3.</span> <span class="nav-text">6.3 总线操作和定时</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-4-总线标准"><span class="nav-number">6.4.</span> <span class="nav-text">6.4 总线标准</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第7章-输入-输出系统"><span class="nav-number">7.</span> <span class="nav-text">第7章 输入/输出系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-1-I-O系统基本概念"><span class="nav-number">7.1.</span> <span class="nav-text">7.1 I/O系统基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-2-外部设备"><span class="nav-number">7.2.</span> <span class="nav-text">7.2 外部设备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-3-I-O接口"><span class="nav-number">7.3.</span> <span class="nav-text">7.3 I/O接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-4-I-O方式"><span class="nav-number">7.4.</span> <span class="nav-text">7.4 I/O方式</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1107,7 +1330,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">554k</span>
+    <span title="站点总字数">568k</span>
   
 
   
@@ -1116,7 +1339,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点总阅读时长">9:14</span>
+    <span title="站点总阅读时长">9:28</span>
   
 </div>
 
