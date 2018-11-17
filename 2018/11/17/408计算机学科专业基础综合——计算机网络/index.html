@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.1.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/github.ico?v=6.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/github.ico?v=6.1.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.1.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.1.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: 'LN4LXV8IAB',
+      apiKey: '90ebfafd072712068da61174d566b61c',
+      indexName: 'My_Blog',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="整理自王道单科">
+<meta property="og:type" content="article">
+<meta property="og:title" content="408计算机学科专业基础综合——计算机网络">
+<meta property="og:url" content="https://linjiafengyang.github.io/2018/11/17/408计算机学科专业基础综合——计算机网络/index.html">
+<meta property="og:site_name" content="伪程序员的世界">
+<meta property="og:description" content="整理自王道单科">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-11-17T02:40:42.842Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="408计算机学科专业基础综合——计算机网络">
+<meta name="twitter:description" content="整理自王道单科">
+
+
+
+
+
+
+  <link rel="canonical" href="https://linjiafengyang.github.io/2018/11/17/408计算机学科专业基础综合——计算机网络/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>408计算机学科专业基础综合——计算机网络 | 伪程序员的世界</title>
+  
+
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?d62ec62ec2c41677b6ad9e62a7eaede3";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <a href="https://github.com/linjiafengyang" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> 
+
+<div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">伪程序员的世界</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Debug myself and debug the world!</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+          
+  
+  <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+</li>
+
+      
+        
+        
+          
+  
+  <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+</li>
+
+      
+        
+        
+          
+  
+  <li class="menu-item menu-item-categories menu-item-active">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+</li>
+
+      
+        
+        
+          
+  
+  <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+</li>
+
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+    
+
+  
+
+
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+  
+
+
+
+ </div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://linjiafengyang.github.io/2018/11/17/408计算机学科专业基础综合——计算机网络/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="linjiafengyang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/me.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="伪程序员的世界">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">408计算机学科专业基础综合——计算机网络</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-17T10:39:48+08:00">2018-11-17</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/程序人生/" itemprop="url" rel="index"><span itemprop="name">程序人生</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计：</span>
+                
+                <span title="字数统计">9k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长&asymp;</span>
+                
+                <span title="阅读时长">0:09</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>整理自王道单科</p>
+<a id="more"></a>
+<h2 id="第1章-计算机网络体系结构"><a href="#第1章-计算机网络体系结构" class="headerlink" title="第1章 计算机网络体系结构"></a>第1章 计算机网络体系结构</h2><h3 id="1-1-计算机网络概述"><a href="#1-1-计算机网络概述" class="headerlink" title="1.1 计算机网络概述"></a>1.1 计算机网络概述</h3><p><strong>计算机网络</strong>是一个将分散的、具有独立功能的计算机系统，通过通信设备与线路连接起来，由功能完善的软件实现资源共享和信息传递的系统。<br>资源共享观点：计算机网络是以能够相互共享资源的方式互联起来的自治计算机系统的集合。1）目的：资源共享；2）组成单元：分布在不同地理位置的多台独立的自治计算机；3）网络中的计算机必须遵循的统一规则——网络协议</p>
+<p><strong>计算机网络的组成</strong>：<br>1）从组成部分上看：硬件、软件、协议，协议是核心<br>2）从工作方式上看：边缘部分（主机）和核心部分（网络、路由器）<br>3）从功能组成上看：通信子网和资源子网</p>
+<p><strong>计算机网络的功能</strong>：<br>1）数据通信<br>2）资源共享<br>3）分布式处理<br>4）提高可靠性<br>5）负载均衡</p>
+<p><strong>计算机网络的分类</strong>：<br>1）按分布范围分类：广域网、城域网、局域网、个人局域网<br>2）按传输技术分类：广播式网络、点对点网络<br>3）按拓扑结构分类：星形网络、总线形网络、环形网络、网状形网络<br>4）按使用者分类：公用网、专用网<br>5）按交换技术分类：电路交换网络、报文交换网络、分组交换网络<br>6）按传输介质分类：有线网络、无线网络</p>
+<p><strong>计算机网络的性能指标</strong>：<br>1）带宽：网络的通信线路所能传送数据的能力，单位赫兹Hz<br>2）时延：发送时延（传输时延）、传播时延、处理时延、排队时延<br><strong>发送时延（传输时延）=分组长度/信道宽度<br>传播时延=信道长度/电磁波在信道上的传播速率<br>总时延=发送时延+传播时延+处理时延+排队时延</strong><br>3）时延带宽积：在发送的第一个比特即将到达终点时，发送端已经发出的比特数，时延带宽积=传播时延*信道带宽<br>4）往返时延RTT：从发送端发送数据开始，到发送端收到来自接收端的确认<br>5）吞吐量<br>6）速率：数据率或比特率，单位是比特每秒b/s</p>
+<p><strong><em>选择题</em></strong></p>
+<p>2.计算机网络最基本的功能是（数据通信）</p>
+<p>6.计算机网络的资源主要是指（计算机硬件、软件和数据）</p>
+<p>12.局域网与广域网的互联是通过（路由器）实现的</p>
+<p>14.广域网的拓扑结构通常采用（网状形）</p>
+<p>15.在n个结点的星形拓扑结构中，有（n-1）条物理链路</p>
+<p>18.世界上最早的计算机网络是（ARPAnet）</p>
+<h3 id="1-2-计算机网络体系结构与参考模型"><a href="#1-2-计算机网络体系结构与参考模型" class="headerlink" title="1.2 计算机网络体系结构与参考模型"></a>1.2 计算机网络体系结构与参考模型</h3><p>计算机网络的各层及其协议的集合称为网络的体系结构，它是计算机网络中的层次、各层的协议以及层间借接口的集合。</p>
+<p>服务数据单元SDU、协议控制信息PCI、协议数据单元PDU</p>
+<p>1）<strong>第n层的实体不仅要使用第n-1层的服务，实现自身定义的功能，还要向第n+1层提供本层的服务，该服务是第n层及其下面各层提供的服务总和。</strong><br>2）<strong>最底层只提供服务，是整个层次结构的基础；中间各层既是下一层的服务使用者，又是上一层的服务提供者；最高层面向用户提供服务。</strong><br>3）<strong>上一层只能通过相邻层间的接口使用下一层的服务，而不能调用其他层的服务；下一层所提供服务的实现细节对上一层透明。</strong><br>4）<strong>两个主机通信时，对等层在逻辑上有一条直接信道，表现为不经过下层就把信息传送到对方。</strong></p>
+<p><strong>协议</strong>是控制两个（或多个）对等实体进行通信的集合，也就是水平的。不对等实体之间没有协议。协议由语法、语义和同步三部分组成。<br><strong>接口</strong>是同一结点内相邻两层间交换信息的连接点，不能跨层定义接口。同一结点相邻两层的实体通过服务访问点SAP进行交互。<br><strong>服务</strong>是指下层为紧相邻的上层提供的功能调用，也就是垂直的。<br>本层的服务只能看见服务而无法看见下面的协议。</p>
+<p>面向连接服务：连接建立、数据传输和连接释放<br>无连接服务：尽最大努力交付<br>可靠服务：保证数据正确、可靠地传送到目的地<br>不可靠服务：不能保证数据正确、可靠地传送到目的地，尽力而为的服务<br>有应答服务：接收方在收到数据后向发送方给出相应地应答，由传输系统内部自动实现<br>无应答服务：接收方接到数据后不自动给出应答</p>
+<p>开放系统互联参考模型，简称<strong>OSI参考模型</strong>：物理层、数据链路层、网络层、运输层、会话层、表示层、应用层。<strong>低三层统称为通信子网，高三层统称为资源子网，运输层承上启下。</strong><br>1）物理层：传输单位是比特，任务是透明地传输比特流，定义数据终端设备DTE和数据通信设备DCE的物理和逻辑连接方法<br>物理层接口标准：EIA-232C、EIA/TIA RS-449、CCITT的X.21<br>双绞线、光缆、无线信道并不在物理层协议之内而在物理层协议下面。<br>2）数据链路层：传输单位是帧，任务是将网络层传下来的IP数据报组装成帧。功能：成帧、差错控制、流量控制、传输管理等<br>数据链路层协议：SDLC、HDLC、PPP、STP和帧中继<br>3）网络层：传输单位是数据报，任务是把网络层的协议数据单元（分组）从源端传到目的端，为分组交换网上的不同主机提供通信服务。功能：路由选择、流量控制、拥塞控制、差错控制和国际互联等<br>网络层协议：IP、IPX、ICMP、IGMP、ARP、RARP、OSPF<br>4）传输层：传输单位是报文段（TCP）或用户数据报（UDP），任务是负责主机中两个进程之间的通信。功能是为端到端连接提供可靠地传输服务；流量控制、差错控制、服务质量、数据传输管理等<br>数据链路层提供的是点到点的通信，传输层提供端到端的通信<br>传输层协议：TCP、UDP<br>5）会话层：不同主机上各进程之间的会话，负责管理主机间的会话进程<br>6）表示层：处理在两个通信系统中交换信息的表示方式<br>7）应用层：是用户与网络的界面，使用的协议最多，FTP、SMTP、HTTP等</p>
+<p>TCP/IP模型：网络接口层、网际层、传输层、应用层<br>1）网络接口层：类似于OSI的物理层和数据链路层，从主机或结点接收IP分组，并把它们发送到指定的物理网络上<br>2）网际层（主机-主机）：将分组发送到任何网络，并为之独立地选择合适的路由，但不保证各个分组有序到达，有序交付由高层负责<br>3）传输层（应用-应用，或进程-进程）：传输控制协议TCP、用户数据报协议UDP<br>4）应用层（用户-用户）：Telnet、FTP、DNS、SMTP、HTTP</p>
+<p><strong><em>选择题</em></strong></p>
+<p>1.（定义功能执行的方法）不是对网络模型进行分层的目标</p>
+<p>3.协议是指在（不同结点对等实体）之间进行通信的规则或约定</p>
+<p>15.数据的格式转换及压缩属于OSI参考模型中（表示层）的功能</p>
+<p>23.TCP/IP参考模型的网络层提供的是（无连接不可靠的数据报服务）</p>
+<h2 id="第2章-物理层"><a href="#第2章-物理层" class="headerlink" title="第2章 物理层"></a>第2章 物理层</h2><h3 id="2-1-通信基础"><a href="#2-1-通信基础" class="headerlink" title="2.1 通信基础"></a>2.1 通信基础</h3><p><strong>信道</strong><br><strong>单工</strong>：只有一个方向的通信，而没有反方向的交互，仅需要一条信道<br><strong>半双工</strong>：通信双方都可以发送、接收信息，但不能同事发送接收，需要两条信道<br><strong>全双工</strong>：通信双方可以同时发送、接收信息，需要两条信道</p>
+<p><strong>码元传输速率</strong>：表示单位时间内数字通信系统所传输的码元个数（也可称为脉冲个数或信号变化的次数），单位是波特Baud，1波特表示数字通信系统每秒传输一个码元<br><strong>信息传输速率</strong>：表示单位时间内数字通信系统传输的二进制码元个数（即比特数），单位是比特/秒（b/s）<br>若一个码元携带n比特的信息量，则M波特的码元传输速率所对应的信息传输速率为M*n bit/s。<br>带宽是指信号具有的频带宽度，单位是赫兹Hz，表示在单位时间内从网络中的某一点到另一点所能通过的“最高数据率”，此时单位是bit/s。</p>
+<p><strong>奈奎斯特定理，又称奈氏准则</strong>，指出在理想低通（没有噪声、带宽有限）的信道中，极限码元传输率为2W波特，其中W是理想低通信道的带宽，单位为Hz。若用V表示每个码元离散电平的数目（码元的离散电平数目是指有多少种不同的码元，比如有16种不同的码元，则需要4位二进制位，因此数据传输率是码元传输率的4倍），则极限数据率为：<br><strong>理想低通信道下的极限数据传输率=2Wlog2 V（单位b/s）</strong></p>
+<p><strong>香农定理</strong>：给出了带宽受限且有高斯白噪声干扰的信道的极限数据传输速率<br><strong>信道的极限数据传输速率=Wlog2 (1+S/N)（单位b/s）</strong><br>其中W为信道的带宽，S为信道所传输信号的平均功率，N为信道内部的高斯噪声功率。S/N为信噪比，信噪比=10log10 (S/N)（单位dB），即当S/N=1000时，信噪比为30dB</p>
+<p><strong>调制</strong>：把数据变换为<strong>模拟信号</strong>的过程<br><strong>编码</strong>：把数据变换为<strong>数字信号</strong>的过程<br><strong>数字数据编码为数字信号</strong>：<br>1）<strong>非归零码</strong>：没有检错功能，难以保持同步<br>2）<strong>曼彻斯特编码</strong>：将一个码元分成两个相等的间隔，前一个间隔为高电平后一个间隔为低电平表示码元1，码元0则正好相反。可用于同步，以太网使用这种编码方式<br>3）<strong>差分曼彻斯特编码</strong>：若码元为1，则前半个码元的电平与上一个码元的后半个码元的电平相同，若为0，则相反。可以实现自同步，且抗干扰性较好。<br>4）4B/5B编码</p>
+<p><strong>数字数据调制为模拟信号</strong>：幅移键控（振幅）、频移键控（频率）、相移键控（相位）、正交振幅调制（幅移键控、相移键控相结合）<br><strong>模拟数据编码为数字信号</strong>：常用于对音频信号进行编码的脉冲调制<br>1.抽样 2.量化 3.编码<br><strong>采样频率必须大于等于最大频率的两倍</strong>，才能保证采样后的数字信号完整保留原始模拟信号的信息<br><strong>模拟数据调制为模拟信号</strong>：频分复用技术等</p>
+<p><strong>电路交换</strong>：两结点之间建立一条专用（双方独占）的物理通信路径，传输期间一直独占。连接建立、数据传输、连接释放<br><strong>报文交换</strong>：无需建立专门连接，报文携带有目标地址等信息，采用存储转发的传输方式<br><strong>分组交换</strong>：采用存储转发方式，把报文分割成小的数据块，加上必要的控制信息进行传输<br>1）<strong>无连接的数据报</strong>：不需要建立连接，网络尽最大努力交付，不保证可靠性，分组之间可能存在不同路径，各个分组分别转发<br>2）<strong>面向连接的虚电路</strong>：在发送方和接收方建立一条逻辑上相连的虚电路，分组沿着虚电路传输，虚电路建立、数据传输、虚电路释放</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>数据报</th>
+<th>虚电路</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>连接的建立</td>
+<td>不要</td>
+<td>必须有</td>
+</tr>
+<tr>
+<td>目的地址</td>
+<td>每个分组都有完整的目的地址</td>
+<td>仅在建立连接阶段使用，之后每个分组使用长度较短的虚电路号</td>
+</tr>
+<tr>
+<td>路由选择</td>
+<td>每个分组独立地进行路由选择和转发</td>
+<td>属于同一条虚电路的分组按照同一路由转发</td>
+</tr>
+<tr>
+<td>分组顺序</td>
+<td>不保证分组的有序到达</td>
+<td>保证分组的有序到达</td>
+</tr>
+<tr>
+<td>可靠性</td>
+<td>不保证可靠通信，可靠性由用户主机来保证</td>
+<td>可靠性由网络保证</td>
+</tr>
+<tr>
+<td>对网络故障的适应性</td>
+<td>出故障的结点丢失分组，其他分组可正常传输</td>
+<td>所有经过故障结点的虚电路均不能正常工作</td>
+</tr>
+<tr>
+<td>差错处理和流量控制</td>
+<td>由用户主机进行流量控制，不保证数据报的可靠性</td>
+<td>可由分组交换网负责，也可由用户主机负责</td>
+</tr>
+</tbody>
+</table>
+<p><strong><em>选择题</em></strong></p>
+<p>25.数据经过网络的传输延迟长而且是不固定的，不能用于语音数据传输的是（报文交换）</p>
+<p>26.以太网采用的是（分组交换技术）</p>
+<p>27.为了使数据在网络中传输时延最小，首选的交换方式是（电路交换）</p>
+<p>30.为了使数据在网络中的传输时延最小，首选的交换方式时（电路交换），为保证数据无差错地传送，不应选用的交换方式是（电路交换），分组交换对报文交换的主要改进是（传输单位更小且有固定的最大长度），这种改进产生的直接结果是（减少传输时延），在出错率很高的传输系统中，选用（数据报方式）更合适。</p>
+<p>32.同一报文中的分组可以由不同的传输路径通过通信子网的方法是（数据报）</p>
+<h3 id="2-2-传输介质"><a href="#2-2-传输介质" class="headerlink" title="2.2 传输介质"></a>2.2 传输介质</h3><p>无线：无线电波、微波、红外线和激光<br>有线：双绞线、同轴电缆、光纤</p>
+<p>物理层接口的特性：机械特性、电气特性、功能特性、规程特性</p>
+<p><strong><em>选择题</em></strong></p>
+<p>3.利用一根同轴电缆互连主机构成以太网，则主机间的通信方式是（半双工）</p>
+<p>4.同轴电缆比双绞线的传输速度更快，得益于（同轴电缆具有更高的屏蔽性，同时具有更好的抗噪声性）</p>
+<p>5.不受电磁干扰和噪声影响的传输介质是（光纤）</p>
+<p>6.多模光纤传输光信号的原理是（光的全反射特性）</p>
+<p>11.在物理层接口特性中，用于描述完成每种功能的事件发生顺序的是（过程特性）</p>
+<h3 id="2-3-物理层设备"><a href="#2-3-物理层设备" class="headerlink" title="2.3 物理层设备"></a>2.3 物理层设备</h3><p><strong>中继器</strong>：又称为转发器，主要功能是将信号整形并放大再转发出去，以消除信号的失真和衰减问题，使信号的波形和强度达到所需要的要求，来扩大网络传输的距离。<strong>其原理是信号再生（而不是简单地将衰减信号放大）</strong>。两端的网络部分是网段，而不是子网。若出现故障，对相邻两个网段的工作将产生影响。<br><strong>具有5-4-3规则</strong>：互相串联的中继器的个数不能超过4个，而且用4个中继器串联的5段通信介质中只有3个段可以挂接计算机，其余两个段只能用作扩展通信范围的链路段。<br><strong>集线器</strong>：实质上是一个多端口的中继器，只起到<strong>信号放大和转发</strong>作用，其目的是<strong>扩大网络的传输范围，而不具备信号的定向传送能力</strong>。主要用于使用双绞线组件共享网络。由集线器组成的网络是<strong>共享式网络</strong>，每个端口连接的网络部分是同一个网络的不同网段，只能在<strong>半双工</strong>下工作。对信号进行放大后发到其他所有端口</p>
+<p><strong><em>选择题</em></strong></p>
+<p>7.一般来说，集线器连接的网络在拓扑结构上属于（星形）</p>
+<p>8.用集线器连接的工作站集合（同属一个冲突域，也同属一个广播域）</p>
+<h2 id="第3章-数据链路层"><a href="#第3章-数据链路层" class="headerlink" title="第3章 数据链路层"></a>第3章 数据链路层</h2><h3 id="3-1-数据链路层的功能"><a href="#3-1-数据链路层的功能" class="headerlink" title="3.1 数据链路层的功能"></a>3.1 数据链路层的功能</h3><p>功能：为网络层提供服务、链路管理、帧定界、帧同步与透明传输、流量控制和差错控制</p>
+<h3 id="3-2-组帧"><a href="#3-2-组帧" class="headerlink" title="3.2 组帧"></a>3.2 组帧</h3><p>字符计数法：在帧头部使用一个计数字段来标明帧内字符数<br>字符填充的首尾定界符法：使用特定字符定界帧的开始和结束，在数据中的特殊字符前面用转义字符填充<br>比特填充的首尾填充法：数据区每遇到连续5个1就填充0<br>违规编码法：信号传输过程中采用违规的编码来表示帧的起始和终止</p>
+<h3 id="3-3-差错控制"><a href="#3-3-差错控制" class="headerlink" title="3.3 差错控制"></a>3.3 差错控制</h3><p>检错编码：奇偶校验码、循环冗余码<br>纠错编码：海明码</p>
+<h3 id="3-4-流量控制与可靠传输机制"><a href="#3-4-流量控制与可靠传输机制" class="headerlink" title="3.4 流量控制与可靠传输机制"></a>3.4 流量控制与可靠传输机制</h3><p><strong>可靠传输</strong>：数据链路层通常使用<strong>确认</strong>和<strong>超时重传</strong>两种机制来保证可靠传输<br><strong>流量控制</strong>：<br>1）<strong>停止等待协议</strong>：发送方每发送一帧都要等待接收方的应答信号才能发送下一帧<br><strong>发送窗口大小=1，接收窗口大小=1</strong><br>2）<strong>后退N帧协议</strong>：发送方一次可发送N帧，按序接收，重传从最后一个确认开始<br><strong>发送窗口大小&gt;1，接收窗口大小=1</strong><br>当接收窗口大小为1时，可保证帧的有序接收。<br>若采用n个比特对帧编号，则其发送窗口的尺寸WT应满足：<strong>1≤WT≤2^n-1</strong><br>3）<strong>选择重传协议</strong>：发送方一次可发送N帧，可以不按序接收，重传没有确认的帧<br><strong>发送窗口大小&gt;1，接收窗口大小&gt;1</strong><br>若采用n个比特对帧编号，需满足条件：接收窗口WR+发送窗口WT≤2^n；接收窗口WR≤2 ^(n-1)。当接收窗口为最大值时，<strong>WTmax=WRmax=2 ^(n-1)</strong></p>
+<p><strong>信道的效率，也称为信道利用率</strong>，是对发送方而言的，是指发送方在一个发送周期的时间内，有效地发送数据所需要的时间占整个发送周期的比率。<br>例如，发送方从开始发送数据，到收到第一个确认帧为止，称为一个发送周期，设为T，发送方在这个周期内共发送L比特的数据，发送方的数据传输率为C，则发送方用于发送有效数据的时间为L/C，在这种情况下，<strong>信道的利用率为(L/C)/T</strong><br><strong>信道吞吐率=信道利用率*发送方的发送速率</strong></p>
+<p><strong><em>选择题</em></strong></p>
+<p>11.对于窗口大小为n的滑动窗口，最多可以有（n-1）帧已发送但没有确认</p>
+<h3 id="3-5-介质访问控制"><a href="#3-5-介质访问控制" class="headerlink" title="3.5 介质访问控制"></a>3.5 介质访问控制</h3><p>介质访问控制的任务是为使用介质的每个结点隔离来自同一信道上其他结点所传颂的信号，以协调活动结点的传输。</p>
+<p><strong>信道划分介质访问控制</strong>：<br>频分多路复用FDM：将多路基带信号调制到不同频率载波上再进行叠加形成一个复合信号<br>时分多路复用TDM：将物理信道按时间分为若干时间片，轮流给不同信号使用<br>波分多路复用WDM：在一根光纤中传输多种不同波长（频率）的光信号<br>码分多路复用CDM：靠不同的编码来区分各种原始信号，既共享信道的频率，又共享时间，例如码分多址CDMA技术</p>
+<p><strong>随机访问介质访问控制</strong>：<br>1）<strong>ALOHA协议</strong><br>纯ALOHA：不检测直接发送，若无确认则等待重发<br>时隙ALOHA：将时间划分为若干等长时隙，按时发送<br>2）<strong>CSMA协议</strong><br>1-坚持：闲则发送，忙则继续监听<br>非坚持：闲则发送，忙则等待一个随机时间再听<br>p-坚持：闲则以概率p发送，1-p等待下一个时隙，忙则等待一个随机时间再听</p>
+<table>
+<thead>
+<tr>
+<th>信道状态</th>
+<th>1-坚持</th>
+<th>非坚持</th>
+<th>p-坚持</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>空闲</td>
+<td>立即发送数据</td>
+<td>立即发送数据</td>
+<td>以概率p发送数据，以概率1-p推迟到下一个时隙</td>
+</tr>
+<tr>
+<td>忙</td>
+<td>继续坚持监听信道</td>
+<td>放弃监听，等待一个随机的时间后再监听</td>
+<td>放弃监听，等待一个随机的时间后再监听</td>
+</tr>
+</tbody>
+</table>
+<p>3）<strong>载波侦听多路访问/碰撞检测CSMA/CD协议</strong>：不可能同时进行发送和接收，所以不可能进行全双工通信，<strong>只能进行半双工通信</strong>，适用于总线型网络或半双工网络<br>流程：先听后发，边听边发，冲突停发，随机重发<br>碰撞解决：采用二进制指数退避算法来解决碰撞问题</p>
+<p><strong>争用期</strong>：以太网端到端往返时间<br><strong>最小帧长=总线传播时延 <em> 数据传输速率 </em> 2</strong><br>以太网规定最短帧长为64B，凡长度小于64B的都是由于冲突而异常终止的无效帧。</p>
+<p>问题：<br>a. 接收信号的强度往往会远小于发送信号的强度，且在无线介质上信号强度动态变化范围很广，因此若要实现碰撞检测，那么在硬件上需要的花费就会过大<br>b. 在无线通道中，并非所有的站点都能够听见对方，即“隐蔽站”问题</p>
+<p>4）<strong>载波侦听多路访问/碰撞避免CSMA/CA协议</strong>：<br>避免碰撞：预约信道、ACK帧、RTS/CTS帧<br>解决碰撞：采用二进制指数退避算法来解决碰撞问题</p>
+<p>CSMA/CD与CSMA/CA主要有如下区别：<br>1）CSMA/CD可以检测冲突，但无法避免；CSMA/CA发送包的同时不能检测到信道上有无冲突，本结点处没有冲突并不意味着在接收结点处就没有冲突，只能尽量避免<br>2）传输介质不同。CSMA/CD用于总线式以太网，而CSMA/CA则用于无线局域网802.11a/b/g/n<br>3）检测方式不同。CSMA/CD通过电缆中电压的变化来检测；而CSMA/CA采用能量检测、载波检测和能量载波混合检测三种检测信道空闲的方式<br>4）在本结点处有（无）冲突，并不一定意味着在接收结点处就有（无）冲突<br>总结：CSMA/CA协议的基本思想是在发送数据时先广播告知其他结点，让其他结点在某段时间内不要发送数据，以免出现碰撞。CSMA/CD协议的基本思想是发送前侦听，边发送边侦听，一旦出现碰撞马上停止发送。</p>
+<p><strong>轮询访问介质访问控制</strong>：令牌传递协议，只有得到令牌的机器才能发送数据，其他必须等待，非常适合负载很高的广播信道</p>
+<p><strong><em>选择题</em></strong></p>
+<p>2.时分多路复用TDM所利用的传输介质的性质是（介质的位速率大于单个信号的位速率）</p>
+<p>3.从表面上看，FDM比TDM能更好地利用信道的传输能力，但现在计算机网络更多地使用TDM而不是FDM，其原因是（TDM可用于数字传输而FDM不行）</p>
+<p>4.（统计时分多路复用）具有动态分配时隙的功能</p>
+<p>12.以太网总，当数据传输率提高时，帧的发送时间就会相应的缩短，这样可能会影响到冲突的检测。为了能有效地检测冲突，可以使用的解决方案是（减少电缆介质的长度或增加最短帧长）</p>
+<p>21.根据CSMA/CD协议的工作原理，需要提高最短帧长度的是（冲突域的最大距离不变，网络传输速率提高）</p>
+<p>23.令牌环网络的拓扑结构为环状，只有获得了令牌的主机才能发送数据，因此（不存在冲突）</p>
+<h3 id="3-6-局域网"><a href="#3-6-局域网" class="headerlink" title="3.6 局域网"></a>3.6 局域网</h3><p><strong>局域网</strong>是在一个较小的地理范围内将各种计算机、外部设备和数据库系统等通过双绞线、同轴电缆等连接介质互相连接起来，组成资源和信息共享的计算机互联网络。<br>1）拓扑结构：星形结构、环形结构、总线形结构、星形和总线形结合的复合型结构<br>2）传输介质：双绞线、同轴电缆、光纤<br>3）介质访问控制方式：CSMA/CD、令牌总线、令牌环，前两种用于总线形局域网，令牌环用于环形局域网<br><strong>以太网</strong>：逻辑拓扑是总线形结构，物理拓扑是星形或拓展星形结构<br><strong>令牌环</strong>：逻辑拓扑是环形结构，物理拓扑是星形结构<br><strong>FDDI</strong>（光纤分布数字接口）：逻辑拓扑是环形结构，物理拓扑是环形结构</p>
+<p>IEEE 802.3标准是一种基带总线型的局域网标准，描述物理层和数据链路层的MAC子层的实现方法。<br><strong>通常将802.3局域网简称为以太网：无连接、不对发送的数据帧编号、也不要求接收方发送确认，即以太网尽最大努力交付数据，提供不可靠服务，对于差错的纠正则由高层完成</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>10BASE5</th>
+<th>10BASE2</th>
+<th>10BASE-T</th>
+<th>10BASE-FL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>传输媒体</td>
+<td>基带同轴电缆（粗缆）</td>
+<td>基带同轴电缆（细缆）</td>
+<td>非屏蔽双绞线</td>
+<td>光纤对（850nm）</td>
+</tr>
+<tr>
+<td>编码</td>
+<td>曼彻斯特编码</td>
+<td>曼彻斯特编码</td>
+<td>曼彻斯特编码</td>
+<td>曼彻斯特编码</td>
+</tr>
+<tr>
+<td>拓扑结构</td>
+<td>总线型</td>
+<td>总线型</td>
+<td>星形</td>
+<td></td>
+<td>点对点</td>
+</tr>
+<tr>
+<td>最大段长</td>
+<td>500m</td>
+<td>185m</td>
+<td>100m</td>
+<td>2000m</td>
+</tr>
+<tr>
+<td>最多结点数目</td>
+<td>100</td>
+<td>30</td>
+<td>2</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<p>无线局域网：有固定基础设施无线局域网、无固定基础设施的无线局域网自组织网络</p>
+<p><strong><em>选择题</em></strong></p>
+<p>6.网卡实现的主要功能在（物理层和数据链路层）</p>
+<h3 id="3-7-广域网"><a href="#3-7-广域网" class="headerlink" title="3.7 广域网"></a>3.7 广域网</h3><table>
+<thead>
+<tr>
+<th></th>
+<th>广域网</th>
+<th>局域网</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>覆盖范围</td>
+<td>很广，通常跨区域</td>
+<td>较小，通常在一个区域内</td>
+</tr>
+<tr>
+<td>连接方式</td>
+<td>结点之间都是点到点连接，但为了提高网络的可靠性，一个结点交换机往往与多个结点交换机相连</td>
+<td>普遍采用多点接入技术</td>
+</tr>
+<tr>
+<td>OSI层次</td>
+<td>三层：物理层、数据链路层、网络层</td>
+<td>两层：物理层、数据链路层</td>
+</tr>
+<tr>
+<td>联系与相似点</td>
+<td>1.广域网与局域网都是互联网的重要组成构件，从互联网的角度上看，二者平等 2.连接在一个广域网或一个局域网上的主机在该网内进行通信时，只需要使用其网络的物理地址即可</td>
+<td></td>
+</tr>
+<tr>
+<td>着重点</td>
+<td>强调资源共享</td>
+<td>强调数据传输</td>
+</tr>
+</tbody>
+</table>
+<p>PPP协议：<strong>面向字节</strong>，采用字节填充方式，只支持全双工链路，提供差错检测但不提供纠错功能，只保证无差错接收<br>高级数据链路控制HDLC协议：<strong>面向比特</strong>，采用0比特插入法，帧类分为信息帧、监督帧和无编号帧，使用了编号和确认机制，能够提供可靠传输</p>
+<h3 id="3-8-数据链路层设备"><a href="#3-8-数据链路层设备" class="headerlink" title="3.8 数据链路层设备"></a>3.8 数据链路层设备</h3><p><strong>网桥</strong>：把两个或多个以太网通过网桥连接起来变成一个网段，工作在链路层的MAC子层<br>1）透明网桥：按照自学习算法填写转发表，按转发表转发<br>2）源路由网桥：先发送发现帧，按返回结果转发（选择最佳路由）</p>
+<p><strong>局域网交换机</strong>：实际就是一个多端口网桥，工作在数据链路层<br>1）直通式：帧在接收后只检查目的地址，几乎能马上就被传出去<br>2）存储转发：先将接收到的帧缓存到高速缓存器，检查数据正确性<br><strong>相同点：按MAC地址转发，都能隔离冲突域，不能隔离广播域</strong></p>
+<p><strong><em>选择题</em></strong></p>
+<p>10.通过交换机连接的一组工作站（组成一个广播域，但不是一个冲突域）</p>
+<p>11.一个16端口的集线器的冲突域和广播域的个数分别是（1,1）</p>
+<p>12.一个16个端口的以太网交换机，冲突域和广播域的个数分别是（16,1）</p>
+<h2 id="第4章-网络层"><a href="#第4章-网络层" class="headerlink" title="第4章 网络层"></a>第4章 网络层</h2><h3 id="4-1-网络层的功能"><a href="#4-1-网络层的功能" class="headerlink" title="4.1 网络层的功能"></a>4.1 网络层的功能</h3>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+	<div>
+	  
+		<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">------本文结束<i class="fa fa-paw"></i>感谢阅读------</div>
+    
+</div>
+	  
+	</div>
+	
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/14/408计算机学科专业基础综合——操作系统/" rel="next" title="408计算机学科专业基础综合——操作系统">
+                <i class="fa fa-chevron-left"></i> 408计算机学科专业基础综合——操作系统
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/me.jpg"
+                alt="linjiafengyang" />
+            
+              <p class="site-author-name" itemprop="name">linjiafengyang</p>
+              <p class="site-description motion-element" itemprop="description">Debug myself and debug the world!</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">118</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/linjiafengyang" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://blog.csdn.net/sinat_31790817" target="_blank" title="CSDN"><i class="fa fa-fw fa-angellist"></i>CSDN</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第1章-计算机网络体系结构"><span class="nav-number">1.</span> <span class="nav-text">第1章 计算机网络体系结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-计算机网络概述"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 计算机网络概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-计算机网络体系结构与参考模型"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 计算机网络体系结构与参考模型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第2章-物理层"><span class="nav-number">2.</span> <span class="nav-text">第2章 物理层</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-通信基础"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 通信基础</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-传输介质"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 传输介质</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-物理层设备"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 物理层设备</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第3章-数据链路层"><span class="nav-number">3.</span> <span class="nav-text">第3章 数据链路层</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-数据链路层的功能"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 数据链路层的功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-组帧"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 组帧</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-差错控制"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 差错控制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-流量控制与可靠传输机制"><span class="nav-number">3.4.</span> <span class="nav-text">3.4 流量控制与可靠传输机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-5-介质访问控制"><span class="nav-number">3.5.</span> <span class="nav-text">3.5 介质访问控制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-6-局域网"><span class="nav-number">3.6.</span> <span class="nav-text">3.6 局域网</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-7-广域网"><span class="nav-number">3.7.</span> <span class="nav-text">3.7 广域网</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-8-数据链路层设备"><span class="nav-number">3.8.</span> <span class="nav-text">3.8 数据链路层设备</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第4章-网络层"><span class="nav-number">4.</span> <span class="nav-text">第4章 网络层</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-网络层的功能"><span class="nav-number">4.1.</span> <span class="nav-text">4.1 网络层的功能</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">linjiafengyang</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="站点总字数">594k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+    <span title="站点总阅读时长">9:54</span>
+  
+</div>
+
+
+
+<!--
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Muse</a> v6.1.0</div>
+
+
+-->
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.1.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=6.1.0"></script>
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+
+<!-- 背景动画 -->
+<!--
+<script type="text/javascript" src="/js/src/particle.js"></script>
+-->
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
