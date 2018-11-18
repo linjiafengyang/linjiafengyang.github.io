@@ -108,7 +108,7 @@
 <meta property="og:site_name" content="伪程序员的世界">
 <meta property="og:description" content="整理自王道单科">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-18T11:37:01.715Z">
+<meta property="og:updated_time" content="2018-11-18T13:45:04.764Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="408计算机学科专业基础综合——计算机网络">
 <meta name="twitter:description" content="整理自王道单科">
@@ -443,7 +443,7 @@
                 
                   <span class="post-meta-item-text">字数统计：</span>
                 
-                <span title="字数统计">12k</span>
+                <span title="字数统计">13k</span>
               
 
               
@@ -457,7 +457,7 @@
                 
                   <span class="post-meta-item-text">阅读时长&asymp;</span>
                 
-                <span title="阅读时长">0:12</span>
+                <span title="阅读时长">0:13</span>
               
             </div>
           
@@ -829,6 +829,20 @@
 <p><strong><em>选择题</em></strong></p>
 <p>2.要控制网络上的广播风暴，可以采用的方法是（用路由器将网络分段）</p>
 <p>8.路由器中计算路由信息的是（路由选择处理机）</p>
+<h2 id="第5章-传输层"><a href="#第5章-传输层" class="headerlink" title="第5章 传输层"></a>第5章 传输层</h2><h3 id="5-1-传输层提供的服务"><a href="#5-1-传输层提供的服务" class="headerlink" title="5.1 传输层提供的服务"></a>5.1 传输层提供的服务</h3><p>传输层为运行在不同主机上的进程之间提供了逻辑通信，而网络层提供了主机之间的逻辑通信。<br>功能：<br>1）提供应用<strong>进程之间</strong>的逻辑通信（<strong>即端到端的通信</strong>），与网络层的区别是，网络层提供的是<strong>主机之间</strong>的逻辑通信<br>2）复用和分用<br>3）对收到的报文进行差错检测（首部和数据部分），而网络层只检查IP数据报的首部，不检查数据部分是否出错<br>4）面向连接的TCP和无连接的UDP</p>
+<p>服务端使用的端口号：0~1023<br>客户端使用的端口号：49152~65535</p>
+<p>套接字=（主机IP地址，端口号），唯一地标识了网络中的一个主机和其上的一个应用（进程）</p>
+<p>TCP：全双工的可靠逻辑信道，面向连接，适用于文件传输协议FTP、超文本传输协议HTTP、远程登录TELNET<br>UDP：不可靠的逻辑信道，无连接，应用于小文件传送协议TFTP、DNS、SNMP和实时协议RTP</p>
+<p><strong><em>选择题</em></strong></p>
+<p>4.关于传输层的面向连接服务的特性石（保证可靠和顺序的交付）</p>
+<p>7.以下哪一项能够唯一确定一个在互联网上通信的进程（IP地址及端口号）</p>
+<p>13.如果用户程序使用UDP协议进行数据传输，那么（应用层）协议必须承担可靠性方面的全部工作</p>
+<h3 id="5-2-UDP协议"><a href="#5-2-UDP协议" class="headerlink" title="5.2 UDP协议"></a>5.2 UDP协议</h3><p>只在IP的数据报服务之上增加了两个最基本的服务：复用和分用以及差错检测<br>所有维护传输可靠性的工作需要用户在应用层来完成。</p>
+<p>特点：无连接、首部开销小、最大努力交付、应用层要保证可靠性<br>首部：8B，分别为源端口号，目的端口号、长度、校验和<br>检验：采用首部、伪首部、数据进行二进制反码运算求和再取反</p>
+<h3 id="5-3-TCP协议"><a href="#5-3-TCP协议" class="headerlink" title="5.3 TCP协议"></a>5.3 TCP协议</h3><p>特点：有连接、点对点（一对一）、提供可靠交付、全双工通信、面向字节流<br>首部：20B，源端口、目的端口、序号、确认号等控制信息<br><strong>连接管理：三次握手建立、四次握手释放</strong><br><strong>可靠传输机制</strong><br>1）序号：用来保证数据能有序提交给应用层<br>2）确认：确认号为期待收到的下一个报文段第一个字节的序号<br>3）<strong>重传</strong>：<br>超时：计时器到期还没收到确认则重传对应报文<br>冗余确认：当收到失序报文时向发送端发送冗余ACK</p>
+<p><strong>流量控制</strong>：在确认报文中设置接收窗口rwnd的值来限制发送速率</p>
+<p><strong>拥塞控制</strong>：根据自己估算的网络拥塞程序设置cwnd的值来限制发送速率<br>慢开始：当cwnd &lt; ssthresh时，每收到一个报文段的确认cwnd加1<br>拥塞避免：当cwnd&gt;ssthresh时，每经过一个往返延时cwnd加1<br>快重传：当收到连续的三个重复的ACK，直接重传对方期待的报文<br>快恢复：当收到连续的三个冗余ACK，令ssthresh=cwnd=cwnd/2</p>
+<p>拥塞处理：ssthresh置为原cwnd的一半，cwnd置1</p>
 
       
     </div>
@@ -1050,7 +1064,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第1章-计算机网络体系结构"><span class="nav-number">1.</span> <span class="nav-text">第1章 计算机网络体系结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-计算机网络概述"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 计算机网络概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-计算机网络体系结构与参考模型"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 计算机网络体系结构与参考模型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第2章-物理层"><span class="nav-number">2.</span> <span class="nav-text">第2章 物理层</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-通信基础"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 通信基础</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-传输介质"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 传输介质</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-物理层设备"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 物理层设备</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第3章-数据链路层"><span class="nav-number">3.</span> <span class="nav-text">第3章 数据链路层</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-数据链路层的功能"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 数据链路层的功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-组帧"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 组帧</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-差错控制"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 差错控制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-流量控制与可靠传输机制"><span class="nav-number">3.4.</span> <span class="nav-text">3.4 流量控制与可靠传输机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-5-介质访问控制"><span class="nav-number">3.5.</span> <span class="nav-text">3.5 介质访问控制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-6-局域网"><span class="nav-number">3.6.</span> <span class="nav-text">3.6 局域网</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-7-广域网"><span class="nav-number">3.7.</span> <span class="nav-text">3.7 广域网</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-8-数据链路层设备"><span class="nav-number">3.8.</span> <span class="nav-text">3.8 数据链路层设备</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第4章-网络层"><span class="nav-number">4.</span> <span class="nav-text">第4章 网络层</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-网络层的功能"><span class="nav-number">4.1.</span> <span class="nav-text">4.1 网络层的功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-路由算法"><span class="nav-number">4.2.</span> <span class="nav-text">4.2 路由算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-IPv4"><span class="nav-number">4.3.</span> <span class="nav-text">4.3 IPv4</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-4-IPv6"><span class="nav-number">4.4.</span> <span class="nav-text">4.4 IPv6</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-5-路由协议"><span class="nav-number">4.5.</span> <span class="nav-text">4.5 路由协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-6-组播"><span class="nav-number">4.6.</span> <span class="nav-text">4.6 组播</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-7-移动IP"><span class="nav-number">4.7.</span> <span class="nav-text">4.7 移动IP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-8-网络层设备"><span class="nav-number">4.8.</span> <span class="nav-text">4.8 网络层设备</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第1章-计算机网络体系结构"><span class="nav-number">1.</span> <span class="nav-text">第1章 计算机网络体系结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-计算机网络概述"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 计算机网络概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-计算机网络体系结构与参考模型"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 计算机网络体系结构与参考模型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第2章-物理层"><span class="nav-number">2.</span> <span class="nav-text">第2章 物理层</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-通信基础"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 通信基础</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-传输介质"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 传输介质</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-物理层设备"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 物理层设备</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第3章-数据链路层"><span class="nav-number">3.</span> <span class="nav-text">第3章 数据链路层</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-数据链路层的功能"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 数据链路层的功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-组帧"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 组帧</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-差错控制"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 差错控制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-流量控制与可靠传输机制"><span class="nav-number">3.4.</span> <span class="nav-text">3.4 流量控制与可靠传输机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-5-介质访问控制"><span class="nav-number">3.5.</span> <span class="nav-text">3.5 介质访问控制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-6-局域网"><span class="nav-number">3.6.</span> <span class="nav-text">3.6 局域网</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-7-广域网"><span class="nav-number">3.7.</span> <span class="nav-text">3.7 广域网</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-8-数据链路层设备"><span class="nav-number">3.8.</span> <span class="nav-text">3.8 数据链路层设备</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第4章-网络层"><span class="nav-number">4.</span> <span class="nav-text">第4章 网络层</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-网络层的功能"><span class="nav-number">4.1.</span> <span class="nav-text">4.1 网络层的功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-路由算法"><span class="nav-number">4.2.</span> <span class="nav-text">4.2 路由算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-IPv4"><span class="nav-number">4.3.</span> <span class="nav-text">4.3 IPv4</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-4-IPv6"><span class="nav-number">4.4.</span> <span class="nav-text">4.4 IPv6</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-5-路由协议"><span class="nav-number">4.5.</span> <span class="nav-text">4.5 路由协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-6-组播"><span class="nav-number">4.6.</span> <span class="nav-text">4.6 组播</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-7-移动IP"><span class="nav-number">4.7.</span> <span class="nav-text">4.7 移动IP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-8-网络层设备"><span class="nav-number">4.8.</span> <span class="nav-text">4.8 网络层设备</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第5章-传输层"><span class="nav-number">5.</span> <span class="nav-text">第5章 传输层</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-传输层提供的服务"><span class="nav-number">5.1.</span> <span class="nav-text">5.1 传输层提供的服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-UDP协议"><span class="nav-number">5.2.</span> <span class="nav-text">5.2 UDP协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-3-TCP协议"><span class="nav-number">5.3.</span> <span class="nav-text">5.3 TCP协议</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1082,7 +1096,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">599k</span>
+    <span title="站点总字数">600k</span>
   
 
   
@@ -1091,7 +1105,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点总阅读时长">9:59</span>
+    <span title="站点总阅读时长">10:01</span>
   
 </div>
 
