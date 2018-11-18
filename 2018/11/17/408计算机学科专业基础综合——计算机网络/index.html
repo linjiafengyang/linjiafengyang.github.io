@@ -108,7 +108,7 @@
 <meta property="og:site_name" content="伪程序员的世界">
 <meta property="og:description" content="整理自王道单科">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-17T02:40:42.842Z">
+<meta property="og:updated_time" content="2018-11-18T03:43:37.869Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="408计算机学科专业基础综合——计算机网络">
 <meta name="twitter:description" content="整理自王道单科">
@@ -248,7 +248,7 @@
         
           
   
-  <li class="menu-item menu-item-categories">
+  <li class="menu-item menu-item-categories menu-item-active">
     <a href="/categories/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
 </li>
@@ -258,7 +258,7 @@
         
           
   
-  <li class="menu-item menu-item-tags menu-item-active">
+  <li class="menu-item menu-item-tags">
     <a href="/tags/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
 </li>
@@ -443,7 +443,7 @@
                 
                   <span class="post-meta-item-text">字数统计：</span>
                 
-                <span title="字数统计">9k</span>
+                <span title="字数统计">11k</span>
               
 
               
@@ -457,7 +457,7 @@
                 
                   <span class="post-meta-item-text">阅读时长&asymp;</span>
                 
-                <span title="阅读时长">0:09</span>
+                <span title="阅读时长">0:11</span>
               
             </div>
           
@@ -718,7 +718,58 @@
 <p>10.通过交换机连接的一组工作站（组成一个广播域，但不是一个冲突域）</p>
 <p>11.一个16端口的集线器的冲突域和广播域的个数分别是（1,1）</p>
 <p>12.一个16个端口的以太网交换机，冲突域和广播域的个数分别是（16,1）</p>
-<h2 id="第4章-网络层"><a href="#第4章-网络层" class="headerlink" title="第4章 网络层"></a>第4章 网络层</h2><h3 id="4-1-网络层的功能"><a href="#4-1-网络层的功能" class="headerlink" title="4.1 网络层的功能"></a>4.1 网络层的功能</h3>
+<h2 id="第4章-网络层"><a href="#第4章-网络层" class="headerlink" title="第4章 网络层"></a>第4章 网络层</h2><h3 id="4-1-网络层的功能"><a href="#4-1-网络层的功能" class="headerlink" title="4.1 网络层的功能"></a>4.1 网络层的功能</h3><p><strong>异构网络互联</strong><br>物理层中继系统：中继器、集线器Hub<br>数据链路层中继系统：网桥或交换机<br>网络层中继系统：路由器<br>网络层以上的中继系统：网关</p>
+<p><strong>路由与转发</strong><br>路由器主要完成两个功能：一是路由选择（确定哪一条路径），另一个是分组转发（当一个分组到达时所采取的动作）<br>路由选择：指按照复杂的分布式算法，根据从各相邻路由器所得到的关于整个网络拓扑的变化情况，动态地改变所选择的路由。<br>分组转发：指路由器根据转发表将用户的IP数据报从合适的端口转发出去</p>
+<p><strong>拥塞控制</strong><br> 流量控制和拥塞控制的区别：流量控制往往是指在发送端和接收端之间的点对点通信量的控制。流量控制所要做的就是抑制发送端发送数据的速率，以便使接收端来得及接收。而拥塞控制必须确保通信子网能够传送待传送的数据，是一个全局性的问题，涉及网络中所有的主机、路由器以及导致网络传输能力下降的所有因素。<br>方法：开环控制（静态，不考虑当前网络的状态）、闭环控制（动态，基于反馈环路）</p>
+<p><strong><em>选择题</em></strong></p>
+<p>2.路由器连接的异构网络指的是（数据链路层和物理层均不同）</p>
+<p>4.在路由器进行互联的多个局域网的结构中，要求每个局域网（物理层、数据链路层、网络层协议可以不同，而网络层以上的高层协议必须相同）</p>
+<h3 id="4-2-路由算法"><a href="#4-2-路由算法" class="headerlink" title="4.2 路由算法"></a>4.2 路由算法</h3><p>静态路由算法：由网络管理员手工配置路由信息<br>动态路由算法：通过路由器间彼此交换的信息来构造路由器，分为距离-向量和链路状态算法</p>
+<p><strong>距离-向量路由算法</strong>：每个结点仅与它的直接邻居交谈，它为它的邻居提供了自己到网络中所有其他结点的最低费用估计。RIP算法</p>
+<p><strong>链路状态路由算法</strong>：每个结点通过广播的方式与所有其他结点交谈，但它仅告诉它们与它直接相连的链路的费用。OSPF算法</p>
+<p>链路状态算法比距离-路由算法有更好的规模可伸展性，距离-路由算法有可能遇到路由环路等问题。</p>
+<p><strong>层次路由</strong>：将互联网分成许多较小的自治系统，系统有权决定自己内部采用什么路由协议<br>1）内部网关协议：自治系统内部使用的网关协议，如RIP、OSPF<br>2）外部网关协议：自治系统之间使用的网关协议，如BGP</p>
+<h3 id="4-3-IPv4"><a href="#4-3-IPv4" class="headerlink" title="4.3 IPv4"></a>4.3 IPv4</h3><p><strong>首部</strong>：固定部分占20B，其中首部长度、总长度和片便宜的基本单位分别为4B、1B、8B</p>
+<p>标志位中有3个比特，但只有MF位和DF位有意义，<strong>只有当DF=0时，该IP数据报才可以被分片，当MF=1时，表示相应的原始数据报还有后续的片，当MF=0时，表示该数据报是相应原始数据报的最后一个片。</strong></p>
+<p>IP地址：{&lt;网络号&gt;, &lt;主机号&gt;}，网络号标志主机（或路由器）所连接到的网络，主机号标志该主机（或路由器）。一个IP地址在整个因特网范围内是唯一的。<br>主机号全为0表示本网络本身；主机号全为1表示本网络的广播地址，又称直接广播地址。<br>32位全为0表示本网络上的本主机；32位全为1表示整个TCP/IP网络的广播地址，又称受限广播地址。</p>
+<table>
+<thead>
+<tr>
+<th>网络类别</th>
+<th>最大可用网络数</th>
+<th>第一个可用的网络号</th>
+<th>最后一个可用的网络号</th>
+<th>每个网络中的最大主机数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>2^7-2</td>
+<td>1</td>
+<td>126</td>
+<td>2^24-2</td>
+</tr>
+<tr>
+<td>B</td>
+<td>2^14-1</td>
+<td>128.1</td>
+<td>191.255</td>
+<td>2^16-2</td>
+</tr>
+<tr>
+<td>C</td>
+<td>2^21-1</td>
+<td>192.0.1</td>
+<td>223.255.255</td>
+<td>2^8-2</td>
+</tr>
+</tbody>
+</table>
+<p><strong>网络地址转换NAT</strong>：实现专用网络地址和公用网络地址之间的相互转换<br><strong>子网划分</strong>：采用子网掩码对物理子网再一次进行子网划分，{&lt;网络号&gt;, &lt;子网号&gt;, &lt;主机号&gt;}<br><strong>子网掩码</strong>：1对应于IP地址中的网络号及子网号，而0对应于主机号，计算机只需将IP地址和其对应的子网掩码逐位相与，就可得出相应子网的网络地址。<br><strong>无分类域间路由选择CIDR</strong>：在变长子网掩码的基础上提出的一种消除传统A、B、C类网络划分，{&lt;网络前缀&gt;, &lt;主机号&gt;}<br><strong>路由聚合</strong>：将网络前缀都相同的连续的IP地址组成“CIDR地址块”<br>目的：使得一个地址块可以表示很多地址，减少路由表表项和路由器间的信息交换<br>方法：把一串IP地址都写为二进制表示，取最长的公共前缀作为网络号<br><strong>地址解析协议ARP</strong>：工作在网络层，对于特定的IP地址，查询其对应的物理地址<br><strong>动态主机配置协议DHCP</strong>：是应用层协议，基于UDP，给网络中的主机动态的分配IP地址<br><strong>网际控制报文协议ICMP</strong>：是IP层协议，用来给主机或路由器报告差错和异常情况<br>ICMP差错报告报文用于目标主机或到目标主机路径上的路由器向源主机报告差错和异常情况。1）源点不可达 2）源点抑制 3）时间超过 4）参数问题 5）改变路由（重定向）<br>ICMP查询报文：回送请求和回答报文、时间戳请求和回答报文、掩码地址请求和回答报文、路由器询问和通告报文<br>Ping使用了ICMP回送请求和回答报文，工作在应用层；<br>traceroute（Tracert）使用了ICMP时间超过报文，工作在网络层。</p>
+<h3 id="4-4-IPv6"><a href="#4-4-IPv6" class="headerlink" title="4.4 IPv6"></a>4.4 IPv6</h3><p>IPv6：首部40B，地址长度16B，主要用于解决IPv4的地址耗尽问题<br>IPv6只有在包的源结点才能分片，首部长度必须是8B的整数倍，没有提供校验和字段</p>
+<p>IPv4向IPv5过渡：<br>1）双协议栈：指在完全过渡到IPv6之前，使一部分主机（或路由器）装有那个协议栈，一个IPv4和一个IPv6<br>2）隧道技术：将整个IPv6数据报封装到IPv4数据报的数据部分</p>
+<h3 id="4-5-路由协议"><a href="#4-5-路由协议" class="headerlink" title="4.5 路由协议"></a>4.5 路由协议</h3>
       
     </div>
 
@@ -939,7 +990,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第1章-计算机网络体系结构"><span class="nav-number">1.</span> <span class="nav-text">第1章 计算机网络体系结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-计算机网络概述"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 计算机网络概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-计算机网络体系结构与参考模型"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 计算机网络体系结构与参考模型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第2章-物理层"><span class="nav-number">2.</span> <span class="nav-text">第2章 物理层</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-通信基础"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 通信基础</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-传输介质"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 传输介质</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-物理层设备"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 物理层设备</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第3章-数据链路层"><span class="nav-number">3.</span> <span class="nav-text">第3章 数据链路层</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-数据链路层的功能"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 数据链路层的功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-组帧"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 组帧</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-差错控制"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 差错控制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-流量控制与可靠传输机制"><span class="nav-number">3.4.</span> <span class="nav-text">3.4 流量控制与可靠传输机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-5-介质访问控制"><span class="nav-number">3.5.</span> <span class="nav-text">3.5 介质访问控制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-6-局域网"><span class="nav-number">3.6.</span> <span class="nav-text">3.6 局域网</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-7-广域网"><span class="nav-number">3.7.</span> <span class="nav-text">3.7 广域网</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-8-数据链路层设备"><span class="nav-number">3.8.</span> <span class="nav-text">3.8 数据链路层设备</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第4章-网络层"><span class="nav-number">4.</span> <span class="nav-text">第4章 网络层</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-网络层的功能"><span class="nav-number">4.1.</span> <span class="nav-text">4.1 网络层的功能</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第1章-计算机网络体系结构"><span class="nav-number">1.</span> <span class="nav-text">第1章 计算机网络体系结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-计算机网络概述"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 计算机网络概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-计算机网络体系结构与参考模型"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 计算机网络体系结构与参考模型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第2章-物理层"><span class="nav-number">2.</span> <span class="nav-text">第2章 物理层</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-通信基础"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 通信基础</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-传输介质"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 传输介质</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-物理层设备"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 物理层设备</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第3章-数据链路层"><span class="nav-number">3.</span> <span class="nav-text">第3章 数据链路层</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-数据链路层的功能"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 数据链路层的功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-组帧"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 组帧</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-差错控制"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 差错控制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-流量控制与可靠传输机制"><span class="nav-number">3.4.</span> <span class="nav-text">3.4 流量控制与可靠传输机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-5-介质访问控制"><span class="nav-number">3.5.</span> <span class="nav-text">3.5 介质访问控制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-6-局域网"><span class="nav-number">3.6.</span> <span class="nav-text">3.6 局域网</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-7-广域网"><span class="nav-number">3.7.</span> <span class="nav-text">3.7 广域网</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-8-数据链路层设备"><span class="nav-number">3.8.</span> <span class="nav-text">3.8 数据链路层设备</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第4章-网络层"><span class="nav-number">4.</span> <span class="nav-text">第4章 网络层</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-网络层的功能"><span class="nav-number">4.1.</span> <span class="nav-text">4.1 网络层的功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-路由算法"><span class="nav-number">4.2.</span> <span class="nav-text">4.2 路由算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-IPv4"><span class="nav-number">4.3.</span> <span class="nav-text">4.3 IPv4</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-4-IPv6"><span class="nav-number">4.4.</span> <span class="nav-text">4.4 IPv6</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-5-路由协议"><span class="nav-number">4.5.</span> <span class="nav-text">4.5 路由协议</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -971,7 +1022,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">596k</span>
+    <span title="站点总字数">598k</span>
   
 
   
@@ -980,7 +1031,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点总阅读时长">9:56</span>
+    <span title="站点总阅读时长">9:58</span>
   
 </div>
 
