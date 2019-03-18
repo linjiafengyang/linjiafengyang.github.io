@@ -172,42 +172,6 @@
 
     
   <url>
-    <loc>https://linjiafengyang.github.io/2018/06/05/PPDSparse/</loc>
-    <lastmod>2018-06-05T03:13:29.025Z</lastmod>
-    <data>
-        <display>
-        <title>PPDSparse</title>
-        <pubTime>2018-06-05T03:12:52.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="论文" url="https://linjiafengyang.github.io/categories/%E8%AE%BA%E6%96%87/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://linjiafengyang.github.io/2018/06/05/PD-Sparse/</loc>
-    <lastmod>2018-06-05T03:12:41.194Z</lastmod>
-    <data>
-        <display>
-        <title>PD-Sparse</title>
-        <pubTime>2018-06-05T03:11:20.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="论文" url="https://linjiafengyang.github.io/categories/%E8%AE%BA%E6%96%87/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://linjiafengyang.github.io/2018/05/20/Ex5%EF%BC%9A%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2/</loc>
     <lastmod>2018-05-20T14:54:46.812Z</lastmod>
     <data>
@@ -221,24 +185,6 @@
            
              
               <breadCrumb title="计算机视觉" url="https://linjiafengyang.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://linjiafengyang.github.io/2018/05/19/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0%EF%BC%9AFastXML-A-Fast-Accurate-and-Stable-Tree-classifier-for-eXtreme-Multi-label-Learning/</loc>
-    <lastmod>2018-05-19T12:21:05.260Z</lastmod>
-    <data>
-        <display>
-        <title>论文笔记：FastXML_ A Fast, Accurate and Stable Tree-classifier for eXtreme Multi-label Learning</title>
-        <pubTime>2018-05-19T12:17:31.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="论文" url="https://linjiafengyang.github.io/categories/%E8%AE%BA%E6%96%87/"/>
           
         </display>
     </data>
@@ -299,24 +245,6 @@
            
              
               <breadCrumb title="计算机视觉" url="https://linjiafengyang.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://linjiafengyang.github.io/2018/04/23/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0%EF%BC%9ASparse-Local-Embeddings-for-Extreme-Multi-label-Classification/</loc>
-    <lastmod>2018-04-23T14:44:17.636Z</lastmod>
-    <data>
-        <display>
-        <title>论文笔记：Sparse Local Embeddings for Extreme Multi-label Classification</title>
-        <pubTime>2018-04-23T14:41:17.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="论文" url="https://linjiafengyang.github.io/categories/%E8%AE%BA%E6%96%87/"/>
           
         </display>
     </data>
